@@ -2,7 +2,7 @@ package com.alexon.presentation.screens.auth
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.alexon.common.constants.Constants.NAV_ARGS_AUTH_KEY
+import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_KEY
 import com.alexon.presentation.databinding.ActivityAuthBinding
 import dagger.hilt.android.AndroidEntryPoint
 

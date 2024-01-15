@@ -2,8 +2,7 @@ package com.alexon.presentation.screens.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.alexon.common.utils.sharedPrefernces.SharedPreferenceHelper
-import com.alexon.presentation.R
+import com.alexon.core.utils.sharedPrefernces.SharedPreferenceHelper
 import com.alexon.presentation.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

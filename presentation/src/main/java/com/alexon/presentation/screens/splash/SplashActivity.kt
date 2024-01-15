@@ -11,10 +11,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import com.alexon.common.utils.sharedPrefernces.SharedPreferenceHelper
-import com.alexon.common.constants.Constants.NAV_ARGS_AUTH_KEY
-import com.alexon.common.constants.Constants.NAV_ARGS_AUTH_LOGIN
-import com.alexon.common.constants.Constants.NAV_ARGS_AUTH_ON_BOARDING
+import com.alexon.core.utils.sharedPrefernces.SharedPreferenceHelper
+import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_KEY
+import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_LOGIN
+import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_ON_BOARDING
 import com.alexon.presentation.screens.auth.AuthActivity
 import com.alexon.presentation.screens.main.MainActivity
 

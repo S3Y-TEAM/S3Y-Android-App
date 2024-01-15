@@ -2,11 +2,11 @@ plugins {
     alias libs.plugins.android.library
     alias libs.plugins.kotlin
     alias libs.plugins.hilt
-    id 'kotlin-kapt'
+    alias libs.plugins.ksp
 }
 
 android {
-    namespace 'com.alexon.presentation'
+    namespace 'com.alexon.core'
     compileSdk libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {
@@ -29,19 +29,27 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    viewBinding { enable = true }
-    dataBinding { enable = true }
+
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.22.1'
+        }
+    }
 }
 
 dependencies {
-    implementation project(path: ':core')
     implementation libs.bundles.feature.ui
     implementation libs.bundles.feature.testing
 
     //hilt
     implementation libs.dagger.hilt
-    kapt libs.dagger.compiler
+    ksp libs.dagger.compiler
 
-    //sdp
-    implementation libs.sdp
+    //glide
+    implementation libs.glide.core
+    ksp libs.glide.compiler
+
+    //imagePreviewer
+    implementation libs.stfalcon.imageviewer
 }

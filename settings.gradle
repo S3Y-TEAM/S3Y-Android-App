@@ -16,7 +16,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "TavoloNew"
 include ':app'
-include ':common'
+include ':core'
 include ':data'
 include ':presentation'
 include ':domain'
+include ':gateways'
+include ':services'
