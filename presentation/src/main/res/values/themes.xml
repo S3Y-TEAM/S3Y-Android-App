@@ -1,0 +1,218 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.Tavolo" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue_6</item>
+        <item name="colorPrimaryVariant">@color/blue_10</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/orange_5</item>
+        <item name="colorSecondaryVariant">@color/orange_7</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!--        <item name="android:windowIsTranslucent">true</item>-->
+    </style>
+
+    <style name="Theme.Splash" parent="Theme.Tavolo">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
+
+    <!-- Splash -->
+    <style name="Widget.App.FullScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/white</item>
+    </style>
+
+    <!-- Shapable-->
+    <style name="rounded25">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">25%</item>
+    </style>
+
+    <style name="rounded10">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10%</item>
+    </style>
+
+    <!-- Dialog -->
+    <style name="Widget.App.Dialog.FullScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/Widget.App.animation.dialog</item>
+        <item name="android:windowBackground">#66000000</item>
+    </style>
+
+    <!-- Dialog Animation-->
+    <style name="Widget.App.animation.dialog" parent="Widget.MaterialComponents.TextView">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+
+    <!-- BottomSheetStyle - needed to show snack bar over bottom sheet-->
+    <style name="ThemeOverlay.MyApp.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="snackbarStyle">@style/Widget.MyApp.BottomSheet.Snackbar</item>
+    </style>
+
+    <style name="Widget.MyApp.BottomSheet.Snackbar" parent="Widget.MaterialComponents.Snackbar">
+        <item name="elevation">22dp</item>
+    </style>
+
+
+    <style name="Theme.Tavolo.TextView.Regular.18" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_regular</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_18sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.Regular.16" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_regular</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.Regular.14" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_regular</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.Regular.12" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_regular</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.Regular.10" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_regular</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.Regular.9" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_regular</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+    </style>
+
+
+    <style name="Theme.Tavolo.TextView.Regular.8" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_regular</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.Regular.6" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_regular</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_6sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.SemiBold.20" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_semi_bold</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_20sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.SemiBold.18" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_semi_bold</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_18sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.SemiBold.14" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_semi_bold</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.SemiBold.12" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_semi_bold</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.Medium.20" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_medium</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_20sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.Medium.18" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_medium</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_18sdp</item>
+    </style>
+
+
+    <style name="Theme.Tavolo.TextView.Medium.16" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_medium</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.Medium.14" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_medium</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.Medium.12" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_medium</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.Medium.10" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_medium</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.Medium.9" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_medium</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+    </style>
+
+
+    <style name="Theme.Tavolo.TextView.Medium.8" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_medium</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.Medium.7" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_medium</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_7sdp</item>
+    </style>
+
+
+    <style name="Theme.Tavolo.TextView.Medium.6" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_medium</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_6sdp</item>
+    </style>
+
+    <style name="Theme.Tavolo.TextView.BottomBar" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/omnes_regular</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:layout_marginTop">@dimen/_4sdp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.Circle" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="CustomRatingBarStyle" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="android:minHeight">15dip</item>
+        <item name="android:maxHeight">47dip</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layoutDirection="ltr"
+    tools:ignore="HardcodedText">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.6"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_splash"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <LinearLayout
+        android:id="@+id/letters_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/letter1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/logo_font"
+            android:text="T"
+            android:textColor="@color/blue_6"
+            android:textSize="@dimen/_42sdp"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/letter2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/logo_font"
+            android:text="A"
+            android:textColor="@color/blue_6"
+            android:textSize="@dimen/_42sdp"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/letter3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/logo_font"
+            android:text="V"
+            android:textColor="@color/blue_6"
+            android:textSize="@dimen/_42sdp"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/letter4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/logo_font"
+            android:text="O"
+            android:textColor="@color/blue_6"
+            android:textSize="@dimen/_42sdp"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/letter5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/logo_font"
+            android:text="L"
+            android:textColor="@color/blue_6"
+            android:textSize="@dimen/_42sdp"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/letter6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/logo_font"
+            android:text="O"
+            android:textColor="@color/blue_6"
+            android:textSize="@dimen/_42sdp"
+            tools:ignore="TextContrastCheck" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/slogan_iv"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_minus8sdp"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:contentDescription="@null"
+        android:src="@drawable/slogan"
+        app:layout_constraintEnd_toEndOf="@+id/letters_container"
+        app:layout_constraintTop_toBottomOf="@id/letters_container"
+        app:tint="@color/blue_6"
+        tools:ignore="ImageContrastCheck" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

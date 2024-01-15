@@ -1,0 +1,54 @@
+plugins {
+    alias libs.plugins.android.application
+    alias libs.plugins.kotlin
+    alias libs.plugins.hilt
+    alias libs.plugins.ksp
+}
+
+android {
+    namespace 'com.alexon.tavolonew'
+    compileSdk libs.versions.compileSdk.get().toInteger()
+
+    defaultConfig {
+        applicationId "com.alexon.tavolonew"
+        minSdk libs.versions.minSdk.get().toInteger()
+        targetSdk libs.versions.targetSdk.get().toInteger()
+        versionCode libs.versions.versionCode.get().toInteger()
+        versionName libs.versions.versionName.get().toString()
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    //modules
+    implementation project(path: ':common')
+    implementation project(path: ':data')
+    implementation project(path: ':domain')
+    implementation project(path: ':presentation')
+
+    //bundles
+    implementation libs.bundles.feature.ui
+    implementation libs.bundles.feature.testing
+
+    //hilt
+    implementation libs.dagger.hilt
+    ksp libs.dagger.compiler
+}
+
+
+

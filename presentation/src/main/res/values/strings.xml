@@ -1,0 +1,170 @@
+<resources>
+    <string name="app_name">Tavolo</string>
+
+    <!-- BottomBar -->
+    <string name="home">Home</string>
+    <string name="reservation">Reservations</string>
+    <string name="notifications">Notifications</string>
+    <string name="profile">Profile</string>
+
+    <!-- OnBoarding Items -->
+    <string name="on_boarding_title_1">Take a Break</string>
+    <string name="on_boarding_desc_1">Explore some of the most captivating places and create unforgettable memories with your loved ones.</string>
+    <string name="on_boarding_title_2">Booking Made Simple</string>
+    <string name="on_boarding_desc_2">Book, manage, track appointments online, and get reminded by notifications with just a few taps.</string>
+    <string name="on_boarding_title_3">Enjoy Your Free Time</string>
+    <string name="on_boarding_desc_3">Provide you with a good time with your friends.</string>
+
+    <!-- OTPFragment -->
+    <string name="verification">Verify your number</string>
+    <string name="enter_the_otp_code_we_send_you">Enter the 4 digit code we\'ve sent to&#160;</string>
+    <string name="didn_t_receive_code">Didn’t receive code.</string>
+    <string name="resend_code">Resend code</string>
+    <string name="failed_to_verify_account">Failed to verify your account</string>
+
+    <!-- ProfileFragment -->
+    <string name="edit_profile">Edit Profile</string>
+    <string name="language">Language</string>
+    <string name="help">Help</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="logout">Logout</string>
+    <string name="guest">Guest</string>
+    <string name="failed_to_get_profile_data_please_try_again_later">Failed to get profile data please try again later</string>
+
+    <!-- EditProfileFragment -->
+    <string name="update">Update</string>
+    <string name="nothing_to_update_please_change_data_first">Nothing to update , please change data first</string>
+    <string name="your_profile_has_been_updated_successfully">Your profile has been updated successfully</string>
+    <string name="failed_to_update_profile_please_try_again_later">Failed to update profile please try again later</string>
+    <string name="you_phone_has_been_updated_successfully">You phone has been updated successfully</string>
+    <string name="otp_verification_canceled">Otp verification canceled</string>
+    <string name="failed_to_send_otp_please_try_again_later">Failed to send otp please try again later</string>
+    <string name="phone">Phone</string>
+
+    <!-- LanguageFragment -->
+    <string name="choose_your_preferred_languages">Choose Your Preferred Language</string>
+    <string name="choose_your_preferred_languages_ar">اختر لغتك المفضلة</string>
+    <string name="change_language">Change Language</string>
+    <string name="change_language_ar">تغيير اللغة</string>
+    <string name="english">English</string>
+    <string name="arabic">العربية</string>
+    <string name="confirm">Confirm</string>
+    <string name="confirm_ar">تأكيد</string>
+
+    <!-- TermsAndConditionsFragment -->
+    <string name="failed_to_get_terms_and_conditions_please_try_again_later">Failed to get terms and conditions please try again later</string>
+
+    <!-- HelpFragment -->
+    <string name="contact_us">Contact Us</string>
+    <string name="get_in_touch_and_lets_us_know_how_we_can_help">Get in touch and lets us know how we can help</string>
+    <string name="or">Or</string>
+    <string name="failed_to_get_contact_us_data_please_try_again_later">Failed to get contact us data please try again later</string>
+    <string name="your_request_has_been_send_successfully">Your Request has been sent successfully</string>
+    <string name="failed_to_send_your_request_please_try_again_later">Failed to send your request please try again later</string>
+    <string name="submit">Submit</string>
+    <string name="name">Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="message">Message</string>
+
+    <!-- Validators -->
+    <string name="validation_name">Please enter a valid name</string>
+    <string name="validation_email">Please enter a valid email address</string>
+    <string name="validation_desc">Please enter a valid description</string>
+    <string name="validation_phone">Please write your mobile number correctly</string>
+    <string name="validation_country_code">Please select the country code</string>
+    <string name="validation_select_department">Please select a department</string>
+    <string name="validation_select_image">Please choose at least one photo</string>
+    <string name="validation_otp">Please enter 4 digits</string>
+    <string name="validation_contact_us_message">Please enter a valid message at least 30 letters</string>
+    <string name="validate_day">Please select reservation day</string>
+    <string name="validate_time">Please select reservation time</string>
+    <string name="validate_number_of_guests">Please select number of guests</string>
+
+    <!-- permission -->
+    <string name="the_application_need_the_permission_to_keep_you_up_to_date_with_all_reservations">The application need the permission to keep you up-to-date with all reservations</string>
+    <string name="ok">OK</string>
+    <string name="the_application_need_the_permission_to_access_the_storage_memory_so_that_we_can_modify_your_profile_picture">The application need the permission to access the storage memory so that we can modify your profile picture</string>
+    <string name="the_application_need_the_permission_to_access_your_location_to_get_the_nearest_places">The application need the permission to access your location to get the nearest places</string>
+
+    <!--DialogCriticalActions -->
+    <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout?</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="do_you_want_to_cancel">Do you want to cancel?</string>
+    <string name="upon_cancellation_the_deposit_will_not_be_refunded">Upon cancellation, the deposit will not be refunded</string>
+
+    <!-- LoginFragment -->
+    <string name="welcome_back_missed">Welcome back you\'ve been missed!</string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="skip">Skip</string>
+    <string name="login">Login</string>
+    <string name="failed_to_get_countries">Failed to get Countries please try again</string>
+    <string name="failed_to_login">Failed to login please try again later</string>
+
+    <!-- RegisterFragment -->
+    <string name="next">Next</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="new_account">Create a new account</string>
+    <string name="register_desc">Join us to explore and experience more places</string>
+    <string name="log_in_c">LOG IN</string>
+    <string name="failed_to_register">Failed to register please try again later</string>
+
+    <!-- HomeFragment -->
+    <string name="hello">Hello!</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="results">results:</string>
+
+    <!-- MapFragment -->
+    <string name="search">Search…</string>
+    <string name="permission_failed_you_have_to_allow_location">You must be given permission to proceed</string>
+
+    <!-- MapSearchFragment -->
+    <string name="recent">Recent</string>
+    <string name="delete_all">Delete all</string>
+
+    <!-- FilterBottomSheet -->
+    <string name="filter">Filter</string>
+    <string name="categories">Categories</string>
+    <string name="type">Type</string>
+    <string name="rating">Rating</string>
+    <string name="occasion">Occasion</string>
+    <string name="apply">Apply</string>
+
+    <!-- DialogCountryPicker -->
+    <string name="search_country">Search Country</string>
+    <string name="choose_your_country">Choose your country</string>
+
+
+    <!-- MapFragment -->
+    <string name="failed_to_get_places">Failed to get places please try again</string>
+
+    <!-- FilterDialog -->
+    <string name="failed_to_get_extras">Failed to get filters</string>
+
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+
+    <string name="click_one_more_to_exit">Click again to exit the application</string>
+    <string name="choose_image">Choose image</string>
+    <string name="please_register_or_login_to_your_account">Please sign up or login to your account</string>
+    <string name="code_sent_to_your_phone_successfully">Code sent to your phone successfully</string>
+    <string name="failed_to_send_code_to_your_phone_please_try_again_later">failed to send code to your phone please try again later</string>
+    <string name="confirm_reservation">Confirm Reservation</string>
+    <string name="are_you_sure_you_want_to_reserve_this_place">Are you sure you want to reserve this place?</string>
+
+
+</resources>

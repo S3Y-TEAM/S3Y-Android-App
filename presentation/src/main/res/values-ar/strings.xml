@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tavolo</string>
+
+    <!-- BottomBar -->
+    <string name="home">الرئيسية</string>
+    <string name="reservation">الحجوزات</string>
+    <string name="notifications">الإشعارات</string>
+    <string name="profile">الملف الشخصي</string>
+
+    <!-- OnBoarding Items -->
+    <string name="on_boarding_title_1">خذ قسطا من الراحة</string>
+    <string name="on_boarding_desc_1">استكشف بعض الأماكن الأكثر جاذبية واخلق ذكريات لا تُنسى مع أحبائك.</string>
+    <string name="on_boarding_title_2">أصبح الحجز بسيطًا</string>
+    <string name="on_boarding_desc_2">يمكنك حجز المواعيد وإدارتها وتتبعها عبر الإنترنت وتذكيرك بالإشعارات ببضع نقرات فقط.</string>
+    <string name="on_boarding_title_3">التمتع وقت فراغك</string>
+    <string name="on_boarding_desc_3">توفر لك وقتًا ممتعًا مع أصدقائك.</string>
+
+    <!-- LoginFragment -->
+    <string name="welcome_back_missed">مرحبًا بعودتك، لقد افتقدناك!</string>
+    <string name="dont_have_an_account">ليس لديك حساب؟</string>
+    <string name="sign_up">سجل حساب جديد</string>
+    <string name="skip">تخطي</string>
+    <string name="login">تسجيل دخول</string>
+    <string name="log_in_c">تسجيل دخول</string>
+    <string name="failed_to_get_countries">فشل الحصول على البلدان، يرجى المحاولة مرة أخرى</string>
+    <string name="failed_to_login">فشل تسجيل الدخول يرجى المحاولة مرة أخرى في وقت لاحق</string>
+
+    <!-- RegisterFragment -->
+    <string name="next">التالي</string>
+    <string name="already_have_an_account">هل لديك حساب؟</string>
+    <string name="new_account">انشاء حساب جديد</string>
+    <string name="register_desc">انضم إلينا لاستكشاف وتجربة المزيد من الأماكن</string>
+    <string name="failed_to_register">فشل التسجيل يرجى المحاولة مرة أخرى لاحقا</string>
+
+    <!-- OTPFragment -->
+    <string name="verification">التحقق من الرقم</string>
+    <string name="enter_the_otp_code_we_send_you">أدخل الرمز المكون من 4 أرقام الذي أرسلناه إلى \n</string>
+    <string name="didn_t_receive_code">لم أتلق الرمز.</string>
+    <string name="resend_code">أعد إرسال الرمز</string>
+    <string name="failed_to_verify_account">فشل التحقق من حسابك</string>
+
+    <!-- ProfileFragment -->
+    <string name="edit_profile">تعديل الملف الشخصي</string>
+    <string name="language">اللغة</string>
+    <string name="help">المساعدة</string>
+    <string name="terms_and_conditions">الشروط و الأحكام</string>
+    <string name="logout">تسجيل خروج</string>
+    <string name="guest">زائر</string>
+    <string name="failed_to_get_profile_data_please_try_again_later">فشل الحصول على بيانات الملف الشخصي، يرجى المحاولة مرة أخرى لاحقًا</string>
+
+    <!-- EditProfileFragment -->
+    <string name="update">تحديث</string>
+    <string name="nothing_to_update_please_change_data_first">لا يوجد شيء للتحديث، يرجى تغيير البيانات أولا</string>
+    <string name="your_profile_has_been_updated_successfully">تم تحديث ملفك الشخصي بنجاح</string>
+    <string name="failed_to_update_profile_please_try_again_later">فشل تحديث الملف الشخصي، يرجى المحاولة مرة أخرى لاحقًا</string>
+    <string name="you_phone_has_been_updated_successfully">لقد تم تحديث هاتفك بنجاح</string>
+    <string name="otp_verification_canceled">تم إلغاء التحقق من الرمز</string>
+    <string name="failed_to_send_otp_please_try_again_later">فشل إرسال الرمز، يرجى المحاولة مرة أخرى لاحقًا</string>
+    <string name="phone">رقم الجوال</string>
+
+    <!-- LanguageFragment -->
+    <string name="choose_your_preferred_languages">Choose Your Preferred Language</string>
+    <string name="choose_your_preferred_languages_ar">اختر لغتك المفضلة</string>
+    <string name="change_language">Change Language</string>
+    <string name="change_language_ar">تغيير اللغة</string>
+    <string name="english">English</string>
+    <string name="arabic">العربية</string>
+    <string name="confirm">Confirm</string>
+    <string name="confirm_ar">تأكيد</string>
+
+    <!-- TermsAndConditionsFragment -->
+    <string name="failed_to_get_terms_and_conditions_please_try_again_later">فشل الحصول على الشروط والأحكام يرجى المحاولة مرة أخرى في وقت لاحق</string>
+
+    <!-- HelpFragment -->
+    <string name="contact_us">اتصل بنا</string>
+    <string name="get_in_touch_and_lets_us_know_how_we_can_help">تواصل معنا وأخبرنا كيف يمكننا المساعدة</string>
+    <string name="or">أو</string>
+    <string name="failed_to_get_contact_us_data_please_try_again_later">فشل الحصول على بيانات الاتصال بنا يرجى المحاولة مرة أخرى في وقت لاحق</string>
+    <string name="your_request_has_been_send_successfully">لقد تم إرسال طلبك بنجاح</string>
+    <string name="failed_to_send_your_request_please_try_again_later">فشل إرسال طلبك يرجى المحاولة مرة أخرى في وقت لاحق</string>
+    <string name="submit">ارسال</string>
+    <string name="name">الاسم</string>
+    <string name="email_address">البريد الالكتروني</string>
+    <string name="message">الرسالة</string>
+
+    <!-- Validators -->
+    <string name="validation_name">رجاء ادخل اسما صحيحا</string>
+    <string name="validation_email">يرجى إدخال عنوان بريد إلكتروني صحيح</string>
+    <string name="validation_desc">الرجاء إدخال وصف صحيح</string>
+    <string name="validation_phone">الرجاء كتابة رقم الجوال بشكل صحيح</string>
+    <string name="validation_country_code">الرجاء تحديد رمز البلد</string>
+    <string name="validation_select_department">الرجاء اختيار القسم</string>
+    <string name="validation_select_image">الرجاء اختيار صورة واحدة على الأقل</string>
+    <string name="validation_otp">الرجاء إدخال 4 أرقام</string>
+    <string name="validation_contact_us_message">الرجاء إدخال رسالة لا تقل عن 30 حرفا</string>
+
+    <!-- permission -->
+    <string name="the_application_need_the_permission_to_keep_you_up_to_date_with_all_reservations">يحتاج التطبيق إلى إذن لإبقائك على اطلاع بجميع الحجوزات</string>
+    <string name="ok">حسنا</string>
+    <string name="the_application_need_the_permission_to_access_the_storage_memory_so_that_we_can_modify_your_profile_picture">يحتاج التطبيق إلى إذن للوصول إلى ذاكرة التخزين حتى نتمكن من تعديل صورة ملفك الشخصي</string>
+    <string name="the_application_need_the_permission_to_access_your_location_to_get_the_nearest_places">يحتاج التطبيق إلى إذن للوصول إلى موقعك للحصول على أقرب الأماكن</string>
+
+    <!--DialogCriticalActions -->
+    <string name="are_you_sure_you_want_to_logout">هل أنت متأكد أنك تريد تسجيل الخروج؟</string>
+    <string name="yes">نعم</string>
+    <string name="cancel">الغاء</string>
+    <string name="do_you_want_to_cancel">هل تريد الالغاء؟</string>
+    <string name="upon_cancellation_the_deposit_will_not_be_refunded">عند الإلغاء، لن يتم استرداد الوديعة</string>
+
+    <string name="click_one_more_to_exit">أضغط مره أخري للخروج من التطبيق</string>
+    <string name="permission_failed_you_have_to_allow_location">يجب إعطاء صلاحية للمتابعة</string>
+
+</resources>

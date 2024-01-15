@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="small_card_stroke_size">@dimen/_1sdp</dimen>
+
+    <!-- HomeFragment -->
+    <dimen name="home_view_icons_size">@dimen/_28sdp</dimen>
+    <dimen name="home_view_icons_padding">@dimen/_5sdp</dimen>
+
+    <dimen name="slider_image_icon_description_size">@dimen/_24sdp</dimen>
+    <dimen name="slider_image_icon_description_padding">@dimen/_7sdp</dimen>
+
+    <!-- ProgressBarSize -->
+    <dimen name="progress_bar_size">@dimen/_48sdp</dimen>
+    <dimen name="small_progress_bar_size">@dimen/_32sdp</dimen>
+
+    <!-- BackButton -->
+    <dimen name="back_size">@dimen/_32sdp</dimen>
+    <dimen name="shadow_elevation">@dimen/_8sdp</dimen>
+
+    <!-- Button -->
+    <dimen name="button_height">@dimen/_40sdp</dimen>
+    <dimen name="button_radius">@dimen/_12sdp</dimen>
+    <dimen name="button_stroke_width">@dimen/_1sdp</dimen>
+
+    <!-- EditText -->
+    <dimen name="edit_text_height">@dimen/_40sdp</dimen>
+    <dimen name="edit_text_height_under_line">@dimen/_42sdp</dimen>
+    <dimen name="edit_text_radius">@dimen/_12sdp</dimen>
+
+    <!-- OnBoarding Indicator -->
+    <dimen name="on_boarding_indicator_size">@dimen/_8sdp</dimen>
+    <dimen name="on_boarding_indicator_packed_space">@dimen/_5sdp</dimen>
+
+
+</resources>

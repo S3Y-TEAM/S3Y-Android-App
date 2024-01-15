@@ -1,0 +1,55 @@
+plugins {
+    alias libs.plugins.android.library
+    alias libs.plugins.kotlin
+    alias libs.plugins.hilt
+    alias libs.plugins.ksp
+}
+
+android {
+    namespace 'com.alexon.common'
+    compileSdk libs.versions.compileSdk.get().toInteger()
+
+    defaultConfig {
+        minSdk libs.versions.minSdk.get().toInteger()
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.22.1'
+        }
+    }
+}
+
+dependencies {
+    implementation libs.bundles.feature.ui
+    implementation libs.bundles.feature.testing
+
+    //hilt
+    implementation libs.dagger.hilt
+    ksp libs.dagger.compiler
+
+    //glide
+    implementation libs.glide.core
+    ksp libs.glide.compiler
+
+    //imagePreviewer
+    implementation libs.stfalcon.imageviewer
+}
