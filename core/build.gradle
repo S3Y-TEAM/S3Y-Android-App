@@ -39,6 +39,8 @@ android {
 }
 
 dependencies {
+    //bundles
+    implementation libs.bundles.feature.base
     implementation libs.bundles.feature.ui
     implementation libs.bundles.feature.testing
 
@@ -52,4 +54,9 @@ dependencies {
 
     //imagePreviewer
     implementation libs.stfalcon.imageviewer
+
+    //encryptedSharePref
+    implementation libs.security.crypto
+
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
 }

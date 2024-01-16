@@ -3,7 +3,8 @@ package com.alexon.core.constants
 object Constants {
 
     //shared
-    const val SHARED_APP_KEY = "Tavolo"
+    const val SHARED_PREFERENCE_APP_KEY = "Tavolo"
+    const val ENCRYPTED_SHARED_PREFERENCE_APP_KEY = "Encrypted-Tavolo"
     const val SHARED_FCM_DEVICE_TOKEN = "SHARED_FCM_DEVICE_TOKEN"
     const val SHARED_USER_LAT = "SHARED_USER_LAT"
     const val SHARED_USER_LNG = "SHARED_USER_LNG"
@@ -11,6 +12,8 @@ object Constants {
     const val SHARED_IS_GET_LOCATION = "SHARED_IS_GET_LOCATION"
     const val SHARED_AUTH_TOKEN_KEY = "SHARED_AUTH_TOKEN_KEY"
     const val SHARED_APP_LANGUAGE_KEY = "SHARED_APP_LANGUAGE_KEY"
+    const val SHARED_OPENED_APP_BEFORE = "SHARED_OPENED_APP_BEFORE"
+    const val USER_DATA = "USER_DATA"
 
     //user data
     const val USER_ID = "USER_ID"

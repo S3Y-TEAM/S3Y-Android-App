@@ -30,11 +30,4 @@ android {
 }
 
 dependencies {
-
-    implementation libs.android.core
-    implementation libs.appcompat
-    implementation libs.material
-    testImplementation libs.junit.core
-    androidTestImplementation libs.junit.test
-    androidTestImplementation libs.espresso.core
 }

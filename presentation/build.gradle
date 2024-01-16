@@ -34,7 +34,11 @@ android {
 }
 
 dependencies {
+    //modules
     implementation project(path: ':core')
+
+    //bundles
+    implementation libs.bundles.feature.base
     implementation libs.bundles.feature.ui
     implementation libs.bundles.feature.testing
 

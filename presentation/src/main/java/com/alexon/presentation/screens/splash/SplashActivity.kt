@@ -15,6 +15,8 @@ import com.alexon.core.utils.sharedPrefernces.SharedPreferenceHelper
 import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_KEY
 import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_LOGIN
 import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_ON_BOARDING
+import com.alexon.core.utils.logMe
+import com.alexon.core.utils.sharedPrefernces.EncryptedSharedPreference
 import com.alexon.presentation.screens.auth.AuthActivity
 import com.alexon.presentation.screens.main.MainActivity
 
@@ -26,6 +28,9 @@ class SplashActivity : AppCompatActivity() {
 
     @Inject
     lateinit var sharedPreferenceHelper: SharedPreferenceHelper
+
+    @Inject
+    lateinit var encryptedSharedPreference: EncryptedSharedPreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +44,7 @@ class SplashActivity : AppCompatActivity() {
 
         //set language if empty based on device language
 //        sharedPreferenceHelper.appLanguage = getCurrentAppLanguage()
-        sharedPreferenceHelper.saveData("isGetLocationForFirstTime", false)
+//        sharedPreferenceHelper.saveData("isGetLocationForFirstTime", false)
 
 //        //request notification permission
 //        requestNotificationPermission(
@@ -58,7 +63,10 @@ class SplashActivity : AppCompatActivity() {
 //            }
 //        )
 
-
+        sharedPreferenceHelper.userLat = 12f
+        encryptedSharedPreference.token = "tokenER"
+        logMe(tag = "splashActivity", msg = sharedPreferenceHelper.userLat.toString())
+        logMe(tag = "splashActivity", msg = encryptedSharedPreference.token)
 
     }
 

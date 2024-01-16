@@ -30,6 +30,6 @@ android {
 }
 
 dependencies {
-    implementation libs.bundles.feature.ui
+    //bundles
     implementation libs.bundles.feature.testing
 }
