@@ -22,6 +22,7 @@ stfalconImageViewer = "1.0.1"
 retrofit = "2.9.0"
 okhttp = "4.10.0"
 securityCrypto = "1.1.0-alpha06"
+parcelize = "1.8.10"
 
 [libraries]
 android-core = { module = "androidx.core:core-ktx", version.ref = "androidCore" }
@@ -49,12 +50,15 @@ android-library = { id = "com.android.library", version.ref = "androidLibrary" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize",  version.ref = "kotlin"  }
+
+
 
 [bundles]
 feature-base = ["android-core"]
 feature-ui = ["appcompat", "material", "constraintlayout"]
 feature-testing = ["junit-core", "junit-test", "espresso-core"]
-retorfit=["retrofit-core","retrofit-converter-gson","okhttp-logger"]
+retorfit = ["retrofit-core", "retrofit-converter-gson", "okhttp-logger"]
 
 
 

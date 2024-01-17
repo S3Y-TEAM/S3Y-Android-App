@@ -48,16 +48,16 @@ class EncryptedSharedPreference @Inject constructor(@ApplicationContext context:
         get() = "Bearer ${loadData<String>(SHARED_AUTH_TOKEN_KEY)}"
 
     var userData: SharedUser
-        get() = getUserData()
-        set(value) = setUserData(value)
+        get() = loadUserData()
+        set(value) = saveUserData(value)
 
 
-    private fun setUserData(value: SharedUser?) {
+    private fun saveUserData(value: SharedUser?) {
         val json = Gson().toJson(value)
         saveData(USER_DATA, json)
     }
 
-    private fun getUserData(): SharedUser {
+    private fun loadUserData(): SharedUser {
         val value = loadData<String>(USER_DATA)
         val innerUser = Gson().fromJson(value, SharedUser::class.java)
         return innerUser ?: SharedUser()

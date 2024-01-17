@@ -36,6 +36,7 @@ android {
 dependencies {
     //modules
     implementation project(path: ':core')
+    implementation project(path: ':domain')
 
     //bundles
     implementation libs.bundles.feature.base

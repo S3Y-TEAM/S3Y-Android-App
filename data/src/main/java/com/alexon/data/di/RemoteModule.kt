@@ -3,6 +3,8 @@ package com.alexon.data.di
 import com.alexon.core.constants.SecretKeysUtils
 import com.alexon.data.remote.interceptors.HeadersSetupInterceptor
 import com.alexon.data.remote.api.AuthApiService
+import com.alexon.domain.repositories.AuthRepository
+import com.alexon.domain.usecase.SendOtpUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,6 +21,8 @@ import javax.inject.Singleton
 object RemoteModule {
 
     private const val timeOut = 20L
+
+    /** Retrofit **/
 
     @Provides
     @Singleton
@@ -50,9 +54,18 @@ object RemoteModule {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
+    /** APIs **/
+
     @Provides
     @Singleton
     fun provideAuthApiService(retrofit: Retrofit): AuthApiService =
         retrofit.create(AuthApiService::class.java)
+
+    @Provides
+    fun provideLoginUseCase(
+        authRepository: AuthRepository
+    ) : SendOtpUseCase{
+        return SendOtpUseCase(authRepository)
+    }
 
 }

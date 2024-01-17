@@ -1,14 +1,22 @@
 package com.alexon.data.remote.api
 
+import com.alexon.data.remote.dto.login.LoginRequest
+import com.alexon.data.remote.dto.login.LoginResponse
+import retrofit2.Response
+import retrofit2.http.Body
+import retrofit2.http.POST
+
 interface AuthApiService {
+
+//    @POST("users/sendOtp")
+//    suspend fun sendOtp(@Body otpRequest: SendOtpRequest): Response<BaseResponse>
+
 //    @POST("users/login")
-//    @HeadersSetup
 //    suspend fun login(
 //        @Body loginRequest: LoginRequest,
 //    ): Response<LoginResponse>
-//
+
 //    @POST("users/register")
-//    @HeadersSetup
 //    @Multipart
 //    suspend fun register(
 //        @Query("device_token") device_token: String,
@@ -17,9 +25,6 @@ interface AuthApiService {
 //        @Part image: MultipartBody.Part
 //    ): Response<RegisterResponse>
 //
-//    @POST("users/sendOtp")
-//    @HeadersSetup
-//    suspend fun sendOtp(@Body otpRequest: SendOtpRequest): Response<BaseResponse>
 //
 //    @POST("users/checkOtp")
 //    @HeadersSetup

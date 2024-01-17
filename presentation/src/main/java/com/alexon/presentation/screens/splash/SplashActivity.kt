@@ -17,6 +17,7 @@ import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_LOGIN
 import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_ON_BOARDING
 import com.alexon.core.utils.logMe
 import com.alexon.core.utils.sharedPrefernces.EncryptedSharedPreference
+import com.alexon.domain.usecase.SendOtpUseCase
 import com.alexon.presentation.screens.auth.AuthActivity
 import com.alexon.presentation.screens.main.MainActivity
 
@@ -31,6 +32,9 @@ class SplashActivity : AppCompatActivity() {
 
     @Inject
     lateinit var encryptedSharedPreference: EncryptedSharedPreference
+
+    @Inject
+    lateinit var loginUseCase : SendOtpUseCase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -131,7 +135,7 @@ class SplashActivity : AppCompatActivity() {
 //    }
 
     private fun isUserLoggedIn(): Boolean {
-        return sharedPreferenceHelper.token != ""
+        return encryptedSharedPreference.token != ""
     }
 
     private fun isUserOpenedAppBefore() = sharedPreferenceHelper.openedTheAppBefore
