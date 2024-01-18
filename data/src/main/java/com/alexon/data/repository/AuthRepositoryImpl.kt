@@ -1,16 +1,21 @@
 package com.alexon.data.repository
 
-import com.alexon.core.base.ResponseState
+import com.alexon.core.AuthRequest
+import com.alexon.data.mappers.toDomain
 import com.alexon.data.remote.api.AuthApiService
-import com.alexon.data.remote.dto.login.LoginResponse
+import com.alexon.domain.models.auth.login.AuthResponse
 import com.alexon.domain.repositories.AuthRepository
-import retrofit2.Response
-import javax.inject.Inject
 
 class AuthRepositoryImpl(
     private val authApiService: AuthApiService,
 ) : AuthRepository {
-    override suspend fun login(): ResponseState<LoginResponse> {
-        authApiService.log
+
+//    override suspend fun sendOtp(sendOtpRequest: SendOtpRequest): BaseResponse {
+//        return authApiService.sendOtp(sendOtpRequest)
+//    }
+
+    override suspend fun auth(authRequest: AuthRequest): AuthResponse {
+        return authApiService.auth(authRequest).toDomain()
     }
+
 }

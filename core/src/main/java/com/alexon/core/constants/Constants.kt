@@ -58,9 +58,6 @@ object Constants {
 
     //AuthActivity
 
-    //network
-    const val BASE_URL = "https://tavolo.alexon.work/api/"
-
     //cache
 
 }

@@ -3,8 +3,8 @@ package com.alexon.data.di
 import com.alexon.core.constants.SecretKeysUtils
 import com.alexon.data.remote.interceptors.HeadersSetupInterceptor
 import com.alexon.data.remote.api.AuthApiService
+import com.alexon.data.repository.AuthRepositoryImpl
 import com.alexon.domain.repositories.AuthRepository
-import com.alexon.domain.usecase.SendOtpUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -57,15 +57,13 @@ object RemoteModule {
     /** APIs **/
 
     @Provides
-    @Singleton
     fun provideAuthApiService(retrofit: Retrofit): AuthApiService =
         retrofit.create(AuthApiService::class.java)
 
-    @Provides
-    fun provideLoginUseCase(
-        authRepository: AuthRepository
-    ) : SendOtpUseCase{
-        return SendOtpUseCase(authRepository)
-    }
+    /** Repositories **/
 
+    @Provides
+    fun provideAuthRepo(authApiService: AuthApiService): AuthRepository {
+        return AuthRepositoryImpl(authApiService)
+    }
 }

@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.alexon.core.AuthRequest
 import com.alexon.presentation.databinding.ActivitySplashBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
@@ -17,9 +18,10 @@ import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_LOGIN
 import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_ON_BOARDING
 import com.alexon.core.utils.logMe
 import com.alexon.core.utils.sharedPrefernces.EncryptedSharedPreference
-import com.alexon.domain.usecase.SendOtpUseCase
+import com.alexon.domain.usecase.auth.AuthUserUseCase
 import com.alexon.presentation.screens.auth.AuthActivity
 import com.alexon.presentation.screens.main.MainActivity
+import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
@@ -34,7 +36,7 @@ class SplashActivity : AppCompatActivity() {
     lateinit var encryptedSharedPreference: EncryptedSharedPreference
 
     @Inject
-    lateinit var loginUseCase : SendOtpUseCase
+    lateinit var authUserUseCase: AuthUserUseCase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,11 +69,18 @@ class SplashActivity : AppCompatActivity() {
 //            }
 //        )
 
-        sharedPreferenceHelper.userLat = 12f
-        encryptedSharedPreference.token = "tokenER"
-        logMe(tag = "splashActivity", msg = sharedPreferenceHelper.userLat.toString())
-        logMe(tag = "splashActivity", msg = encryptedSharedPreference.token)
+        sharedPreferenceHelper.appLanguage = "en"
+        lifecycleScope.launch {
+            val v = authUserUseCase.invoke(
+                AuthRequest(
+                    "1002252065", 1, "1111"
+                )
+            )
 
+            v.collect {
+                logMe(it.data?.data?.type ?: "")
+            }
+        }
     }
 
     private fun handleNavigation() {

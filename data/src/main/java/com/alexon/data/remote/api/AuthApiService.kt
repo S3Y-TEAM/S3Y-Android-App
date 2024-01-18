@@ -1,20 +1,24 @@
 package com.alexon.data.remote.api
 
-import com.alexon.data.remote.dto.login.LoginRequest
-import com.alexon.data.remote.dto.login.LoginResponse
+import com.alexon.core.AuthRequest
+import com.alexon.core.SendOtpRequest
+import com.alexon.core.base.BaseResponse
+import com.alexon.data.remote.dto.auth.login.AuthResponseDto
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface AuthApiService {
 
-//    @POST("users/sendOtp")
-//    suspend fun sendOtp(@Body otpRequest: SendOtpRequest): Response<BaseResponse>
+    @POST("users/sendOtp")
+    suspend fun sendOtp(@Body otpRequest: SendOtpRequest): Response<BaseResponse>
 
-//    @POST("users/login")
-//    suspend fun login(
-//        @Body loginRequest: LoginRequest,
-//    ): Response<LoginResponse>
+    @POST("users/auth")
+    suspend fun auth(
+        @Body authRequest: AuthRequest,
+    ): AuthResponseDto
+
 
 //    @POST("users/register")
 //    @Multipart

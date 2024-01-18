@@ -1,5 +1,6 @@
 package com.alexon.data.remote.interceptors
 
+import com.alexon.core.utils.sharedPrefernces.EncryptedSharedPreference
 import com.alexon.core.utils.sharedPrefernces.SharedPreferenceHelper
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -7,7 +8,8 @@ import retrofit2.Invocation
 import javax.inject.Inject
 
 class HeadersSetupInterceptor @Inject constructor(
-    private val sharedPreferenceHelper: SharedPreferenceHelper
+    private val sharedPreferenceHelper: SharedPreferenceHelper,
+    private val encryptedSharedPreference: EncryptedSharedPreference
 ) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -32,8 +34,8 @@ class HeadersSetupInterceptor @Inject constructor(
                     addHeader("Accept", "application/json")
                     //token
                     if (shouldAttachAuthHeader) {
-                        if (sharedPreferenceHelper.token.isNotEmpty()) {
-                            addHeader("Authorization", sharedPreferenceHelper.brearToken)
+                        if (encryptedSharedPreference.token.isNotEmpty()) {
+                            addHeader("Authorization", encryptedSharedPreference.brearToken)
                         }
                     }
                     //latLng

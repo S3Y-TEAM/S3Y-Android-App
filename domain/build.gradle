@@ -1,6 +1,7 @@
 plugins {
     alias libs.plugins.android.library
     alias libs.plugins.kotlin
+    alias libs.plugins.ksp
 }
 
 android {
@@ -30,6 +31,19 @@ android {
 }
 
 dependencies {
+    //modules
+    implementation project(path: ':core')
+
     //bundles
     implementation libs.bundles.feature.testing
+
+    //retrofit
+    implementation libs.bundles.retorfit
+
+    //hilt
+    implementation libs.dagger.hilt
+    ksp libs.dagger.compiler
+
+    //coroutines
+    implementation libs.bundles.coroutines
 }
