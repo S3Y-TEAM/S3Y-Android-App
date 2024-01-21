@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tavolo</string>
+
+    <!-- permissions -->
+
+    <!-- Permissions - Notification -->
+    <string name="permission_notification_rationale">The application need the permission to keep you up-to-date with all reservations</string>
+    <string name="permission_notification_settings">The application need the permission to keep you up-to-date with all reservations</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+</resources>

@@ -1,4 +1,4 @@
-package com.alexon.core
+package com.alexon.domain.models.auth.otp
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName

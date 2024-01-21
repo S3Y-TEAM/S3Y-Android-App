@@ -6,22 +6,23 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.alexon.core.AuthRequest
+import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_KEY
+import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_LOGIN
+import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_ON_BOARDING
+import com.alexon.core.extensions.screen.changeStatusBarColor
+import com.alexon.core.utils.language.getCurrentAppLanguage
+import com.alexon.core.utils.permission.PermissionType
+import com.alexon.core.utils.permission.requestPermissions
+import com.alexon.core.utils.sharedPrefernces.EncryptedSharedPreference
+import com.alexon.core.utils.sharedPrefernces.SharedPreferenceHelper
+import com.alexon.presentation.R
 import com.alexon.presentation.databinding.ActivitySplashBinding
+import com.alexon.presentation.screens.auth.AuthActivity
+import com.alexon.presentation.screens.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import com.alexon.core.utils.sharedPrefernces.SharedPreferenceHelper
-import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_KEY
-import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_LOGIN
-import com.alexon.core.constants.Constants.NAV_ARGS_AUTH_ON_BOARDING
-import com.alexon.core.utils.logMe
-import com.alexon.core.utils.sharedPrefernces.EncryptedSharedPreference
-import com.alexon.domain.usecase.auth.AuthUserUseCase
-import com.alexon.presentation.screens.auth.AuthActivity
-import com.alexon.presentation.screens.main.MainActivity
-import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
@@ -35,52 +36,36 @@ class SplashActivity : AppCompatActivity() {
     @Inject
     lateinit var encryptedSharedPreference: EncryptedSharedPreference
 
-    @Inject
-    lateinit var authUserUseCase: AuthUserUseCase
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         _binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Log.e("splashActivity", "onCreate")
-
-//        changeStatusBarColor(R.color.white, isContentLight = true, isTransparent = true)
+        changeStatusBarColor(R.color.white, isContentLight = true, isTransparent = true)
 
         //set language if empty based on device language
-//        sharedPreferenceHelper.appLanguage = getCurrentAppLanguage()
-//        sharedPreferenceHelper.saveData("isGetLocationForFirstTime", false)
+        sharedPreferenceHelper.appLanguage = getCurrentAppLanguage(sharedPreferenceHelper)
 
-//        //request notification permission
-//        requestNotificationPermission(
-//            onAny = {
-//                //animation
-//                lifecycleScope.launch {
-//                    animateLogo()
-//                    animateSlogan()
-//                }
-//
-//                //navigating
-//                lifecycleScope.launch {
-//                    delay(1600)
+        //request notification permission
+        requestPermissions(
+            permissionType = PermissionType.Notification,
+            sharedPreferenceHelper = sharedPreferenceHelper,
+            onAny = {
+                //animation
+                lifecycleScope.launch {
+                    animateLogo()
+                    animateSlogan()
+                }
+
+                //navigating
+                lifecycleScope.launch {
+                    delay(1600)
 //                    handleNavigation()
-//                }
-//            }
-//        )
-
-        sharedPreferenceHelper.appLanguage = "en"
-        lifecycleScope.launch {
-            val v = authUserUseCase.invoke(
-                AuthRequest(
-                    "1002252065", 1, "1111"
-                )
-            )
-
-            v.collect {
-                logMe(it.data?.data?.type ?: "")
+                }
             }
-        }
+        )
+
     }
 
     private fun handleNavigation() {

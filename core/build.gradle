@@ -59,6 +59,9 @@ dependencies {
     //encryptedSharePref
     implementation libs.security.crypto
 
+    //retrofit
     implementation libs.bundles.retorfit
 
+    //permissionX
+    implementation libs.permissionx
 }

@@ -1,12 +1,11 @@
 package com.alexon.data.remote.api
 
-import com.alexon.core.AuthRequest
-import com.alexon.core.SendOtpRequest
+import com.alexon.domain.models.auth.Auth.AuthRequest
+import com.alexon.domain.models.auth.otp.SendOtpRequest
 import com.alexon.core.base.BaseResponse
 import com.alexon.data.remote.dto.auth.login.AuthResponseDto
 import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface AuthApiService {

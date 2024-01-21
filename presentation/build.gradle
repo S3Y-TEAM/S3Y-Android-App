@@ -2,7 +2,7 @@ plugins {
     alias libs.plugins.android.library
     alias libs.plugins.kotlin
     alias libs.plugins.hilt
-    id 'kotlin-kapt'
+    alias libs.plugins.ksp
 }
 
 android {
@@ -45,7 +45,7 @@ dependencies {
 
     //hilt
     implementation libs.dagger.hilt
-    kapt libs.dagger.compiler
+    ksp libs.dagger.compiler
 
     //sdp
     implementation libs.sdp

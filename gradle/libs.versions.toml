@@ -25,6 +25,7 @@ securityCrypto = "1.1.0-alpha06"
 parcelize = "1.8.10"
 lifecycle = "2.7.0"
 coroutines = "1.7.3"
+permissionx = "1.7.1"
 
 [libraries]
 android-core = { module = "androidx.core:core-ktx", version.ref = "androidCore" }
@@ -48,6 +49,7 @@ lifecycle-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.r
 lifecycle-viewModel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+permissionx = { module = "com.guolindev.permissionx:permissionx", version.ref = "permissionx" }
 
 
 [plugins]
@@ -56,8 +58,7 @@ android-library = { id = "com.android.library", version.ref = "androidLibrary" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize",  version.ref = "kotlin"  }
-
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 
 [bundles]
 feature-base = ["android-core"]

@@ -40,6 +40,11 @@ class SharedPreferenceHelper @Inject constructor(@ApplicationContext context: Co
         get() = loadData(SHARED_USER_HOME_ADDRESS) ?: ""
         set(value) = saveData(SHARED_USER_HOME_ADDRESS, value)
 
+
+    var notificationCount: Int
+        get() = loadData("NOTIFICATION_COUNT") ?: 1
+        set(value) = saveData("NOTIFICATION_COUNT", value)
+
     private inline fun <reified T> saveData(key: String, value: T? = null) {
         when (T::class) {
             String::class -> editor.putString(key, value as? String ?: "")

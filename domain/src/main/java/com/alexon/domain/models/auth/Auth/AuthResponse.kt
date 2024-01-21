@@ -1,4 +1,4 @@
-package com.alexon.domain.models.auth.login
+package com.alexon.domain.models.auth.Auth
 
 import androidx.annotation.Keep
 import com.alexon.core.base.BaseResponse

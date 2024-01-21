@@ -1,7 +1,7 @@
 package com.alexon.domain.repositories
 
-import com.alexon.core.AuthRequest
-import com.alexon.domain.models.auth.login.AuthResponse
+import com.alexon.domain.models.auth.Auth.AuthRequest
+import com.alexon.domain.models.auth.Auth.AuthResponse
 
 interface AuthRepository {
 

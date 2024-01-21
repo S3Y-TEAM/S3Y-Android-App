@@ -17,6 +17,9 @@ android {
         versionName libs.versions.versionName.get().toString()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //language
+        resourceConfigurations += ["en", "ar"]
     }
 
     buildTypes {

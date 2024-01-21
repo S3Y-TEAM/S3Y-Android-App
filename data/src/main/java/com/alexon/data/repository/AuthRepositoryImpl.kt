@@ -1,9 +1,9 @@
 package com.alexon.data.repository
 
-import com.alexon.core.AuthRequest
+import com.alexon.domain.models.auth.Auth.AuthRequest
 import com.alexon.data.mappers.toDomain
 import com.alexon.data.remote.api.AuthApiService
-import com.alexon.domain.models.auth.login.AuthResponse
+import com.alexon.domain.models.auth.Auth.AuthResponse
 import com.alexon.domain.repositories.AuthRepository
 
 class AuthRepositoryImpl(

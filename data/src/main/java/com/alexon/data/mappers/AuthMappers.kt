@@ -3,10 +3,10 @@ package com.alexon.data.mappers
 import com.alexon.data.remote.dto.auth.login.AuthResponseDto
 import com.alexon.data.remote.dto.auth.login.CountryDto
 import com.alexon.data.remote.dto.auth.login.UserDto
-import com.alexon.domain.models.auth.login.AuthData
-import com.alexon.domain.models.auth.login.AuthResponse
-import com.alexon.domain.models.auth.login.Country
-import com.alexon.domain.models.auth.login.User
+import com.alexon.domain.models.auth.Auth.AuthData
+import com.alexon.domain.models.auth.Auth.AuthResponse
+import com.alexon.domain.models.auth.Auth.Country
+import com.alexon.domain.models.auth.Auth.User
 
 
 fun AuthResponseDto?.toDomain(): AuthResponse {
