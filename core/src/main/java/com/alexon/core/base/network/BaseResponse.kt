@@ -1,6 +1,7 @@
-package com.alexon.core.base
+package com.alexon.core.base.network
 
 import android.os.Parcelable
+import com.alexon.core.base.network.Errors
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.RawValue
 

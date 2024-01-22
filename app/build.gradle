@@ -43,6 +43,8 @@ dependencies {
     implementation project(path: ':data')
     implementation project(path: ':domain')
     implementation project(path: ':core')
+    implementation project(path: ':services')
+    implementation project(path: ':gateways')
 
     //bundles
     implementation libs.bundles.feature.base

@@ -1,12 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Tavolo</string>
 
-    <!-- permissions -->
+    <!-- Permissions  -->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 
     <!-- Permissions - Notification -->
     <string name="permission_notification_rationale">The application need the permission to keep you up-to-date with all reservations</string>
     <string name="permission_notification_settings">The application need the permission to keep you up-to-date with all reservations</string>
-    <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
+
+    <!-- Permissions - Location -->
+    <string name="permission_location_rationale">The application need the permission to access your location to get the nearest places</string>
+    <string name="permission_location_settings">The application need the permission to access your location to get the nearest places</string>
+
+    <!-- Errors -->
+    <string name="network_error">Please check your internet connection.</string>
+    <string name="un_authorized">Please try to login again</string>
+    <string name="unkown_error">Unknown error happened please try again</string>
+
 
 </resources>

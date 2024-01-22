@@ -1,7 +1,7 @@
 package com.alexon.data.remote.dto.auth.login
 
 import androidx.annotation.Keep
-import com.alexon.core.base.BaseResponse
+import com.alexon.core.base.network.BaseResponse
 import com.google.gson.annotations.SerializedName
 
 @Keep

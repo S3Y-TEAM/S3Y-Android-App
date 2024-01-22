@@ -1,4 +1,4 @@
-package com.alexon.core.base
+package com.alexon.core.base.network
 
 import android.os.Parcelable
 import androidx.annotation.Keep

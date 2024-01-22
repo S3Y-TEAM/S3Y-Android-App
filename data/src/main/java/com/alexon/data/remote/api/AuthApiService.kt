@@ -2,7 +2,7 @@ package com.alexon.data.remote.api
 
 import com.alexon.domain.models.auth.Auth.AuthRequest
 import com.alexon.domain.models.auth.otp.SendOtpRequest
-import com.alexon.core.base.BaseResponse
+import com.alexon.core.base.network.BaseResponse
 import com.alexon.data.remote.dto.auth.login.AuthResponseDto
 import retrofit2.Response
 import retrofit2.http.Body

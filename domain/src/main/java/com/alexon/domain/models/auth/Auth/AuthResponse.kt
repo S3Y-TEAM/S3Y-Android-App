@@ -1,7 +1,7 @@
 package com.alexon.domain.models.auth.Auth
 
 import androidx.annotation.Keep
-import com.alexon.core.base.BaseResponse
+import com.alexon.core.base.network.BaseResponse
 import com.google.gson.annotations.SerializedName
 
 @Keep

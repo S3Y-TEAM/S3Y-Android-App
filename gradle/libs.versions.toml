@@ -26,6 +26,8 @@ parcelize = "1.8.10"
 lifecycle = "2.7.0"
 coroutines = "1.7.3"
 permissionx = "1.7.1"
+lottie = "5.2.0"
+navigation = "2.5.2"
 
 [libraries]
 android-core = { module = "androidx.core:core-ktx", version.ref = "androidCore" }
@@ -50,7 +52,9 @@ lifecycle-viewModel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", v
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 permissionx = { module = "com.guolindev.permissionx:permissionx", version.ref = "permissionx" }
-
+lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
+navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
+navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidApplication" }
@@ -66,6 +70,6 @@ feature-ui = ["appcompat", "material", "constraintlayout"]
 feature-testing = ["junit-core", "junit-test", "espresso-core"]
 retorfit = ["retrofit-core", "retrofit-converter-gson", "okhttp-logger"]
 coroutines = ["coroutines-core", "coroutines-android"]
-
+naviation = ["navigation-fragment" , "navigation-ui"]
 
 

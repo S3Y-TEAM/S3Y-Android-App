@@ -1,4 +1,4 @@
-package com.alexon.core.constants
+package com.alexon.core.keys
 
 object SecretKeysUtils {
 

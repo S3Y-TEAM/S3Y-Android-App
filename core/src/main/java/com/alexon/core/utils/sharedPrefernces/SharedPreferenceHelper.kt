@@ -2,12 +2,6 @@ package com.alexon.core.utils.sharedPrefernces
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.alexon.core.constants.Constants.SHARED_APP_LANGUAGE_KEY
-import com.alexon.core.constants.Constants.SHARED_PREFERENCE_APP_KEY
-import com.alexon.core.constants.Constants.SHARED_OPENED_APP_BEFORE
-import com.alexon.core.constants.Constants.SHARED_USER_HOME_ADDRESS
-import com.alexon.core.constants.Constants.SHARED_USER_LAT
-import com.alexon.core.constants.Constants.SHARED_USER_LNG
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -21,7 +15,7 @@ class SharedPreferenceHelper @Inject constructor(@ApplicationContext context: Co
     private var editor: SharedPreferences.Editor = sharedPreferences.edit()
 
     var openedTheAppBefore: Boolean
-        get() = loadData(SHARED_OPENED_APP_BEFORE, false) ?: false
+        get() = loadData(SHARED_OPENED_APP_BEFORE, false)
         set(value) = saveData(SHARED_OPENED_APP_BEFORE, value)
 
     var appLanguage: String
@@ -73,8 +67,18 @@ class SharedPreferenceHelper @Inject constructor(@ApplicationContext context: Co
         }
     }
 
-    fun clean() {
+    fun clean(keepAppSettings : Boolean) {
         sharedPreferences.edit()?.clear()?.apply()
     }
 
+    companion object{
+        //shared
+        const val SHARED_PREFERENCE_APP_KEY = "Tavolo"
+        const val SHARED_FCM_DEVICE_TOKEN = "SHARED_FCM_DEVICE_TOKEN"
+        const val SHARED_USER_LAT = "SHARED_USER_LAT"
+        const val SHARED_USER_LNG = "SHARED_USER_LNG"
+        const val SHARED_USER_HOME_ADDRESS = "SHARED_USER_HOME_ADDRESS"
+        const val SHARED_APP_LANGUAGE_KEY = "SHARED_APP_LANGUAGE_KEY"
+        const val SHARED_OPENED_APP_BEFORE = "SHARED_OPENED_APP_BEFORE"
+    }
 }

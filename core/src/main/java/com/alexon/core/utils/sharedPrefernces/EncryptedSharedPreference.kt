@@ -6,9 +6,6 @@ import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
-import com.alexon.core.constants.Constants.ENCRYPTED_SHARED_PREFERENCE_APP_KEY
-import com.alexon.core.constants.Constants.SHARED_AUTH_TOKEN_KEY
-import com.alexon.core.constants.Constants.USER_DATA
 import com.google.gson.Gson
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -93,5 +90,12 @@ class EncryptedSharedPreference @Inject constructor(@ApplicationContext context:
 
     fun clean() {
         prefs.edit()?.clear()?.apply()
+    }
+
+    companion object {
+        //shared
+        const val ENCRYPTED_SHARED_PREFERENCE_APP_KEY = "Encrypted-Tavolo"
+        const val SHARED_AUTH_TOKEN_KEY = "SHARED_AUTH_TOKEN_KEY"
+        const val USER_DATA = "USER_DATA"
     }
 }

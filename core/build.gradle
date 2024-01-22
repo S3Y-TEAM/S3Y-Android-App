@@ -64,4 +64,7 @@ dependencies {
 
     //permissionX
     implementation libs.permissionx
+
+    //navigationComponent
+    implementation libs.bundles.naviation
 }

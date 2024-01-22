@@ -32,12 +32,12 @@ enum class PermissionType(
             Manifest.permission.ACCESS_COARSE_LOCATION,
             Manifest.permission.ACCESS_FINE_LOCATION,
         ),
-        rationaleMessage = R.string.app_name,
-        rationalePositiveText = R.string.app_name,
-        rationaleNegativeText = R.string.app_name,
-        settingMessage = R.string.app_name,
-        settingPositiveText = R.string.app_name,
-        settingNegativeText = R.string.app_name
+        rationaleMessage = R.string.permission_location_rationale,
+        rationalePositiveText = R.string.ok,
+        rationaleNegativeText = R.string.cancel,
+        settingMessage = R.string.permission_location_settings,
+        settingPositiveText = R.string.ok,
+        settingNegativeText = R.string.cancel
     ),
 
     Storage(

@@ -1,6 +1,6 @@
 package com.alexon.data.di
 
-import com.alexon.core.constants.SecretKeysUtils
+import com.alexon.core.keys.SecretKeysUtils
 import com.alexon.data.remote.interceptors.HeadersSetupInterceptor
 import com.alexon.data.remote.api.AuthApiService
 import com.alexon.data.repository.AuthRepositoryImpl

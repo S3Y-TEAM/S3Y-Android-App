@@ -1,4 +1,4 @@
-package com.alexon.core.base
+package com.alexon.core.base.network
 
 // Generic sealed class wrapper for network calls
 // differentiate between success and failure responses

@@ -4,17 +4,15 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
-import com.alexon.core.utils.logMe
 import com.alexon.core.utils.sharedPrefernces.SharedPreferenceHelper
 import com.permissionx.guolindev.PermissionX
-
 
 private const val maxNotificationCount = 2
 
 fun AppCompatActivity.requestPermissions(
     permissionType: PermissionType,
     sharedPreferenceHelper: SharedPreferenceHelper? = null,
-    doFirst: (() -> Unit)? = null,
+    onPreExecute: (() -> Unit)? = null,
     showRationaleDialog: Boolean = true,
     showSettingDialog: Boolean = true,
     onPermissionGranted: (() -> Unit)? = null,
@@ -22,36 +20,16 @@ fun AppCompatActivity.requestPermissions(
     onAny: (() -> Unit)? = null,
 ) {
 
-    doFirst?.invoke()
+    onPreExecute?.invoke()
 
+    isPermissionDeclaredInManifest(permissionType.permissions)
 
-    permissionType.permissions.forEach { permission ->
-        logMe("PermissionHelper", permission)
-        logMe("PermissionHelper", isPermissionDeclaredInManifest(this, permission).toString())
-        if(!isPermissionDeclaredInManifest(this, permission)){
-            throw RuntimeException("نسيت تعرف البرميشن يا اهطل ")
-        }
+    //Notification Conditions
+    if (permissionType == PermissionType.Notification &&
+        !checkAndShowNotificationIfRequired(sharedPreferenceHelper, onAny)
+    ) {
+        return
     }
-
-
-    if (permissionType == PermissionType.Notification) {
-        //if device less than android 13 return
-        if (Build.VERSION.SDK_INT < 33) {
-            onAny?.invoke()
-            return
-        }
-
-        //if notification count reach the max show notification
-        if (sharedPreferenceHelper != null) {
-            if (!shouldShowNotification(sharedPreferenceHelper)) {
-                onAny?.invoke()
-                return
-            }
-        } else {
-            throw RuntimeException("if you use notification permission you have to parse sharedPreferenceHelper")
-        }
-    }
-
 
     PermissionX.init(this).permissions(
         permissionType.permissions
@@ -84,21 +62,13 @@ fun AppCompatActivity.requestPermissions(
     }
 }
 
-
-private fun shouldShowNotification(sharedPreferenceHelper: SharedPreferenceHelper): Boolean {
-    //if not reach the count
-    if (sharedPreferenceHelper.notificationCount < maxNotificationCount) {
-        sharedPreferenceHelper.notificationCount += 1
-        return false
+/** Manifest **/
+fun AppCompatActivity.isPermissionDeclaredInManifest(permissions: List<String>) {
+    permissions.forEach { permission ->
+        if (!isPermissionDeclaredInManifest(this, permission)) {
+            throw RuntimeException("Permission $permission not declared in manifest for package $packageName\"")
+        }
     }
-
-    //if reach the max count
-    if (sharedPreferenceHelper.notificationCount == maxNotificationCount) {
-        sharedPreferenceHelper.notificationCount = 1
-        return true
-    }
-
-    return false
 }
 
 fun isPermissionDeclaredInManifest(context: Context, permission: String): Boolean {
@@ -113,3 +83,43 @@ fun isPermissionDeclaredInManifest(context: Context, permission: String): Boolea
     return permission in declaredPermissions
 }
 
+/** Notification **/
+fun checkAndShowNotificationIfRequired(
+    sharedPreferenceHelper: SharedPreferenceHelper?,
+    onAny: (() -> Unit)?
+): Boolean {
+    //if device less than android 13 return
+    if (Build.VERSION.SDK_INT < 33) {
+        onAny?.invoke()
+        return false
+    }
+
+    //if user not parsed sharedPref
+    if (sharedPreferenceHelper == null) {
+        throw RuntimeException("If you use notification permission, you have to provide SharedPreferenceHelper")
+    }
+
+    //if notification count reach the max show notification
+    if (!shouldShowNotificationRequest(sharedPreferenceHelper)) {
+        onAny?.invoke()
+        return false
+    }
+
+    return true
+}
+
+private fun shouldShowNotificationRequest(sharedPreferenceHelper: SharedPreferenceHelper): Boolean {
+    //if not reach the count
+    if (sharedPreferenceHelper.notificationCount < maxNotificationCount) {
+        sharedPreferenceHelper.notificationCount += 1
+        return false
+    }
+
+    //if reach the max count
+    if (sharedPreferenceHelper.notificationCount == maxNotificationCount) {
+        sharedPreferenceHelper.notificationCount = 1
+        return true
+    }
+
+    return false
+}

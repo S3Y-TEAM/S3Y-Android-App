@@ -1,7 +1,7 @@
 package com.alexon.domain.usecase.auth
 
 import com.alexon.domain.models.auth.Auth.AuthRequest
-import com.alexon.core.base.ResponseState
+import com.alexon.core.base.network.ResponseState
 import com.alexon.domain.models.auth.Auth.AuthResponse
 import com.alexon.domain.repositories.AuthRepository
 import kotlinx.coroutines.Dispatchers
