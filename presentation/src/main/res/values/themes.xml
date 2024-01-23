@@ -1,6 +1,6 @@
 <resources>
-    <!-- Base application theme. -->
-    <style name="Theme.Tavolo" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+    <style name="Base.Theme.TavoloNew" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue_6</item>
         <item name="colorPrimaryVariant">@color/blue_10</item>
@@ -10,20 +10,7 @@
         <item name="colorSecondaryVariant">@color/orange_7</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!--        <item name="android:windowIsTranslucent">true</item>-->
-    </style>
-
-    <style name="Theme.Splash" parent="Theme.Tavolo">
-        <item name="android:windowBackground">@drawable/bg_splash</item>
-    </style>
-
-    <!-- Splash -->
-    <style name="Widget.App.FullScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <item name="android:fitsSystemWindows">true</item>
-        <item name="android:windowTranslucentStatus">false</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:statusBarColor">?attr/colorOnPrimary</item>
     </style>
 
     <!-- Shapable-->

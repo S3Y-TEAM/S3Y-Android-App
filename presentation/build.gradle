@@ -3,6 +3,7 @@ plugins {
     alias libs.plugins.kotlin
     alias libs.plugins.hilt
     alias libs.plugins.ksp
+    alias libs.plugins.kotlin.parcelize
 }
 
 android {
@@ -14,6 +15,14 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+
+    }
+
+    lintOptions {
+        disable 'Instantiatable'
     }
 
     buildTypes {

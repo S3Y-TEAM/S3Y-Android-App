@@ -14,14 +14,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TavoloNew"
+        android:theme="@style/Base.Theme.TavoloNew"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
             android:name="com.alexon.presentation.screens.splash.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.Splash"
-            tools:ignore="Instantiatable">
+            android:theme="@style/Theme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -30,7 +29,8 @@
 
         <activity
             android:name="com.alexon.presentation.screens.auth.AuthActivity"
-            android:exported="true" />
+            android:exported="false" />
+
         <!-- Language -->
         <service
             android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"

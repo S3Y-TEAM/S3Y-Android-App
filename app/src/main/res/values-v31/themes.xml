@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Splash" parent="Theme.Tavolo">
+    <style name="Theme.Splash" parent="Base.Theme.TavoloNew">
         <item name="android:windowBackground">@drawable/bg_splash</item>
         <item name="android:windowSplashScreenAnimatedIcon">@drawable/transparent_image</item>
     </style>
