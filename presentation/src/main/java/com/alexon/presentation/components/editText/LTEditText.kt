@@ -21,21 +21,30 @@ class LTEditText @JvmOverloads constructor(
 
     private lateinit var container: MaterialCardView
     private lateinit var editText: EditText
-//    private lateinit var errorText: TextView
-//    private lateinit var countryCodeTv: TextView
-//    private lateinit var countryFlagIv: ImageView
-//    private lateinit var countryPicker: View
-//    private lateinit var underlineView: View
-//    private lateinit var divider: View
-//    private lateinit var progressBar: ProgressBar
 
-
+    /**
+     * Set your EditText preferences here and it will be applied global :)
+     */
     companion object {
-        //colors
+        //height
+        val CONTAINER_HEIGHT = R.dimen.ltet_height
+
+        //text
         val DEFAULT_TEXT_COLOR = R.color.blue_6
         val DEFAULT_HINT_COLOR = R.color.gray_2
         val DEFAULT_ERROR_COLOR = R.color.red_5
 
+        //container
+        val CONTAINER_STROKE_WIDTH = R.dimen.ltet_stroke_width
+        val CONTAINER_STROKE_COLOR = R.color.gray_2
+        val CONTAINER_BACKGROUND_COLOR = R.color.blue_3
+        val CONTAINER_RADIUS = R.dimen.ltet_radius
+
+        //padding
+        val CONTAINER_PADDING_START = 0
+        val CONTAINER_PADDING_END = 0
+        val CONTAINER_PADDING_TOP = 0
+        val CONTAINER_PADDING_BOTTOM = 0
 
         // const val DEFAULT_TEXT_INPUT_TYPE = 0x00000001
 
@@ -43,6 +52,12 @@ class LTEditText @JvmOverloads constructor(
 //        const val DEFAULT_TEXT_GRAVITY = Gravity.CENTER
 //        const val DEFAULT_ENABLE_COUNTRY_PICKER = false
     }
+
+    var containerHeight: Int = resources.getDimensionPixelSize(CONTAINER_HEIGHT)
+        set(value) {
+            field = value
+            container.layoutParams = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, value)
+        }
 
     /** Text **/
     var text: String = ""
@@ -67,7 +82,7 @@ class LTEditText @JvmOverloads constructor(
             editText.hint = value
         }
 
-    var hintColor: Int = ContextCompat.getColor(this.context, DEFAULT_HINT_COLOR)
+    var hintColor: Int = DEFAULT_HINT_COLOR
         set(value) {
             field = value
             editText.setHintTextColor(value)
@@ -80,16 +95,73 @@ class LTEditText @JvmOverloads constructor(
             editText.hint = value
         }
 
-    var errorTextColor: Int = ContextCompat.getColor(this.context, DEFAULT_ERROR_COLOR)
+    var errorTextColor: Int = DEFAULT_ERROR_COLOR
         set(value) {
             field = value
             editText.setHintTextColor(value)
         }
 
-    var edTextHeight: Int = resources.getDimensionPixelSize(R.dimen.edit_text_height)
+    /** Container **/
+    var containerStrokeWidth: Int = CONTAINER_STROKE_WIDTH
         set(value) {
             field = value
-            container.layoutParams = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, value)
+            tryNow {
+                container.strokeWidth = resources.getDimension(value).toInt()
+            }
+        }
+
+    var containerStrokeColor: Int = CONTAINER_STROKE_COLOR
+        set(value) {
+            field = value
+            tryNow {
+                container.strokeColor = ContextCompat.getColor(context, value)
+            }
+        }
+
+    var containerBackgroundColor: Int = CONTAINER_BACKGROUND_COLOR
+        set(value) {
+            field = value
+            container.setCardBackgroundColor(value)
+        }
+
+    var containerRadius: Int = CONTAINER_RADIUS
+        set(value) {
+            field = value
+            //container.radius = resources.getDimension(value)
+        }
+
+    /** Padding **/
+    var containerPaddingStart: Int = 0
+        set(value) {
+            field = value
+
+            editText.setPadding(
+                value, editText.paddingTop, editText.paddingRight, editText.paddingBottom
+            )
+        }
+
+    var containerPaddingEnd: Int = 0
+        set(value) {
+            field = value
+            editText.setPadding(
+                editText.paddingStart, editText.paddingTop, value, editText.paddingBottom
+            )
+        }
+
+    var containerPaddingTop: Int = 0
+        set(value) {
+            field = value
+            editText.setPadding(
+                editText.paddingStart, value, editText.paddingRight, editText.paddingBottom
+            )
+        }
+
+    var containerPaddingBottom: Int = 0
+        set(value) {
+            field = value
+            editText.setPadding(
+                editText.paddingStart, editText.paddingTop, editText.paddingRight, value
+            )
         }
 
 //    var maxLength: Int? = null
@@ -241,12 +313,40 @@ class LTEditText @JvmOverloads constructor(
             //hint
             hint = typedArray.getText(R.styleable.LTEditText_lt_et_hint)?.toString() ?: ""
             hintColor = typedArray.getColor(
-                R.styleable.LTEditText_lt_et_hintColor,
-                context.getResourceColor(DEFAULT_HINT_COLOR)
+                R.styleable.LTEditText_lt_et_hintColor, context.getResourceColor(DEFAULT_HINT_COLOR)
+            )
+            //container
+            containerStrokeColor = typedArray.getColor(
+                R.styleable.LTEditText_lt_et_containerStrokeColor,
+                ContextCompat.getColor(context, CONTAINER_STROKE_COLOR)
+            )
+            containerStrokeWidth = typedArray.getDimensionPixelSize(
+                R.styleable.LTEditText_lt_et_containerStrokeWidth, CONTAINER_STROKE_WIDTH
+            )
+            containerBackgroundColor = typedArray.getColor(
+                R.styleable.LTEditText_lt_et_containerBgColor,
+                ContextCompat.getColor(context, CONTAINER_BACKGROUND_COLOR)
+            )
+            containerRadius = typedArray.getDimensionPixelSize(
+                R.styleable.LTEditText_lt_et_containerRadius,
+                resources.getDimension(CONTAINER_RADIUS).toInt()
+            )
+            //padding
+            containerPaddingStart = typedArray.getDimensionPixelSize(
+                R.styleable.LTEditText_lt_et_containerPaddingStart, 0
+            )
+            containerPaddingEnd = typedArray.getDimensionPixelSize(
+                R.styleable.LTEditText_lt_et_containerPaddingEnd, 0
+            )
+            containerPaddingBottom = typedArray.getDimensionPixelSize(
+                R.styleable.LTEditText_lt_et_containerPaddingBottom, 0
+            )
+            containerPaddingTop = typedArray.getDimensionPixelSize(
+                R.styleable.LTEditText_lt_et_containerPaddingTop, 0
             )
 
-            edTextHeight = typedArray.getDimensionPixelSize(
-                R.styleable.LTEditText_lt_et_height,
+            containerHeight = typedArray.getDimensionPixelSize(
+                R.styleable.LTEditText_lt_et_containerHeight,
                 resources.getDimensionPixelSize(R.dimen.edit_text_height)
             )
 

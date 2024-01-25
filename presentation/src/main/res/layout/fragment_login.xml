@@ -7,12 +7,11 @@
     <com.alexon.presentation.components.editText.LTEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:lt_et_height="@dimen/_40sdp"
-        app:lt_et_textColor="@color/red_5"
-        app:lt_et_text="anas" />
+        app:lt_et_text="Anas Mohammed ahmed android developer" />
 
     <!--        <TextView-->
     <!--            android:id="@+id/language_tv"-->

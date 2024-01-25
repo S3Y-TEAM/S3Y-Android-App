@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="ltet_height">@dimen/_42sdp</dimen>
+    <dimen name="ltet_stroke_width">@dimen/_2sdp</dimen>
+    <dimen name="ltet_radius">@dimen/_15sdp</dimen>
+
     <dimen name="small_card_stroke_size">@dimen/_1sdp</dimen>
 
     <!-- HomeFragment -->
@@ -23,9 +27,10 @@
     <dimen name="button_stroke_width">@dimen/_1sdp</dimen>
 
     <!-- EditText -->
-    <dimen name="edit_text_height">@dimen/_40sdp</dimen>
+    <dimen name="edit_text_height">@dimen/_42sdp</dimen>
     <dimen name="edit_text_height_under_line">@dimen/_42sdp</dimen>
     <dimen name="edit_text_radius">@dimen/_12sdp</dimen>
+    <dimen name="edit_stroke_width">@dimen/_1sdp</dimen>
 
     <!-- OnBoarding Indicator -->
     <dimen name="on_boarding_indicator_size">@dimen/_8sdp</dimen>

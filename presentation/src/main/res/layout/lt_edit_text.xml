@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge"
     app:cardElevation="0dp">
 
     <!-- SubRoot -->
@@ -26,18 +26,15 @@
 
             <EditText
                 android:id="@+id/main_editText"
-                style="@style/Theme.Tavolo.TextView.Regular.12"
+                style="@style/Theme.Tavolo.TextView.Regular.14"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white"
-                android:fontFamily="@font/omnes_regular"
                 android:importantForAutofill="no"
                 android:inputType="text"
-                android:textAlignment="center"
+                android:background="@drawable/transparent_image"
                 android:textColor="@color/gray_7"
                 android:textColorHint="@color/gray_2"
-                tools:hint="hint"
-                tools:ignore="LabelFor,VisualLintTextFieldSize,SpeakableTextPresentCheck,TextSizeCheck,TextContrastCheck" />
+                tools:hint="hint" />
 
         </androidx.core.widget.NestedScrollView>
 

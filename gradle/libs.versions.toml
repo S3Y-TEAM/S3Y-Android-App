@@ -66,7 +66,7 @@ kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref =
 
 [bundles]
 feature-base = ["android-core"]
-feature-ui = ["appcompat", "material", "constraintlayout"]
+feature-ui = ["appcompat", "material"]
 feature-testing = ["junit-core", "junit-test", "espresso-core"]
 retorfit = ["retrofit-core", "retrofit-converter-gson", "okhttp-logger"]
 coroutines = ["coroutines-core", "coroutines-android"]

@@ -9,7 +9,12 @@
         <attr name="lt_et_hintColor" format="color" />
         <attr name="lt_et_errorColor" format="color" />
 
-        <attr name="lt_et_height" format="dimension">
+        <!-- container -->
+        <attr name="lt_et_containerStrokeColor" format="color" />
+        <attr name="lt_et_containerStrokeWidth" format="dimension" />
+        <attr name="lt_et_containerRadius" format="dimension" />
+        <attr name="lt_et_containerBgColor" format="color" />
+        <attr name="lt_et_containerHeight" format="dimension">
             <!-- The view should be as big as its parent (minus padding).
                  This constant is deprecated starting from API Level 8 and
                  is replaced by {@code match_parent}. -->
@@ -20,5 +25,13 @@
             <!-- The view should be only big enough to enclose its content (plus padding). -->
             <enum name="wrap_content" value="-2" />
         </attr>
+
+        <!-- container - padding -->
+        <attr name="lt_et_containerPaddingStart" format="dimension" />
+        <attr name="lt_et_containerPaddingEnd" format="dimension" />
+        <attr name="lt_et_containerPaddingTop" format="dimension" />
+        <attr name="lt_et_containerPaddingBottom" format="dimension" />
+
+
     </declare-styleable>
 </resources>
