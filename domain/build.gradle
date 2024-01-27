@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.alexon.domain'
+    namespace 'com.graduation.domain'
     compileSdk libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {

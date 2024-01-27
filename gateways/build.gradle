@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.alexon.gateways'
+    namespace 'com.graduation.gateways'
     compileSdk 34
 
     defaultConfig {

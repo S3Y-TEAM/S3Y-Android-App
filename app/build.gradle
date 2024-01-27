@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.alexon.tavolonew'
+    namespace 'com.graduation.s3y'
     compileSdk libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {
-        applicationId "com.alexon.tavolonew"
+        applicationId "com.graduation.s3y"
         minSdk libs.versions.minSdk.get().toInteger()
         targetSdk libs.versions.targetSdk.get().toInteger()
         versionCode libs.versions.versionCode.get().toInteger()

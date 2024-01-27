@@ -14,7 +14,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "TavoloNew"
+rootProject.name = "S3y"
 include ':app'
 include ':core'
 include ':data'

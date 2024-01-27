@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace 'com.alexon.core'
+    namespace 'com.graduation.core'
     compileSdk libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {

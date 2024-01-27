@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace 'com.alexon.presentation'
+    namespace 'com.graduation.presentation'
     compileSdk libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {

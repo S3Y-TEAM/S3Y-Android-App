@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.alexon.data'
+    namespace 'com.graduation.data'
     compileSdk libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {
