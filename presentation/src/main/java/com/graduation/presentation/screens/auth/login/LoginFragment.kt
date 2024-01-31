@@ -3,6 +3,8 @@ package com.graduation.presentation.screens.auth.login
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import com.graduation.core.extensions.screen.changeStatusBarColor
+import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentLoginBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
 import dagger.hilt.android.AndroidEntryPoint
@@ -14,6 +16,9 @@ class LoginFragment : BaseFragmentImpl<FragmentLoginBinding>(FragmentLoginBindin
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)
+        //binding.loginAppBar.appBarTitle.text = "Welcome To S3Y"
 
     }
 }
