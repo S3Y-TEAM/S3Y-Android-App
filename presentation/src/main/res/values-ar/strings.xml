@@ -120,6 +120,9 @@
     <string name="forget_password">نسيت كلمة السر ؟</string>
     <string name="password">كلمة السر</string>
 
+    <string name="user_name">اسم المستخدم</string>
+    <string name="full_name">الاسم بالكامل</string>
+
 
 
 </resources>
