@@ -91,7 +91,8 @@
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
                     android:textColorHint="#B3164863"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_12sdp"
+                    />
 
             </soup.neumorphism.NeumorphCardView>
 
@@ -102,17 +103,15 @@
                 android:layout_marginStart="@dimen/_18sdp"
                 android:text="@string/forget_password"
                 android:textColor="@color/main_color"
-                android:textSize="14sp"
+                android:textSize="@dimen/_12sdp"
                 app:layout_constraintStart_toStartOf="@id/password_card"
                 app:layout_constraintTop_toBottomOf="@id/password_card" />
 
-
-            <androidx.appcompat.widget.AppCompatButton
+            <com.flod.loadingbutton.LoadingButton
                 android:id="@+id/login_button"
                 style="@style/MainButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_24sdp"
                 android:text="@string/login"
                 app:layout_constraintEnd_toEndOf="@id/login_logo"
                 app:layout_constraintStart_toStartOf="@id/login_logo"
@@ -144,6 +143,8 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

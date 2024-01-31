@@ -3,25 +3,62 @@ package com.graduation.presentation.screens.auth.login
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentLoginBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragmentImpl<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
+
 
     override val viewModel: LoginViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)
-        binding.loginAppBar.appBarTitle.text = "Welcome To S3Y"
+        setOnClickListener()
+        setAppBar()
 
     }
+
+    override fun setOnClickListener() {
+        binding.loginButton.setOnClickListener {
+            lifecycleScope.launch {
+                binding.loginButton.loadingDrawable.strokeWidth =
+                    binding.loginButton.textSize * 0.14f;
+                onLoadingStart()
+                delay(1600)
+                onComplete(true)
+                delay(1600)
+            }
+        }
+    }
+
+    override fun setAppBar() {
+        changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)
+        binding.loginAppBar.appBarTitle.text = "Welcome To S3Y"
+    }
+
+    override fun onLoadingStart() {
+        binding.loginButton.start()
+    }
+
+    override fun onComplete(isSuccess: Boolean) {
+        binding.loginButton.complete(true)
+    }
+
+    override fun onCancel() {
+        binding.loginButton.cancel()
+    }
+
 }
+
 //
 //    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)

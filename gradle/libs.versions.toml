@@ -1,5 +1,6 @@
 [versions]
 compileSdk = "33"
+loadingButton = "1.1.0-alpha01"
 targetSdk = "33"
 minSdk = "28"
 versionCode = "1"
@@ -33,6 +34,7 @@ neumorphism = "0.2.1"
 [libraries]
 android-core = { module = "androidx.core:core-ktx", version.ref = "androidCore" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+loadingButton = { module = "com.github.FlodCoding:LoadingButton", version.ref = "loadingButton" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 junit-core = { module = "junit:junit", version.ref = "junitCore" }
