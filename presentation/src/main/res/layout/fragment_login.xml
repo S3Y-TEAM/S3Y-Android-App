@@ -2,7 +2,150 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="#12164863"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#12164863">
+
+
+    <include
+        android:id="@+id/login_app_bar"
+        layout="@layout/app_bar"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_app_bar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/login_logo"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:padding="@dimen/_36sdp"
+                android:src="@drawable/app_logo"
+                app:layout_constraintBottom_toTopOf="@id/phone_card"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/phone_card"
+                style="@style/MainEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_marginEnd="@dimen/_14sdp"
+                app:layout_constraintBottom_toTopOf="@id/password_card"
+                app:layout_constraintEnd_toEndOf="@id/login_logo"
+                app:layout_constraintStart_toStartOf="@id/login_logo"
+                app:layout_constraintTop_toBottomOf="@id/login_logo">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/phone_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:drawableStart="@drawable/ic_phone"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:hint="@string/phone"
+                    android:padding="@dimen/_10sdp"
+                    android:singleLine="true"
+                    android:textColorHint="#B3164863"
+                    android:textSize="@dimen/_12sdp" />
+
+            </soup.neumorphism.NeumorphCardView>
+
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/password_card"
+                style="@style/MainEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:endIconMode="password_toggle"
+                app:layout_constraintEnd_toEndOf="@id/phone_card"
+                app:layout_constraintStart_toStartOf="@id/phone_card"
+                app:layout_constraintTop_toBottomOf="@id/phone_card">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/password_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:hint="@string/password"
+                    android:padding="@dimen/_10sdp"
+                    android:singleLine="true"
+                    android:textColorHint="#B3164863"
+                    android:textSize="@dimen/_12sdp" />
+
+            </soup.neumorphism.NeumorphCardView>
+
+            <TextView
+                android:id="@+id/forget_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:text="@string/forget_password"
+                android:textColor="@color/main_color"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/password_card"
+                app:layout_constraintTop_toBottomOf="@id/password_card" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/login_button"
+                style="@style/MainButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_24sdp"
+                android:text="@string/login"
+                app:layout_constraintEnd_toEndOf="@id/login_logo"
+                app:layout_constraintStart_toStartOf="@id/login_logo"
+                app:layout_constraintTop_toBottomOf="@id/forget_password" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_16sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/login_button"
+                app:layout_constraintStart_toStartOf="@id/login_button"
+                app:layout_constraintTop_toBottomOf="@id/login_button">
+
+                <TextView
+                    android:id="@+id/no_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dont_have_an_account"
+                    android:textColor="@color/main_color" />
+
+                <TextView
+                    android:id="@+id/signup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sign_up"
+                    android:textColor="@color/main_color"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@ class LoginFragment : BaseFragmentImpl<FragmentLoginBinding>(FragmentLoginBindin
         super.onViewCreated(view, savedInstanceState)
 
         changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)
-        //binding.loginAppBar.appBarTitle.text = "Welcome To S3Y"
+        binding.loginAppBar.appBarTitle.text = "Welcome To S3Y"
 
     }
 }
