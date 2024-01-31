@@ -64,4 +64,6 @@ dependencies {
 
     //navigation component
     implementation libs.bundles.naviation
+
+    implementation libs.neumorphism
 }
