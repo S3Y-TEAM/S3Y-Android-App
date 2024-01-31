@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Tavolo</string>
+    <string name="app_name">سعي</string>
 
     <!-- BottomBar -->
     <string name="home">الرئيسية</string>
@@ -110,5 +110,16 @@
 
     <string name="click_one_more_to_exit">أضغط مره أخري للخروج من التطبيق</string>
     <string name="permission_failed_you_have_to_allow_location">يجب إعطاء صلاحية للمتابعة</string>
+
+    <string name="choose_image">اختر صورة</string>
+    <string name="please_register_or_login_to_your_account">الرجاء تسجيل الدخول </string>
+    <string name="code_sent_to_your_phone_successfully">تم ارسال الكود بنجاح</string>
+    <string name="failed_to_send_code_to_your_phone_please_try_again_later">فشل ارسال الكود ، الرجاء المحاوله مره اخري</string>
+    <string name="confirm_reservation">تاكيد الحجز</string>
+    <string name="are_you_sure_you_want_to_reserve_this_place">هل تريد تاكيد حجز المكان ؟</string>
+    <string name="forget_password">نسيت كلمة السر ؟</string>
+    <string name="password">كلمة السر</string>
+
+
 
 </resources>

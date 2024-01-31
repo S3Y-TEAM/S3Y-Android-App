@@ -39,7 +39,7 @@
     <string name="you_phone_has_been_updated_successfully">You phone has been updated successfully</string>
     <string name="otp_verification_canceled">Otp verification canceled</string>
     <string name="failed_to_send_otp_please_try_again_later">Failed to send otp please try again later</string>
-    <string name="phone">Phone</string>
+    <string name="phone">Phone Number</string>
 
     <!-- LanguageFragment -->
     <string name="choose_your_preferred_languages">Choose Your Preferred Language</string>
@@ -165,6 +165,8 @@
     <string name="failed_to_send_code_to_your_phone_please_try_again_later">failed to send code to your phone please try again later</string>
     <string name="confirm_reservation">Confirm Reservation</string>
     <string name="are_you_sure_you_want_to_reserve_this_place">Are you sure you want to reserve this place?</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="password">Password</string>
 
 
 </resources>
