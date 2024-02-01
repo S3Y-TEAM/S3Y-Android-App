@@ -2,8 +2,11 @@ package com.graduation.presentation.screens.auth.login
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.graduation.core.extensions.navigation.navigateTo
+import com.graduation.core.extensions.navigation.onBackPress
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentLoginBinding
@@ -11,7 +14,6 @@ import com.graduation.presentation.screens.BaseFragmentImpl
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragmentImpl<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
@@ -28,14 +30,26 @@ class LoginFragment : BaseFragmentImpl<FragmentLoginBinding>(FragmentLoginBindin
     }
 
     override fun setOnClickListener() {
-        binding.loginButton.setOnClickListener {
-            lifecycleScope.launch {
-                binding.loginButton.loadingDrawable.strokeWidth =
-                    binding.loginButton.textSize * 0.14f;
-                onLoadingStart()
-                delay(1600)
-                onComplete(true)
-                delay(1600)
+
+        binding.apply {
+            loginButton.setOnClickListener {
+                lifecycleScope.launch {
+                    loginButton.loadingDrawable.strokeWidth = loginButton.textSize * 0.14f;
+                    onLoadingStart()
+                    delay(1600)
+                    onComplete(true)
+                    delay(1600)
+                }
+            }
+
+            signup.setOnClickListener {
+                navigateTo(R.id.action_loginFragment_to_signUpFragment)
+            }
+
+            onBackPress {
+                requireActivity().onBackPressedDispatcher.addCallback(requireActivity()) {
+                    return@addCallback requireActivity().finish()
+                }
             }
         }
     }
