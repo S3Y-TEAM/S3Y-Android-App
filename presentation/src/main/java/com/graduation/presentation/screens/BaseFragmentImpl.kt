@@ -16,4 +16,11 @@ abstract class BaseFragmentImpl<B : ViewBinding>(
         //navigate
         startActivityAndClearStack(AuthActivity::class.java)
     }
+
+    //button progress
+    abstract fun setOnClickListener()
+    abstract fun setAppBar()
+    abstract fun onLoadingStart()
+    abstract fun onComplete(isSuccess: Boolean)
+    abstract fun onCancel()
 }
