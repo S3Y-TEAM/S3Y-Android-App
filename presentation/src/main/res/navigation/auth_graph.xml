@@ -24,8 +24,27 @@
 <!--            app:exitAnim="@anim/nav_fade_out"-->
 <!--            app:popEnterAnim="@anim/nav_fade_in"-->
 <!--            app:popExitAnim="@anim/nav_fade_out"/>-->
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment"
+            app:enterAnim="@anim/nav_slide_in"
+            app:exitAnim="@anim/nav_fade_out"
+            app:popEnterAnim="@anim/nav_fade_in"
+            app:popExitAnim="@anim/nav_slide_out" />
+
+
+            />
     </fragment>
-<!--    <fragment-->
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.graduation.presentation.screens.auth.signup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <!--    <fragment-->
 <!--        android:id="@+id/registerFragment"-->
 <!--        android:name="com.alexon.tavolo.ui.screens.auth.register.RegisterFragment"-->
 <!--        android:label="RegisterFragment">-->
