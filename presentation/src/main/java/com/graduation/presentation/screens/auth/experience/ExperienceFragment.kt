@@ -5,56 +5,106 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
+import com.graduation.presentation.databinding.FragmentCategoriesBinding
+import com.graduation.presentation.databinding.FragmentExperienceBinding
+import com.graduation.presentation.screens.BaseFragmentImpl
+import com.graduation.presentation.screens.auth.categories.CategoriesViewModel
+import com.graduation.presentation.screens.auth.categories.adapter.CategoriesAdapter
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class ExperienceFragment :
+    BaseFragmentImpl<FragmentExperienceBinding>(FragmentExperienceBinding::inflate) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ExperienceFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ExperienceFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    override val viewModel: CategoriesViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var adapterItems: CategoriesAdapter
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setOnClickListener()
+        setAppBar()
+        setupRV()
+
+    }
+
+
+
+    private fun setupRV() {
+        adapterItems = CategoriesAdapter(kind = false)
+        adapterItems.differ.submitList(setUpFriendsArrayList().toList())
+        binding.experienceRv.apply {
+
+            adapter = adapterItems
+
+
+            val flexboxLayoutManager = LinearLayoutManager(requireContext(), GridLayoutManager.VERTICAL, false)
+//            flexboxLayoutManager.apply {
+//                flexDirection = FlexDirection.ROW
+//                flexWrap = FlexWrap.WRAP
+//            }
+
+            layoutManager = flexboxLayoutManager
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_experience, container, false)
+    private fun setUpFriendsArrayList(): ArrayList<String> {
+        val dummyData = ArrayList<String>()
+        dummyData.add(0, "less than 1 year")
+        dummyData.add(1, "From 1 year to 3 year")
+        dummyData.add(2, "From 3 year to 5 year")
+        dummyData.add(3, "From 5 year to 8 year")
+        dummyData.add(4, "More than 8 year")
+
+        return dummyData
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ExperienceFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ExperienceFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun setOnClickListener() {
+
+        binding.apply {
+            experienceButton.setOnClickListener {
+                lifecycleScope.launch {
+                    experienceButton.loadingDrawable.strokeWidth =
+                        experienceButton.textSize * 0.14f;
+                    onLoadingStart()
+                    delay(1600)
+                    onComplete(true)
+                    delay(500)
                 }
             }
+
+            experienceAppBar.appBarBackArrow.setOnClickListener {
+                findNavController().navigateUp()
+            }
+        }
     }
+
+    override fun setAppBar() {
+        changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)
+        binding.experienceAppBar.appBarTitle.text = resources.getText(R.string.experience)
+    }
+
+    override fun onLoadingStart() {
+        binding.experienceButton.start()
+    }
+
+    override fun onComplete(isSuccess: Boolean) {
+        binding.experienceButton.complete(true)
+    }
+
+    override fun onCancel() {
+        binding.experienceButton.cancel()
+    }
+
 }

@@ -171,6 +171,8 @@
     <string name="user_name">User Name</string>
     <string name="full_name">Full Name</string>
     <string name="choose_your_categories">Choose your Categories:</string>
+    <string name="choose_your_experience">Choose your Experience:</string>
+    <string name="experience">Experience:</string>
 
 
 </resources>
