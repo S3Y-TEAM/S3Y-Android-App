@@ -10,30 +10,12 @@
         android:name="com.graduation.presentation.screens.auth.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
-<!--        <action-->
-<!--            android:id="@+id/action_loginFragment_to_registerFragment"-->
-<!--            app:destination="@id/registerFragment"-->
-<!--            app:enterAnim="@anim/nav_slide_in"-->
-<!--            app:exitAnim="@anim/nav_fade_out"-->
-<!--            app:popEnterAnim="@anim/nav_fade_in"-->
-<!--            app:popExitAnim="@anim/nav_slide_out" />-->
-<!--        <action-->
-<!--            android:id="@+id/action_loginFragment_to_otpFragment"-->
-<!--            app:destination="@id/otpFragment"-->
-<!--            app:enterAnim="@anim/nav_fade_out"-->
-<!--            app:exitAnim="@anim/nav_fade_out"-->
-<!--            app:popEnterAnim="@anim/nav_fade_in"-->
-<!--            app:popExitAnim="@anim/nav_fade_out"/>-->
+
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment"
-            app:enterAnim="@anim/nav_slide_in"
-            app:exitAnim="@anim/nav_fade_out"
-            app:popEnterAnim="@anim/nav_fade_in"
-            app:popExitAnim="@anim/nav_slide_out" />
-
-
             />
+
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -51,30 +33,14 @@
         android:id="@+id/categoriesFragment"
         android:name="com.graduation.presentation.screens.auth.categories.CategoriesFragment"
         android:label="fragment_categories"
-        tools:layout="@layout/fragment_categories" />
-    <!--    <fragment-->
-<!--        android:id="@+id/registerFragment"-->
-<!--        android:name="com.alexon.tavolo.ui.screens.auth.register.RegisterFragment"-->
-<!--        android:label="RegisterFragment">-->
-<!--        <action-->
-<!--            android:id="@+id/action_registerFragment_to_otpFragment"-->
-<!--            app:destination="@id/otpFragment"-->
-<!--            app:enterAnim="@anim/nav_slide_in"-->
-<!--            app:exitAnim="@anim/nav_fade_out"-->
-<!--            app:popEnterAnim="@anim/nav_fade_in"-->
-<!--            app:popExitAnim="@anim/nav_slide_out"/>-->
-<!--    </fragment>-->
-<!--    <fragment-->
-<!--        android:id="@+id/otpFragment"-->
-<!--        android:name="com.alexon.tavolo.ui.screens.auth.otp.OtpFragment"-->
-<!--        android:label="fragment_otp"-->
-<!--        tools:layout="@layout/fragment_otp" >-->
-<!--        <action-->
-<!--            android:id="@+id/action_otpFragment_to_registerFragment"-->
-<!--            app:destination="@id/registerFragment" />-->
-<!--    </fragment>-->
-<!--    <fragment-->
-<!--        android:id="@+id/onBoardingFragment"-->
-<!--        android:name="com.alexon.tavolo.ui.screens.onBoarding.OnBoardingFragment"-->
-<!--        android:label="OnBoardingFragment" />-->
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_experienceFragment"
+            app:destination="@id/experienceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/experienceFragment"
+        android:name="com.graduation.presentation.screens.auth.experience.ExperienceFragment"
+        android:label="fragment_experience"
+        tools:layout="@layout/fragment_experience" />
 </navigation>
