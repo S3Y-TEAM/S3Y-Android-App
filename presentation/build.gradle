@@ -65,11 +65,13 @@ dependencies {
     //navigation component
     implementation libs.bundles.naviation
 
+    //shadow
     implementation libs.neumorphism
 
-    //implementation 'com.github.FlodCoding:LoadingButton:1.1.0-alpha01'
-
-
-
+    //loading button
     implementation libs.loadingButton
+
+    //rv layout
+    implementation libs.flexbox
+
 }

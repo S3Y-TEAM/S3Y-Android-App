@@ -43,7 +43,15 @@
         <action
             android:id="@+id/action_signUpFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.graduation.presentation.screens.auth.categories.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" />
     <!--    <fragment-->
 <!--        android:id="@+id/registerFragment"-->
 <!--        android:name="com.alexon.tavolo.ui.screens.auth.register.RegisterFragment"-->
