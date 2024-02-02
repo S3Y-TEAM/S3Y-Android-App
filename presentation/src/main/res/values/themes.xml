@@ -207,6 +207,9 @@
         <item name="neumorph_shadowColorDark">@color/shadow_color_4</item>
         <item name="neumorph_shadowColorLight">@color/gradiant_1</item>
         <item name="neumorph_cornerSize">30dp</item>
+        <item name="android:textColor">@color/main_color</item>
+        <item name="android:fontFamily">@font/omnes_medium</item>
+        <item name="android:padding">@dimen/_18sdp</item>
     </style>
 
     <!--    Edit text -->
@@ -240,6 +243,15 @@
         <item name="enableRestore">true</item>
         <item name="shrinkShape">Oval</item>
     </style>
+
+    <style name="TextStyle">
+        <item name="android:layout_marginStart">@dimen/_18sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_18sdp</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:fontFamily">@font/omnes_bold</item>
+        <item name="android:textColor">@color/main_color</item>
+    </style>
+
 
 
 </resources>
