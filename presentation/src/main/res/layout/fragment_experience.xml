@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#12164863"
-    tools:context=".screens.auth.categories.CategoriesFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.auth.experience.ExperienceFragment">
 
     <include
-        android:id="@+id/categories_app_bar"
+        android:id="@+id/experience_app_bar"
         layout="@layout/app_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -17,42 +17,42 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/categories_logo"
+        android:id="@+id/experience_logo"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_220sdp"
         android:layout_marginTop="@dimen/_18sdp"
-        android:src="@drawable/categories"
-        app:layout_constraintBottom_toTopOf="@id/choose_categories"
+        android:src="@drawable/experiences"
+        app:layout_constraintBottom_toTopOf="@id/choose_experience"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/categories_app_bar" />
+        app:layout_constraintTop_toBottomOf="@id/experience_app_bar" />
 
     <TextView
-        android:id="@+id/choose_categories"
+        android:id="@+id/choose_experience"
         style="@style/TextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/choose_your_categories"
-        app:layout_constraintBottom_toTopOf="@id/scroll_view"
-        app:layout_constraintStart_toStartOf="@id/categories_logo"
-        app:layout_constraintTop_toBottomOf="@id/categories_logo" />
+        android:text="@string/choose_your_experience"
+        app:layout_constraintBottom_toTopOf="@id/experience_scroll_view"
+        app:layout_constraintStart_toStartOf="@id/experience_logo"
+        app:layout_constraintTop_toBottomOf="@id/experience_logo" />
 
     <ScrollView
-        android:id="@+id/scroll_view"
+        android:id="@+id/experience_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:overScrollMode="never"
-        app:layout_constraintBottom_toTopOf="@id/categories_button"
+        app:layout_constraintBottom_toTopOf="@id/experience_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/choose_categories">
+        app:layout_constraintTop_toBottomOf="@id/choose_experience">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/categories_rv"
+                android:id="@+id/experience_rv"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginStart="@dimen/_24sdp"
@@ -68,13 +68,13 @@
     </ScrollView>
 
     <com.flod.loadingbutton.LoadingButton
-        android:id="@+id/categories_button"
+        android:id="@+id/experience_button"
         style="@style/MainButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/categories_app_bar"
-        app:layout_constraintStart_toStartOf="@id/categories_app_bar" />
+        app:layout_constraintEnd_toEndOf="@id/experience_app_bar"
+        app:layout_constraintStart_toStartOf="@id/experience_app_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

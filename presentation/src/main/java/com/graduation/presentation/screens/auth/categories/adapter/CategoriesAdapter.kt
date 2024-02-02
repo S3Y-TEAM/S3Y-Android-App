@@ -1,5 +1,6 @@
 package com.graduation.presentation.screens.auth.categories.adapter
 
+import android.app.ActionBar.LayoutParams
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,10 +11,11 @@ import com.graduation.core.extensions.getResourceColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.CategoriesItemBinding
 
-class CategoriesAdapter : RecyclerView.Adapter<CategoriesAdapter.AllCountriesAdapter>() {
+class CategoriesAdapter(var kind : Boolean) : RecyclerView.Adapter<CategoriesAdapter.AllCategoriesAdapter>() {
 
-    inner class AllCountriesAdapter(val binding: CategoriesItemBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    inner class AllCategoriesAdapter(val binding: CategoriesItemBinding) :
+        RecyclerView.ViewHolder(binding.root){
+        }
 
     private val differCallback = object : DiffUtil.ItemCallback<String>() {
         override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
@@ -27,19 +29,24 @@ class CategoriesAdapter : RecyclerView.Adapter<CategoriesAdapter.AllCountriesAda
 
     val differ = AsyncListDiffer(this, differCallback)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllCountriesAdapter {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllCategoriesAdapter {
         val binding =
             CategoriesItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return AllCountriesAdapter(binding)
+        return AllCategoriesAdapter(binding)
     }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
 
-    override fun onBindViewHolder(holder: AllCountriesAdapter, position: Int) {
+    override fun onBindViewHolder(holder: AllCategoriesAdapter, position: Int) {
         val item = differ.currentList[position]
         holder.binding.root.apply {
+
+            when (kind){
+                true -> holder.binding.root.layoutParams.width = LayoutParams.WRAP_CONTENT
+                false -> holder.binding.root.layoutParams.width = LayoutParams.MATCH_PARENT
+            }
 
             holder.binding.apply {
                 btnItem.text = item.toString()

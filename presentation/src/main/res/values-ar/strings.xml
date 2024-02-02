@@ -126,6 +126,9 @@
 
     <string name="choose_your_categories">اختر الفئات الخاصه بك:</string>
     <string name="categories">الفئات</string>
+    <string name="choose_your_experience">اختر الخبره:</string>
+
+    <string name="experience">الخبرة</string>
 
 
     <string name="search">البحث…</string>

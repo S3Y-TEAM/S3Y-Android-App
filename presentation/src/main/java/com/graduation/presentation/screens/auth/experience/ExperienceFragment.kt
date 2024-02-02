@@ -1,27 +1,30 @@
-package com.graduation.presentation.screens.auth.categories
+package com.graduation.presentation.screens.auth.experience
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
-import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentCategoriesBinding
+import com.graduation.presentation.databinding.FragmentExperienceBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
+import com.graduation.presentation.screens.auth.categories.CategoriesViewModel
 import com.graduation.presentation.screens.auth.categories.adapter.CategoriesAdapter
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-@AndroidEntryPoint
-
-class CategoriesFragment :
-    BaseFragmentImpl<FragmentCategoriesBinding>(FragmentCategoriesBinding::inflate) {
+class ExperienceFragment :
+    BaseFragmentImpl<FragmentExperienceBinding>(FragmentExperienceBinding::inflate) {
 
     override val viewModel: CategoriesViewModel by viewModels()
 
@@ -36,17 +39,21 @@ class CategoriesFragment :
 
     }
 
+
+
     private fun setupRV() {
-        adapterItems = CategoriesAdapter(kind = true)
+        adapterItems = CategoriesAdapter(kind = false)
         adapterItems.differ.submitList(setUpFriendsArrayList().toList())
-        binding.categoriesRv.apply {
+        binding.experienceRv.apply {
+
             adapter = adapterItems
 
-            val flexboxLayoutManager = FlexboxLayoutManager(requireContext())
-            flexboxLayoutManager.apply {
-                flexDirection = FlexDirection.ROW
-                flexWrap = FlexWrap.WRAP
-            }
+
+            val flexboxLayoutManager = LinearLayoutManager(requireContext(), GridLayoutManager.VERTICAL, false)
+//            flexboxLayoutManager.apply {
+//                flexDirection = FlexDirection.ROW
+//                flexWrap = FlexWrap.WRAP
+//            }
 
             layoutManager = flexboxLayoutManager
         }
@@ -54,18 +61,11 @@ class CategoriesFragment :
 
     private fun setUpFriendsArrayList(): ArrayList<String> {
         val dummyData = ArrayList<String>()
-        dummyData.add(0, "Android")
-        dummyData.add(1, "Flutter")
-        dummyData.add(2, "IOS")
-        dummyData.add(3, "UI/UX")
-        dummyData.add(4, "Back-end")
-        dummyData.add(5, "Front-end")
-        dummyData.add(6, "Security")
-        dummyData.add(7, "Computer Science")
-        dummyData.add(8, "AI")
-        dummyData.add(9, "Game Development")
-        dummyData.add(10, "Data Science")
-        dummyData.add(11, "Embedded System")
+        dummyData.add(0, "less than 1 year")
+        dummyData.add(1, "From 1 year to 3 year")
+        dummyData.add(2, "From 3 year to 5 year")
+        dummyData.add(3, "From 5 year to 8 year")
+        dummyData.add(4, "More than 8 year")
 
         return dummyData
     }
@@ -73,20 +73,18 @@ class CategoriesFragment :
     override fun setOnClickListener() {
 
         binding.apply {
-            categoriesButton.setOnClickListener {
+            experienceButton.setOnClickListener {
                 lifecycleScope.launch {
-                    categoriesButton.loadingDrawable.strokeWidth =
-                        categoriesButton.textSize * 0.14f;
+                    experienceButton.loadingDrawable.strokeWidth =
+                        experienceButton.textSize * 0.14f;
                     onLoadingStart()
                     delay(1600)
                     onComplete(true)
                     delay(500)
-
-                    navigateTo(R.id.action_categoriesFragment_to_experienceFragment)
                 }
             }
 
-            categoriesAppBar.appBarBackArrow.setOnClickListener {
+            experienceAppBar.appBarBackArrow.setOnClickListener {
                 findNavController().navigateUp()
             }
         }
@@ -94,18 +92,19 @@ class CategoriesFragment :
 
     override fun setAppBar() {
         changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)
-        binding.categoriesAppBar.appBarTitle.text = resources.getText(R.string.categories)
+        binding.experienceAppBar.appBarTitle.text = resources.getText(R.string.experience)
     }
 
     override fun onLoadingStart() {
-        binding.categoriesButton.start()
+        binding.experienceButton.start()
     }
 
     override fun onComplete(isSuccess: Boolean) {
-        binding.categoriesButton.complete(true)
+        binding.experienceButton.complete(true)
     }
 
     override fun onCancel() {
-        binding.categoriesButton.cancel()
+        binding.experienceButton.cancel()
     }
+
 }
