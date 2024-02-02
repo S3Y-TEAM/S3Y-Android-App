@@ -27,6 +27,7 @@
     <string name="failed_to_login">فشل تسجيل الدخول يرجى المحاولة مرة أخرى في وقت لاحق</string>
 
     <!-- RegisterFragment -->
+    <string name="sign_up_to_s3y">تسجيل الدخول الي سعي</string>
     <string name="next">التالي</string>
     <string name="already_have_an_account">هل لديك حساب؟</string>
     <string name="new_account">انشاء حساب جديد</string>
@@ -122,6 +123,14 @@
 
     <string name="user_name">اسم المستخدم</string>
     <string name="full_name">الاسم بالكامل</string>
+
+    <string name="choose_your_categories">اختر الفئات الخاصه بك:</string>
+    <string name="categories">الفئات</string>
+
+
+    <string name="search">البحث…</string>
+
+
 
 
 

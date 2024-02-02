@@ -103,6 +103,7 @@
     <string name="failed_to_login">Failed to login please try again later</string>
 
     <!-- RegisterFragment -->
+    <string name="sign_up_to_s3y">Sign Up To S3Y</string>
     <string name="next">Next</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="new_account">Create a new account</string>
@@ -169,6 +170,7 @@
     <string name="password">Password</string>
     <string name="user_name">User Name</string>
     <string name="full_name">Full Name</string>
+    <string name="choose_your_categories">Choose your Categories:</string>
 
 
 </resources>
