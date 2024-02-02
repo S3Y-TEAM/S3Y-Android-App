@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
+import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentCategoriesBinding
@@ -36,7 +37,7 @@ class CategoriesFragment :
     }
 
     private fun setupRV() {
-        adapterItems = CategoriesAdapter()
+        adapterItems = CategoriesAdapter(kind = true)
         adapterItems.differ.submitList(setUpFriendsArrayList().toList())
         binding.categoriesRv.apply {
             adapter = adapterItems
@@ -80,6 +81,8 @@ class CategoriesFragment :
                     delay(1600)
                     onComplete(true)
                     delay(500)
+
+                    navigateTo(R.id.action_categoriesFragment_to_experienceFragment)
                 }
             }
 

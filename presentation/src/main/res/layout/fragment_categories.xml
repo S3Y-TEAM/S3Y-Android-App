@@ -17,25 +17,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/login_logo"
+        android:id="@+id/categories_logo"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_220sdp"
         android:layout_marginTop="@dimen/_18sdp"
         android:src="@drawable/categories"
-        app:layout_constraintBottom_toTopOf="@id/choose"
+        app:layout_constraintBottom_toTopOf="@id/choose_categories"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/categories_app_bar" />
 
     <TextView
-        android:id="@+id/choose"
+        android:id="@+id/choose_categories"
         style="@style/TextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/choose_your_categories"
         app:layout_constraintBottom_toTopOf="@id/scroll_view"
-        app:layout_constraintStart_toStartOf="@id/login_logo"
-        app:layout_constraintTop_toBottomOf="@id/login_logo" />
+        app:layout_constraintStart_toStartOf="@id/categories_logo"
+        app:layout_constraintTop_toBottomOf="@id/categories_logo" />
 
     <ScrollView
         android:id="@+id/scroll_view"
@@ -45,7 +45,7 @@
         app:layout_constraintBottom_toTopOf="@id/categories_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/choose">
+        app:layout_constraintTop_toBottomOf="@id/choose_categories">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -72,7 +72,7 @@
         style="@style/MainButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/categories"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/categories_app_bar"
         app:layout_constraintStart_toStartOf="@id/categories_app_bar" />
