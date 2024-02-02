@@ -37,7 +37,8 @@ class SignUpFragment : BaseFragmentImpl<FragmentSignUpBinding>(FragmentSignUpBin
                     onLoadingStart()
                     delay(1600)
                     onComplete(true)
-                    delay(1600)
+                    delay(500)
+                    navigateTo(R.id.action_signUpFragment_to_categoriesFragment)
                 }
             }
 
@@ -55,7 +56,7 @@ class SignUpFragment : BaseFragmentImpl<FragmentSignUpBinding>(FragmentSignUpBin
 
     override fun setAppBar() {
         changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)
-        binding.signUpAppBar.appBarTitle.text = "Sign Up To S3Y"
+        binding.signUpAppBar.appBarTitle.text = resources.getText(R.string.sign_up_to_s3y)
     }
 
     override fun onLoadingStart() {
