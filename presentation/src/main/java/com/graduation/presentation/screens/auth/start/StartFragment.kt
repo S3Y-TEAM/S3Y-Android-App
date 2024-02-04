@@ -1,19 +1,13 @@
 package com.graduation.presentation.screens.auth.start
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentStartBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class StartFragment :
     BaseFragmentImpl<FragmentStartBinding>(FragmentStartBinding::inflate) {

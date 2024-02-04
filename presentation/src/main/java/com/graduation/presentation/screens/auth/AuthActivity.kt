@@ -3,8 +3,8 @@ package com.graduation.presentation.screens.auth
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.graduation.core.extensions.navigation.setStartDestination
-import com.graduation.presentation.Constants.NAV_ARGS_AUTH_KEY
 import com.graduation.presentation.Constants.NAV_ARGS_AUTH_AUTHENTICATE
+import com.graduation.presentation.Constants.NAV_ARGS_AUTH_KEY
 import com.graduation.presentation.Constants.NAV_ARGS_AUTH_ON_BOARDING
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.ActivityAuthBinding

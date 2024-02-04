@@ -1,27 +1,19 @@
 package com.graduation.presentation.screens.auth.onboarding
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.navigation.onBackPress
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentOnboardingBinding
-import com.graduation.presentation.databinding.FragmentSignUpBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
 import com.graduation.presentation.screens.auth.onboarding.adapter.OnboardingAdapter
 import com.graduation.presentation.screens.auth.onboarding.model.OnboardingItem
-import com.graduation.presentation.screens.auth.signup.SignUpViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class OnboardingFragment :

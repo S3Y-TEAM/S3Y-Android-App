@@ -4,13 +4,13 @@ import androidx.lifecycle.lifecycleScope
 import com.graduation.core.base.ui.BaseActivity
 import com.graduation.core.extensions.navigation.startActivity
 import com.graduation.core.extensions.navigation.startActivityWithExtras
-import com.graduation.presentation.Constants.NAV_ARGS_AUTH_KEY
-import com.graduation.presentation.Constants.NAV_ARGS_AUTH_AUTHENTICATE
-import com.graduation.presentation.Constants.NAV_ARGS_AUTH_ON_BOARDING
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.core.utils.language.getCurrentAppLanguage
 import com.graduation.core.utils.permission.PermissionType
 import com.graduation.core.utils.permission.requestPermissions
+import com.graduation.presentation.Constants.NAV_ARGS_AUTH_AUTHENTICATE
+import com.graduation.presentation.Constants.NAV_ARGS_AUTH_KEY
+import com.graduation.presentation.Constants.NAV_ARGS_AUTH_ON_BOARDING
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.ActivitySplashBinding
 import com.graduation.presentation.screens.auth.AuthActivity

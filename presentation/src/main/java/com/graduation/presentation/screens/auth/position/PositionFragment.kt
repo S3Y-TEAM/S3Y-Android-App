@@ -1,13 +1,9 @@
 package com.graduation.presentation.screens.auth.position
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
-import com.graduation.core.base.ui.BaseViewModel
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.navigation.navigateToWithBundle
 import com.graduation.core.extensions.navigation.onBackPress

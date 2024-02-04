@@ -2,12 +2,9 @@ package com.graduation.presentation.screens.auth.login
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.graduation.core.extensions.navigation.navigateTo
-import com.graduation.core.extensions.navigation.onBackPress
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentLoginBinding
@@ -46,14 +43,6 @@ class LoginFragment : BaseFragmentImpl<FragmentLoginBinding>(FragmentLoginBindin
             signup.setOnClickListener {
                 findNavController().navigateUp()
             }
-
-//            onBackPress {
-////                requireActivity().onBackPressedDispatcher.addCallback(requireActivity()) {
-////                    return@addCallback requireActivity().finish()
-////                }
-//
-//                findNavController().navigateUp()
-//            }
             loginAppBar.appBarBackArrow.setOnClickListener {
                 findNavController().navigateUp()
             }
