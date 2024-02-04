@@ -12,8 +12,11 @@ import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentExperienceBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
 import com.graduation.presentation.screens.auth.categories.adapter.CategoriesAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+
+@AndroidEntryPoint
 
 class ExperienceFragment :
     BaseFragmentImpl<FragmentExperienceBinding>(FragmentExperienceBinding::inflate) {
@@ -30,7 +33,6 @@ class ExperienceFragment :
         setupRV()
 
     }
-
 
     private fun setupRV() {
         adapterItems = CategoriesAdapter(kind = false)
@@ -68,12 +70,18 @@ class ExperienceFragment :
             experienceAppBar.appBarBackArrow.setOnClickListener {
                 findNavController().navigateUp()
             }
+            experienceAppBar.appBarSkipBtn.setOnClickListener {
+
+            }
         }
     }
 
     override fun setAppBar() {
         changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)
-        binding.experienceAppBar.appBarTitle.text = resources.getText(R.string.experience)
+        binding.experienceAppBar.apply {
+            appBarTitle.text = resources.getText(R.string.experience)
+            appBarSkipBtn.visibility = View.VISIBLE
+        }
     }
 
     override fun onLoadingStart() {

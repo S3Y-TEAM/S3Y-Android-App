@@ -8,7 +8,9 @@ import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentStartBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class StartFragment :
     BaseFragmentImpl<FragmentStartBinding>(FragmentStartBinding::inflate) {
 

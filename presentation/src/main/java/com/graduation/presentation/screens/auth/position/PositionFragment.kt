@@ -11,7 +11,9 @@ import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentPositionBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PositionFragment :
     BaseFragmentImpl<FragmentPositionBinding>(FragmentPositionBinding::inflate) {
 
