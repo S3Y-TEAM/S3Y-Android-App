@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#12164863"
+    android:background="@color/background"
     tools:context=".screens.auth.signup.SignUpFragment">
 
 
@@ -171,6 +171,7 @@
                     android:id="@+id/account_exist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/omnes_regular"
                     android:text="@string/already_have_an_account"
                     android:textColor="@color/main_color"
                     android:textSize="@dimen/_12sdp" />
@@ -179,6 +180,7 @@
                     android:id="@+id/login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/omnes_semi_bold"
                     android:text="@string/login"
                     android:textColor="@color/main_color"
                     android:textSize="@dimen/_12sdp"

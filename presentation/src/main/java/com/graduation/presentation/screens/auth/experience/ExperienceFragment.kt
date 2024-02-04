@@ -40,21 +40,13 @@ class ExperienceFragment :
     }
 
 
-
     private fun setupRV() {
         adapterItems = CategoriesAdapter(kind = false)
         adapterItems.differ.submitList(setUpFriendsArrayList().toList())
         binding.experienceRv.apply {
-
             adapter = adapterItems
-
-
-            val flexboxLayoutManager = LinearLayoutManager(requireContext(), GridLayoutManager.VERTICAL, false)
-//            flexboxLayoutManager.apply {
-//                flexDirection = FlexDirection.ROW
-//                flexWrap = FlexWrap.WRAP
-//            }
-
+            val flexboxLayoutManager =
+                LinearLayoutManager(requireContext(), GridLayoutManager.VERTICAL, false)
             layoutManager = flexboxLayoutManager
         }
     }

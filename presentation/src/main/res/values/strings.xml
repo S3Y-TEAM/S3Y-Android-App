@@ -173,6 +173,13 @@
     <string name="choose_your_categories">Choose your Categories:</string>
     <string name="choose_your_experience">Choose your Experience:</string>
     <string name="experience">Experience:</string>
+    <string name="start">Start</string>
+    <string name="previous">Previous</string>
+
+    <string name="onboarding_one">Clients can effortlessly communicate their project needs to developers for tasks like website or mobile app development, and simultaneously, connect with skilled workers such as carpenters and plumbers for hands-on projects. </string>
+    <string name="onboarding_two">For skilled workers, our platform provides a seamless avenue to showcase their craft and effortlessly connect with projects tailored to their expertise, ensuring a straightforward and rewarding experience in finding meaningful work opportunities.</string>
+    <string name="onboarding_three">For developers, our platform offers a fertile ground where their skills shine, providing an intuitive and efficient space to easily find and engage in diverse projects that align with their expertise and passion.</string>
+    <string name="onboarding_four">Our platform simplifies the payment process, ensuring freelancers easily receive their earnings, with the added convenience of seamless transactions. While providing this user-friendly experience, the platform deducts a nominal percentage to sustain and enhance the overall freelancing community.</string>
 
 
 </resources>
