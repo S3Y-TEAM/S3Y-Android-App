@@ -2,9 +2,11 @@ package com.graduation.presentation.screens.auth.signup
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.navigation.onBackPress
 import com.graduation.core.extensions.screen.changeStatusBarColor
@@ -20,12 +22,20 @@ class SignUpFragment : BaseFragmentImpl<FragmentSignUpBinding>(FragmentSignUpBin
 
     override val viewModel: SignUpViewModel by viewModels()
 
+    private lateinit var position : String
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        getBundleData()
         setOnClickListener()
         setAppBar()
 
+    }
+
+    private fun getBundleData() {
+        position = arguments?.getString("position").toString()
+        Toast.makeText(requireActivity() , position , Toast.LENGTH_SHORT).show()
     }
 
     override fun setOnClickListener() {
@@ -41,15 +51,8 @@ class SignUpFragment : BaseFragmentImpl<FragmentSignUpBinding>(FragmentSignUpBin
                     navigateTo(R.id.action_signUpFragment_to_categoriesFragment)
                 }
             }
-
-            login.setOnClickListener {
-                navigateTo(R.id.action_signUpFragment_to_loginFragment)
-            }
-
-            onBackPress {
-                requireActivity().onBackPressedDispatcher.addCallback(requireActivity()) {
-                    return@addCallback requireActivity().finish()
-                }
+            signUpAppBar.appBarBackArrow.setOnClickListener {
+                findNavController().navigateUp()
             }
         }
     }

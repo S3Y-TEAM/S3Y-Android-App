@@ -73,7 +73,7 @@ class OnboardingFragment :
             }
             skipBtn.setOnClickListener {
                 sharedPreferenceHelper.openedTheAppBefore = true
-                navigateTo(R.id.action_onboardingFragment_to_loginFragment)
+                navigateTo(R.id.action_onboardingFragment_to_positionFragment)
             }
             onBackPress {
                 requireActivity().onBackPressedDispatcher.addCallback(requireActivity()) {
@@ -85,7 +85,7 @@ class OnboardingFragment :
 
     private fun appOpened() {
         sharedPreferenceHelper.openedTheAppBefore = true
-        navigateTo(R.id.action_onboardingFragment_to_loginFragment)
+        navigateTo(R.id.action_onboardingFragment_to_positionFragment)
     }
 
     private fun setOnboardingRV() {
@@ -118,7 +118,7 @@ class OnboardingFragment :
     }
 
     override fun setAppBar() {
-        changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)
+        changeStatusBarColor(R.color.background, isContentLight = false, isTransparent = false)
     }
 
     override fun onLoadingStart() {
