@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:layout_gravity="center_vertical"
+    android:layout_weight="2"
+    android:background="@color/background"
+    android:orientation="vertical">
 
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/onboarding_image"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="@dimen/_250sdp"
-        android:src="@drawable/onboarding_1"
-        app:layout_constraintBottom_toTopOf="@id/onboarding_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:src="@drawable/onboarding_1" />
 
     <TextView
         android:id="@+id/onboarding_description"
         style="@style/TextStyle"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/onboarding_image"
-        app:layout_constraintStart_toStartOf="@id/onboarding_image"
-        app:layout_constraintTop_toBottomOf="@id/onboarding_image"
+        android:layout_gravity="center"
+        android:layout_weight="1"
         tools:text="Clients can effortlessly communicate their project needs to developers for tasks like website or mobile app development, and simultaneously, connect with skilled workers such as carpenters and plumbers for hands-on projects." />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".5" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
