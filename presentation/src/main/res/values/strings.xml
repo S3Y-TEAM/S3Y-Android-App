@@ -173,6 +173,13 @@
     <string name="choose_your_categories">Choose your Categories:</string>
     <string name="choose_your_experience">Choose your Experience:</string>
     <string name="experience">Experience:</string>
+    <string name="start">Start</string>
+    <string name="previous">Previous</string>
+
+    <string name="onboarding_one">Our application serves as a dynamic hub where clients seamlessly connect with both developers and skilled workers, revolutionizing the freelancing experience </string>
+    <string name="onboarding_two">Previous</string>
+    <string name="onboarding_three">Previous</string>
+    <string name="onboarding_four">Previous</string>
 
 
 </resources>
