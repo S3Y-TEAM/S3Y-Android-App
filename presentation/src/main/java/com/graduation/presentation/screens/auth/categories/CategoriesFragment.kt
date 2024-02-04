@@ -38,36 +38,31 @@ class CategoriesFragment :
 
     private fun setupRV() {
         adapterItems = CategoriesAdapter(kind = true)
-        adapterItems.differ.submitList(setUpFriendsArrayList().toList())
+        adapterItems.differ.submitList(setUpFriendsArrayList())
         binding.categoriesRv.apply {
             adapter = adapterItems
-
-            val flexboxLayoutManager = FlexboxLayoutManager(requireContext())
-            flexboxLayoutManager.apply {
+            layoutManager = FlexboxLayoutManager(requireContext()).apply {
                 flexDirection = FlexDirection.ROW
                 flexWrap = FlexWrap.WRAP
             }
-
-            layoutManager = flexboxLayoutManager
         }
     }
 
-    private fun setUpFriendsArrayList(): ArrayList<String> {
-        val dummyData = ArrayList<String>()
-        dummyData.add(0, "Android")
-        dummyData.add(1, "Flutter")
-        dummyData.add(2, "IOS")
-        dummyData.add(3, "UI/UX")
-        dummyData.add(4, "Back-end")
-        dummyData.add(5, "Front-end")
-        dummyData.add(6, "Security")
-        dummyData.add(7, "Computer Science")
-        dummyData.add(8, "AI")
-        dummyData.add(9, "Game Development")
-        dummyData.add(10, "Data Science")
-        dummyData.add(11, "Embedded System")
-
-        return dummyData
+    private fun setUpFriendsArrayList(): List<String> {
+        return listOf(
+            "Android",
+            "Flutter",
+            "IOS",
+            "UI/UX",
+            "Back-end",
+            "Front-end",
+            "Security",
+            "Computer Science",
+            "AI",
+            "Game Development",
+            "Data Science",
+            "Embedded System"
+        )
     }
 
     override fun setOnClickListener() {

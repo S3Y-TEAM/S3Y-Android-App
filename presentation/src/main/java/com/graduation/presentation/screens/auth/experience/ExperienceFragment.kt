@@ -11,7 +11,6 @@ import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentExperienceBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
-import com.graduation.presentation.screens.auth.categories.CategoriesViewModel
 import com.graduation.presentation.screens.auth.categories.adapter.CategoriesAdapter
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -19,7 +18,7 @@ import kotlinx.coroutines.launch
 class ExperienceFragment :
     BaseFragmentImpl<FragmentExperienceBinding>(FragmentExperienceBinding::inflate) {
 
-    override val viewModel: CategoriesViewModel by viewModels()
+    override val viewModel: ExperienceViewModel by viewModels()
 
     private lateinit var adapterItems: CategoriesAdapter
 
@@ -38,21 +37,18 @@ class ExperienceFragment :
         adapterItems.differ.submitList(setUpFriendsArrayList().toList())
         binding.experienceRv.apply {
             adapter = adapterItems
-            val flexboxLayoutManager =
-                LinearLayoutManager(requireContext(), GridLayoutManager.VERTICAL, false)
-            layoutManager = flexboxLayoutManager
+            layoutManager = LinearLayoutManager(requireContext(), GridLayoutManager.VERTICAL, false)
         }
     }
 
-    private fun setUpFriendsArrayList(): ArrayList<String> {
-        val dummyData = ArrayList<String>()
-        dummyData.add(0, "less than 1 year")
-        dummyData.add(1, "From 1 year to 3 year")
-        dummyData.add(2, "From 3 year to 5 year")
-        dummyData.add(3, "From 5 year to 8 year")
-        dummyData.add(4, "More than 8 year")
-
-        return dummyData
+    private fun setUpFriendsArrayList(): List<String> {
+        return listOf(
+            "less than 1 year",
+            "From 1 year to 3 year",
+            "From 3 year to 5 year",
+            "From 5 year to 8 year",
+            "More than 8 year"
+        )
     }
 
     override fun setOnClickListener() {
