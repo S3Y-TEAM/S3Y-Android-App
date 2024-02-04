@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background">
 
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/onboarding_image"
-        android:layout_width="272dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_250sdp"
         android:src="@drawable/onboarding_1"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/onboarding_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,12 +20,13 @@
     <TextView
         android:id="@+id/onboarding_description"
         style="@style/TextStyle"
-        android:layout_width="272sp"
+        android:layout_width="@dimen/_250sdp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/onboarding_image"
         app:layout_constraintStart_toStartOf="@id/onboarding_image"
         app:layout_constraintTop_toBottomOf="@id/onboarding_image"
-        tools:text="Our application is to communicate between developer or skilled worker and client to fix his problem " />
+        tools:text="Clients can effortlessly communicate their project needs to developers for tasks like website or mobile app development, and simultaneously, connect with skilled workers such as carpenters and plumbers for hands-on projects." />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
