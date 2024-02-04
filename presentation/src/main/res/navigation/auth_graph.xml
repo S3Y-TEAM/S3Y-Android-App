@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/auth_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/onboardingFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -13,15 +13,14 @@
 
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment"
-            />
+            app:destination="@id/signUpFragment" />
 
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.graduation.presentation.screens.auth.signup.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" >
+        tools:layout="@layout/fragment_sign_up">
         <action
             android:id="@+id/action_signUpFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -33,7 +32,7 @@
         android:id="@+id/categoriesFragment"
         android:name="com.graduation.presentation.screens.auth.categories.CategoriesFragment"
         android:label="fragment_categories"
-        tools:layout="@layout/fragment_categories" >
+        tools:layout="@layout/fragment_categories">
         <action
             android:id="@+id/action_categoriesFragment_to_experienceFragment"
             app:destination="@id/experienceFragment" />
@@ -43,4 +42,13 @@
         android:name="com.graduation.presentation.screens.auth.experience.ExperienceFragment"
         android:label="fragment_experience"
         tools:layout="@layout/fragment_experience" />
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.graduation.presentation.screens.auth.onboarding.OnboardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/fragment_onboarding">
+        <action
+            android:id="@+id/action_onboardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
