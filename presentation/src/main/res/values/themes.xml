@@ -256,8 +256,8 @@
     <style name="TextStyle">
         <item name="android:layout_marginStart">@dimen/_18sdp</item>
         <item name="android:layout_marginEnd">@dimen/_18sdp</item>
-        <item name="android:textSize">@dimen/_12sdp</item>
-        <item name="android:fontFamily">@font/omnes_regular</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/omnes_bold</item>
         <item name="android:textColor">@color/main_color</item>
     </style>
 

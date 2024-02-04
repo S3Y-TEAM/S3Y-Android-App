@@ -2,11 +2,9 @@ package com.graduation.presentation.screens.auth.login
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.graduation.core.extensions.navigation.navigateTo
-import com.graduation.core.extensions.navigation.onBackPress
+import androidx.navigation.fragment.findNavController
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentLoginBinding
@@ -43,20 +41,17 @@ class LoginFragment : BaseFragmentImpl<FragmentLoginBinding>(FragmentLoginBindin
             }
 
             signup.setOnClickListener {
-                navigateTo(R.id.action_loginFragment_to_signUpFragment)
+                findNavController().navigateUp()
             }
-
-            onBackPress {
-                requireActivity().onBackPressedDispatcher.addCallback(requireActivity()) {
-                    return@addCallback requireActivity().finish()
-                }
+            loginAppBar.appBarBackArrow.setOnClickListener {
+                findNavController().navigateUp()
             }
         }
     }
 
     override fun setAppBar() {
         changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)
-        binding.loginAppBar.appBarTitle.text = "Welcome To S3Y"
+        binding.loginAppBar.appBarTitle.text = resources.getText(R.string.welcome_to_s3y)
     }
 
     override fun onLoadingStart() {

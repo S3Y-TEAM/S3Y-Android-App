@@ -142,7 +142,11 @@
     <string name="onboarding_three">بالنسبة للمطورين، يقدم منصتنا أرضًا خصبة حيث تتألق مهاراتهم، وتوفر مساحة بديهية وفعّالة للعثور بسهولة على مشاريع متنوعة تتناسب مع خبراتهم وشغفهم.</string>
     <string name="onboarding_four">منصتنا تُبسط عملية الدفع، حيث يحصل العاملون الحر بسهولة على أرباحهم، مع إضافة راحة التعامل. وفيما توفر هذه التجربة السهلة للمستخدم، تخصم المنصة نسبة رمزية لدعم وتعزيز مجتمع العمل الحر بشكل عام.</string>
 
+    <string name="welcome_to_s3y">اهلا بك في سعي</string>
 
+    <string name="developer">مطور</string>
+    <string name="skilled_worker">صاحب حرفه</string>
+    <string name="user">مستخدم</string>
 
 
 </resources>

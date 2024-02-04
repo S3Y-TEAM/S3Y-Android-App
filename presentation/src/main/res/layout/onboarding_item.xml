@@ -20,6 +20,7 @@
     <TextView
         android:id="@+id/onboarding_description"
         style="@style/TextStyle"
+        android:fontFamily="@font/omnes_regular"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

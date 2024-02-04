@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".screens.auth.position.PositionFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/position_logo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_220sdp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:padding="@dimen/_36sdp"
+            android:src="@drawable/app_logo"
+            app:layout_constraintBottom_toTopOf="@id/welcome_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/welcome_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal"
+            android:fontFamily="@font/omnes_bold"
+            android:gravity="bottom"
+            android:text="@string/welcome_to_s3y"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/_18sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/choose_position"
+            app:layout_constraintEnd_toEndOf="@id/position_logo"
+            app:layout_constraintStart_toStartOf="@id/position_logo"
+            app:layout_constraintTop_toBottomOf="@id/position_logo" />
+
+        <TextView
+            android:id="@+id/choose_position"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_24sdp"
+            android:text="@string/choose_your_experience"
+            app:layout_constraintBottom_toTopOf="@id/developer_button"
+            app:layout_constraintStart_toStartOf="@id/position_logo"
+            app:layout_constraintTop_toBottomOf="@id/welcome_title" />
+
+        <com.flod.loadingbutton.LoadingButton
+            android:id="@+id/developer_button"
+            style="@style/MainButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/developer"
+            app:layout_constraintEnd_toEndOf="@id/position_logo"
+            app:layout_constraintStart_toStartOf="@id/position_logo"
+            app:layout_constraintTop_toBottomOf="@id/choose_position" />
+
+        <com.flod.loadingbutton.LoadingButton
+            android:id="@+id/skilled_button"
+            style="@style/MainButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/skilled_worker"
+            app:layout_constraintEnd_toEndOf="@id/position_logo"
+            app:layout_constraintStart_toStartOf="@id/position_logo"
+            app:layout_constraintTop_toBottomOf="@id/developer_button" />
+
+        <com.flod.loadingbutton.LoadingButton
+            android:id="@+id/user_button"
+            style="@style/MainButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/user"
+            app:layout_constraintEnd_toEndOf="@id/position_logo"
+            app:layout_constraintStart_toStartOf="@id/position_logo"
+            app:layout_constraintTop_toBottomOf="@id/skilled_button" />
+
+
+        <LinearLayout
+            android:id="@+id/have_acc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/user_button"
+            app:layout_constraintStart_toStartOf="@id/user_button"
+            app:layout_constraintTop_toBottomOf="@id/user_button">
+
+            <TextView
+                android:id="@+id/account_exist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/omnes_regular"
+                android:text="@string/already_have_an_account"
+                android:textColor="@color/main_color"
+                android:textSize="@dimen/_12sdp" />
+
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/omnes_semi_bold"
+                android:text="@string/login"
+                android:textColor="@color/main_color"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
