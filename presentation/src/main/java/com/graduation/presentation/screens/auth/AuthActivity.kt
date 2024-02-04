@@ -24,7 +24,7 @@ class AuthActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         when (intent?.getStringExtra(NAV_ARGS_AUTH_KEY)) {
-            NAV_ARGS_AUTH_ON_BOARDING -> handleSetStartDestination(R.id.onboardingFragment)
+            NAV_ARGS_AUTH_ON_BOARDING -> handleSetStartDestination(R.id.startFragment)
             NAV_ARGS_AUTH_AUTHENTICATE -> handleSetStartDestination(R.id.loginFragment)
             else -> handleSetStartDestination(R.id.loginFragment)
         }
