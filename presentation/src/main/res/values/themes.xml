@@ -216,6 +216,7 @@
     <style name="MainEditText">
         <item name="neumorph_backgroundColor">@color/white</item>
         <item name="neumorph_cornerFamily">rounded</item>
+        <item name="android:textColor">@color/main_color</item>
         <item name="neumorph_shadowColorDark">@color/shadow_color_4</item>
         <item name="neumorph_shadowColorLight">@color/gradiant_1</item>
         <item name="neumorph_shapeAppearance">@style/CustomShapeAppearance</item>
