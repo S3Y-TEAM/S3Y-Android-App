@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soup.neumorphism.NeumorphCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MainEditText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:outlineAmbientShadowColor="@color/black"
+    android:outlineSpotShadowColor="@color/black"
+    app:cardCornerRadius="@dimen/_12sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/project_name_card"
+            style="@style/MainEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            app:layout_constraintBottom_toTopOf="@id/spinner_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/project_name_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawablePadding="@dimen/_6sdp"
+                android:hint="@string/project_name"
+                android:padding="@dimen/_12sdp"
+                android:singleLine="true"
+                android:textColor="@color/main_color"
+                android:textColorHint="#B3164863"
+                android:textSize="@dimen/_12sdp" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/description_card"
+            style="@style/MainEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinner_card">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/description_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawablePadding="@dimen/_6sdp"
+                android:hint="@string/project_description"
+                android:padding="@dimen/_12sdp"
+                android:singleLine="true"
+                android:textColor="@color/main_color"
+                android:textColorHint="#B3164863"
+                android:textSize="@dimen/_12sdp" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/project_file"
+            style="@style/MainEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:drawableEnd="@drawable/ic_upload"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="@dimen/_16sdp"
+            android:text="@string/upload_project"
+            android:textColor="@color/main_color"
+            app:layout_constraintStart_toStartOf="@id/project_name_card"
+            app:layout_constraintTop_toBottomOf="@id/description_card" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/spinner_card"
+            style="@style/MainEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="@id/project_name_card"
+            app:layout_constraintTop_toBottomOf="@id/project_name_card">
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent_image"
+                app:layout_constraintStart_toStartOf="@id/project_name_card"
+                app:layout_constraintTop_toBottomOf="@id/project_name_card" />
+
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <com.flod.loadingbutton.LoadingButton
+            android:id="@+id/save_btn"
+            style="@style/SkipButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_gravity="center|end"
+            android:layout_margin="@dimen/_12sdp"
+            android:layout_marginTop="0dp"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/project_file" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</soup.neumorphism.NeumorphCardView>
