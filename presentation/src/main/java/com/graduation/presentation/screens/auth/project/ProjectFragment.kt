@@ -1,6 +1,5 @@
 package com.graduation.presentation.screens.auth.project
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.Constants.IMAGE_TYPE
 import com.graduation.presentation.Constants.PDF_TYPE
@@ -76,6 +76,7 @@ class ProjectFragment : BaseFragmentImpl<FragmentProjectBinding>(FragmentProject
                     delay(1600)
                     onComplete(true)
                     delay(500)
+                    navigateTo(R.id.action_projectFragment_to_certificateFragment)
                 }
             }
 
@@ -87,7 +88,7 @@ class ProjectFragment : BaseFragmentImpl<FragmentProjectBinding>(FragmentProject
 
             }
             projectItem.projectFile.setOnClickListener {
-                showBottomSheet(requireContext())
+                showBottomSheet()
             }
             uploadProjectBtn.setOnClickListener {
                 if (projectItem.root.visibility == View.VISIBLE)
@@ -101,13 +102,14 @@ class ProjectFragment : BaseFragmentImpl<FragmentProjectBinding>(FragmentProject
                 findNavController().navigateUp()
             }
             projectAppBar.appBarSkipBtn.setOnClickListener {
+                navigateTo(R.id.action_projectFragment_to_certificateFragment)
             }
 
         }
     }
 
-    private fun showBottomSheet(requireContext:Context) {
-        val dialog = BottomSheetDialog(requireContext)
+    private fun showBottomSheet() {
+        val dialog = BottomSheetDialog(requireContext())
         val view = layoutInflater.inflate(R.layout.choose_file_type, null)
         val btnCamera: LinearLayout = view.findViewById(R.id.image_type)
         btnCamera.setOnClickListener {
@@ -120,9 +122,6 @@ class ProjectFragment : BaseFragmentImpl<FragmentProjectBinding>(FragmentProject
             dialog.dismiss()
         }
         dialog.setCancelable(true)
-        dialog.setOnCancelListener {
-            binding.blurView.visibility = View.GONE
-        }
         dialog.setContentView(view)
         dialog.dismissWithAnimation = true
         binding.blurView.visibility = View.VISIBLE
