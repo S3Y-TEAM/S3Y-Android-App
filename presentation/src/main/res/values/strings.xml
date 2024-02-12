@@ -173,6 +173,7 @@
     <string name="choose_your_categories">Choose your Categories:</string>
     <string name="choose_your_experience">Choose your Experience:</string>
     <string name="project_details">Project Details</string>
+    <string name="certificates">Certificates</string>
     <string name="project">Project</string>
     <string name="upload_project">Upload Project</string>
     <string name="experience">Experience</string>
@@ -192,5 +193,6 @@
     <string name="project_name">Project Name</string>
     <string name="save">Save</string>
     <string name="project_description">Project Description</string>
+    <string name="upload_certificate">Upload Certificate</string>
 
 </resources>
