@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_220sdp"
                 android:layout_marginTop="@dimen/_18sdp"
-                android:src="@drawable/project"
+                android:src="@drawable/certificate"
                 app:layout_constraintBottom_toTopOf="@id/certificate_details"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
