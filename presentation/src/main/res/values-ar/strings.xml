@@ -130,6 +130,13 @@
 
     <string name="experience">الخبرة</string>
 
+    <string name="project_details">تفاصيل المشروع</string>
+    <string name="upload_project">اضافة مشروع</string>
+    <string name="project">المشروع</string>
+
+    <string name="project_name">اسم المشروع</string>
+    <string name="save">حفظ</string>
+    <string name="project_description">تثاصيل المشروع</string>
 
     <string name="search">البحث…</string>
 

@@ -7,13 +7,17 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentExperienceBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
 import com.graduation.presentation.screens.auth.categories.adapter.CategoriesAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+
+@AndroidEntryPoint
 
 class ExperienceFragment :
     BaseFragmentImpl<FragmentExperienceBinding>(FragmentExperienceBinding::inflate) {
@@ -30,7 +34,6 @@ class ExperienceFragment :
         setupRV()
 
     }
-
 
     private fun setupRV() {
         adapterItems = CategoriesAdapter(kind = false)
@@ -62,18 +65,25 @@ class ExperienceFragment :
                     delay(1600)
                     onComplete(true)
                     delay(500)
+                    navigateTo(R.id.action_experienceFragment_to_projectFragment)
                 }
             }
 
             experienceAppBar.appBarBackArrow.setOnClickListener {
                 findNavController().navigateUp()
             }
+            experienceAppBar.appBarSkipBtn.setOnClickListener {
+                navigateTo(R.id.action_experienceFragment_to_projectFragment)
+            }
         }
     }
 
     override fun setAppBar() {
         changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)
-        binding.experienceAppBar.appBarTitle.text = resources.getText(R.string.experience)
+        binding.experienceAppBar.apply {
+            appBarTitle.text = resources.getText(R.string.experience)
+            appBarSkipBtn.visibility = View.VISIBLE
+        }
     }
 
     override fun onLoadingStart() {

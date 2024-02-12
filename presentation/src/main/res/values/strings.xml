@@ -172,7 +172,10 @@
     <string name="full_name">Full Name</string>
     <string name="choose_your_categories">Choose your Categories:</string>
     <string name="choose_your_experience">Choose your Experience:</string>
-    <string name="experience">Experience:</string>
+    <string name="project_details">Project Details</string>
+    <string name="project">Project</string>
+    <string name="upload_project">Upload Project</string>
+    <string name="experience">Experience</string>
     <string name="start">Start</string>
     <string name="previous">Previous</string>
 
@@ -186,5 +189,8 @@
     <string name="developer">Developer</string>
     <string name="skilled_worker">Skilled Worker</string>
     <string name="user">User</string>
+    <string name="project_name">Project Name</string>
+    <string name="save">Save</string>
+    <string name="project_description">Project Description</string>
 
 </resources>
