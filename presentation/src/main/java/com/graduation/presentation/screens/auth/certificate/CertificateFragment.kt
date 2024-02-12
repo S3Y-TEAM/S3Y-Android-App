@@ -1,4 +1,4 @@
-package com.graduation.presentation.screens.auth.project
+package com.graduation.presentation.screens.auth.certificate
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,53 +14,37 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
-import com.graduation.presentation.Constants.IMAGE_TYPE
-import com.graduation.presentation.Constants.PDF_TYPE
+import com.graduation.presentation.Constants
 import com.graduation.presentation.R
-import com.graduation.presentation.databinding.FragmentProjectBinding
+import com.graduation.presentation.databinding.FragmentCertificateBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
-import com.graduation.presentation.screens.auth.onboarding.model.OnboardingItem
 import com.graduation.presentation.screens.auth.project.adapter.ProjectAdapter
-import com.graduation.presentation.screens.auth.project.adapter.SpinnerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ProjectFragment : BaseFragmentImpl<FragmentProjectBinding>(FragmentProjectBinding::inflate) {
+class CertificateFragment :
+    BaseFragmentImpl<FragmentCertificateBinding>(FragmentCertificateBinding::inflate) {
 
-    override val viewModel: ProjectViewModel by viewModels()
+    override val viewModel: CertificateViewModel by viewModels()
     private lateinit var adapterItems: ProjectAdapter
     private var items: MutableList<String> = mutableListOf()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupSpinner()
+
         setOnClickListener()
         setAppBar()
         setupRV()
-    }
 
-    private fun setupSpinner() {
-        binding.projectItem.spinner.adapter = SpinnerAdapter(setDummyData())
-    }
-
-    private fun setDummyData(): List<OnboardingItem> {
-        return listOf(
-            OnboardingItem(0, "Select type"),
-            OnboardingItem(R.drawable.ic_edit, "Edit"),
-            OnboardingItem(R.drawable.ic_id, "ID"),
-            OnboardingItem(R.drawable.ic_github, "GitHub"),
-            OnboardingItem(R.drawable.ic_linkedin, "LinkedIn"),
-        )
     }
 
     private fun setupRV() {
         adapterItems = ProjectAdapter()
         adapterItems.differ.submitList(items)
-        binding.projectRv.apply {
+        binding.certificateRv.apply {
             adapter = adapterItems
             layoutManager = LinearLayoutManager(requireContext(), GridLayoutManager.VERTICAL, false)
         }
@@ -68,44 +52,63 @@ class ProjectFragment : BaseFragmentImpl<FragmentProjectBinding>(FragmentProject
 
     override fun setOnClickListener() {
         binding.apply {
-            projectButton.setOnClickListener {
+            certificateButton.setOnClickListener {
                 lifecycleScope.launch {
-                    projectButton.loadingDrawable.strokeWidth =
-                        projectButton.textSize * 0.14f;
+                    certificateButton.loadingDrawable.strokeWidth =
+                        certificateButton.textSize * 0.14f;
                     onLoadingStart()
                     delay(1600)
                     onComplete(true)
                     delay(500)
-                    navigateTo(R.id.action_projectFragment_to_certificateFragment)
                 }
             }
 
-            projectItem.saveBtn.setOnClickListener {
-                items.add("S3Y Application")
+            certificateItem.saveBtn.setOnClickListener {
+                items.add("Certificate")
                 //...
-                binding.projectRv.adapter!!.notifyDataSetChanged()
-                projectItem.root.visibility = View.GONE
+                binding.certificateRv.adapter!!.notifyDataSetChanged()
+                certificateItem.root.visibility = View.GONE
 
             }
-            projectItem.projectFile.setOnClickListener {
+            certificateItem.certificateFile.setOnClickListener {
                 showBottomSheet()
             }
-            uploadProjectBtn.setOnClickListener {
-                if (projectItem.root.visibility == View.VISIBLE)
+            uploadCertificateBtn.setOnClickListener {
+                if (certificateItem.root.visibility == View.VISIBLE)
                     Toast.makeText(requireActivity(), "Please complete data", Toast.LENGTH_SHORT)
                         .show()
                 else {
-                    projectItem.root.visibility = View.VISIBLE
+                    certificateItem.root.visibility = View.VISIBLE
                 }
             }
-            projectAppBar.appBarBackArrow.setOnClickListener {
+            certificateAppBar.appBarBackArrow.setOnClickListener {
                 findNavController().navigateUp()
             }
-            projectAppBar.appBarSkipBtn.setOnClickListener {
-                navigateTo(R.id.action_projectFragment_to_certificateFragment)
+            certificateAppBar.appBarSkipBtn.setOnClickListener {
             }
 
         }
+
+    }
+
+    override fun setAppBar() {
+        changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)
+        binding.certificateAppBar.apply {
+            appBarTitle.text = resources.getText(R.string.certificates)
+            appBarSkipBtn.visibility = View.VISIBLE
+        }
+    }
+
+    override fun onLoadingStart() {
+        binding.certificateButton.start()
+    }
+
+    override fun onComplete(isSuccess: Boolean) {
+        binding.certificateButton.complete(true)
+    }
+
+    override fun onCancel() {
+        binding.certificateButton.cancel()
     }
 
     private fun showBottomSheet() {
@@ -113,18 +116,18 @@ class ProjectFragment : BaseFragmentImpl<FragmentProjectBinding>(FragmentProject
         val view = layoutInflater.inflate(R.layout.choose_file_type, null)
         val btnCamera: LinearLayout = view.findViewById(R.id.image_type)
         btnCamera.setOnClickListener {
-            startIntent(IMAGE_TYPE)
+            startIntent(Constants.IMAGE_TYPE)
             dialog.dismiss()
         }
         val btnGallery: LinearLayout = view.findViewById(R.id.pdf_type)
         btnGallery.setOnClickListener {
-            startIntent(PDF_TYPE)
+            startIntent(Constants.PDF_TYPE)
             dialog.dismiss()
         }
         dialog.setCancelable(true)
         dialog.setContentView(view)
         dialog.dismissWithAnimation = true
-        binding.blurView.visibility = View.VISIBLE
+        binding.blurViewCertificate.visibility = View.VISIBLE
         dialog.show()
     }
 
@@ -141,31 +144,13 @@ class ProjectFragment : BaseFragmentImpl<FragmentProjectBinding>(FragmentProject
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
                 val data = result.data
-                binding.blurView.visibility = View.GONE
+                binding.blurViewCertificate.visibility = View.GONE
                 Log.d("suzan", data.toString())
             }else
-                binding.blurView.visibility = View.GONE
+                binding.blurViewCertificate.visibility = View.GONE
 
         }
 
-    override fun setAppBar() {
-        changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)
-        binding.projectAppBar.apply {
-            appBarTitle.text = resources.getText(R.string.project)
-            appBarSkipBtn.visibility = View.VISIBLE
-        }
-    }
 
-    override fun onLoadingStart() {
-        binding.projectButton.start()
-    }
-
-    override fun onComplete(isSuccess: Boolean) {
-        binding.projectButton.complete(true)
-    }
-
-    override fun onCancel() {
-        binding.projectButton.cancel()
-    }
 
 }
