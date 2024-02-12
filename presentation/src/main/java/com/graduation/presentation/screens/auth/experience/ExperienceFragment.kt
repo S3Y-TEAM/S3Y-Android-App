@@ -7,6 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentExperienceBinding
@@ -64,6 +65,7 @@ class ExperienceFragment :
                     delay(1600)
                     onComplete(true)
                     delay(500)
+                    navigateTo(R.id.action_experienceFragment_to_projectFragment)
                 }
             }
 
@@ -71,7 +73,7 @@ class ExperienceFragment :
                 findNavController().navigateUp()
             }
             experienceAppBar.appBarSkipBtn.setOnClickListener {
-
+                navigateTo(R.id.action_experienceFragment_to_projectFragment)
             }
         }
     }
