@@ -9,7 +9,7 @@
         android:id="@+id/loginFragment"
         android:name="com.graduation.presentation.screens.auth.login.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_login"/>
+        tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.graduation.presentation.screens.auth.signup.SignUpFragment"
@@ -34,20 +34,20 @@
             app:enterAnim="@anim/nav_fade_in"
             app:exitAnim="@anim/nav_fade_out"
             app:popEnterAnim="@anim/nav_slide_in"
-            app:popExitAnim="@anim/nav_slide_out"/>
+            app:popExitAnim="@anim/nav_slide_out" />
     </fragment>
     <fragment
         android:id="@+id/experienceFragment"
         android:name="com.graduation.presentation.screens.auth.experience.ExperienceFragment"
         android:label="fragment_experience"
-        tools:layout="@layout/fragment_experience" >
+        tools:layout="@layout/fragment_experience">
         <action
             android:id="@+id/action_experienceFragment_to_projectFragment"
             app:destination="@id/projectFragment"
             app:enterAnim="@anim/nav_fade_in"
             app:exitAnim="@anim/nav_fade_out"
             app:popEnterAnim="@anim/nav_slide_in"
-            app:popExitAnim="@anim/nav_slide_out"/>
+            app:popExitAnim="@anim/nav_slide_out" />
     </fragment>
     <fragment
         android:id="@+id/onboardingFragment"
@@ -60,44 +60,57 @@
             app:enterAnim="@anim/nav_fade_in"
             app:exitAnim="@anim/nav_fade_out"
             app:popEnterAnim="@anim/nav_slide_in"
-            app:popExitAnim="@anim/nav_slide_out"/>
+            app:popExitAnim="@anim/nav_slide_out" />
     </fragment>
     <fragment
         android:id="@+id/startFragment"
         android:name="com.graduation.presentation.screens.auth.start.StartFragment"
         android:label="fragment_start"
-        tools:layout="@layout/fragment_start" >
+        tools:layout="@layout/fragment_start">
         <action
             android:id="@+id/action_startFragment_to_onboardingFragment"
             app:destination="@id/onboardingFragment"
             app:enterAnim="@anim/nav_fade_in"
             app:exitAnim="@anim/nav_fade_out"
             app:popEnterAnim="@anim/nav_slide_in"
-            app:popExitAnim="@anim/nav_slide_out"/>
+            app:popExitAnim="@anim/nav_slide_out" />
     </fragment>
     <fragment
         android:id="@+id/positionFragment"
         android:name="com.graduation.presentation.screens.auth.position.PositionFragment"
         android:label="fragment_position"
-        tools:layout="@layout/fragment_position" >
+        tools:layout="@layout/fragment_position">
         <action
             android:id="@+id/action_positionFragment_to_signUpFragment"
             app:destination="@id/signUpFragment"
             app:enterAnim="@anim/nav_fade_in"
             app:exitAnim="@anim/nav_fade_out"
             app:popEnterAnim="@anim/nav_slide_in"
-            app:popExitAnim="@anim/nav_slide_out"/>
+            app:popExitAnim="@anim/nav_slide_out" />
         <action
             android:id="@+id/action_positionFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:enterAnim="@anim/nav_fade_in"
             app:exitAnim="@anim/nav_fade_out"
             app:popEnterAnim="@anim/nav_slide_in"
-            app:popExitAnim="@anim/nav_slide_out"/>
+            app:popExitAnim="@anim/nav_slide_out" />
     </fragment>
     <fragment
         android:id="@+id/projectFragment"
         android:name="com.graduation.presentation.screens.auth.project.ProjectFragment"
         android:label="fragment_project"
-        tools:layout="@layout/fragment_project" />
+        tools:layout="@layout/fragment_project">
+        <action
+            android:id="@+id/action_projectFragment_to_certificateFragment"
+            app:destination="@id/certificateFragment"
+            app:enterAnim="@anim/nav_fade_in"
+            app:exitAnim="@anim/nav_fade_out"
+            app:popEnterAnim="@anim/nav_slide_in"
+            app:popExitAnim="@anim/nav_slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/certificateFragment"
+        android:name="com.graduation.presentation.screens.auth.certificate.CertificateFragment"
+        android:label="fragment_certificate"
+        tools:layout="@layout/fragment_certificate" />
 </navigation>
