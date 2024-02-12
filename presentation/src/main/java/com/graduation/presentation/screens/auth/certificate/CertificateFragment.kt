@@ -124,6 +124,9 @@ class CertificateFragment :
             startIntent(Constants.PDF_TYPE)
             dialog.dismiss()
         }
+        dialog.setOnCancelListener {
+            binding.blurViewCertificate.visibility = View.GONE
+        }
         dialog.setCancelable(true)
         dialog.setContentView(view)
         dialog.dismissWithAnimation = true
