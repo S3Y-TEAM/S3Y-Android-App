@@ -122,6 +122,9 @@ class ProjectFragment : BaseFragmentImpl<FragmentProjectBinding>(FragmentProject
             dialog.dismiss()
         }
         dialog.setCancelable(true)
+        dialog.setOnCancelListener {
+            binding.blurView.visibility = View.GONE
+        }
         dialog.setContentView(view)
         dialog.dismissWithAnimation = true
         binding.blurView.visibility = View.VISIBLE

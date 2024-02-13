@@ -194,5 +194,8 @@
     <string name="save">Save</string>
     <string name="project_description">Project Description</string>
     <string name="upload_certificate">Upload Certificate</string>
+    <string name="linked">Linked</string>
+    <string name="github">GitHub</string>
+    <string name="linkedin">LinkedIn</string>
 
 </resources>

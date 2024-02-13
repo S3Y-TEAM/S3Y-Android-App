@@ -112,5 +112,18 @@
         android:id="@+id/certificateFragment"
         android:name="com.graduation.presentation.screens.auth.certificate.CertificateFragment"
         android:label="fragment_certificate"
-        tools:layout="@layout/fragment_certificate" />
+        tools:layout="@layout/fragment_certificate" >
+        <action
+            android:id="@+id/action_certificateFragment_to_linkedFragment"
+            app:destination="@id/linkedFragment"
+            app:enterAnim="@anim/nav_fade_in"
+            app:exitAnim="@anim/nav_fade_out"
+            app:popEnterAnim="@anim/nav_slide_in"
+            app:popExitAnim="@anim/nav_slide_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/linkedFragment"
+        android:name="com.graduation.presentation.screens.auth.linked.LinkedFragment"
+        android:label="fragment_linked"
+        tools:layout="@layout/fragment_linked" />
 </navigation>

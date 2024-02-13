@@ -65,6 +65,7 @@
                     android:hint="@string/full_name"
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
+                    android:textColor="@color/main_color"
                     android:textColorHint="#B3164863"
                     android:textSize="@dimen/_12sdp" />
 
@@ -91,6 +92,7 @@
                     android:hint="@string/user_name"
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
+                    android:textColor="@color/main_color"
                     android:textColorHint="#B3164863"
                     android:textSize="@dimen/_12sdp" />
 
@@ -116,6 +118,7 @@
                     android:hint="@string/password"
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
+                    android:textColor="@color/main_color"
                     android:textColorHint="#B3164863"
                     android:textSize="@dimen/_12sdp" />
 
@@ -141,6 +144,7 @@
                     android:hint="@string/password"
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
+                    android:textColor="@color/main_color"
                     android:textColorHint="#B3164863"
                     android:textSize="@dimen/_12sdp" />
 
