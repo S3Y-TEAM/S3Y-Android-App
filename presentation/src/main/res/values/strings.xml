@@ -197,5 +197,9 @@
     <string name="linked">Linked</string>
     <string name="github">GitHub</string>
     <string name="linkedin">LinkedIn</string>
+    <string name="national_image">Nationa Image</string>
+    <string name="personal_image">Personal Image</string>
+    <string name="national_data">National Data</string>
+    <string name="upload_image">Upload Image</string>
 
 </resources>
