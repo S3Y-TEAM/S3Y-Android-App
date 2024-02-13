@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.auth.linked.LinkedFragment">
+
+
+    <include
+        android:id="@+id/linked_app_bar"
+        layout="@layout/app_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linked_app_bar">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/linked_logo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_220sdp"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:src="@drawable/linked"
+                app:layout_constraintBottom_toTopOf="@id/linked_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/linked_details"
+                style="@style/TextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/linkedin"
+                app:layout_constraintStart_toStartOf="@id/linked_logo"
+                app:layout_constraintTop_toBottomOf="@id/linked_logo" />
+
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/linkedin_card"
+                style="@style/MainEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginEnd="@dimen/_14sdp"
+                app:layout_constraintEnd_toEndOf="@id/linked_logo"
+                app:layout_constraintStart_toStartOf="@id/linked_logo"
+                app:layout_constraintTop_toBottomOf="@id/linked_details">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/linkedin_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:drawableStart="@drawable/ic_linkedin"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:hint="@string/linkedin"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/main_color"
+                    android:singleLine="true"
+                    android:textColorHint="#B3164863"
+                    android:textSize="@dimen/_12sdp" />
+
+            </soup.neumorphism.NeumorphCardView>
+
+            <TextView
+                android:id="@+id/github"
+                style="@style/TextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/github"
+                app:layout_constraintStart_toStartOf="@id/linked_logo"
+                app:layout_constraintTop_toBottomOf="@id/linkedin_card" />
+
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/github_card"
+                style="@style/MainEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:endIconMode="password_toggle"
+                app:layout_constraintBottom_toTopOf="@id/linked_button"
+                app:layout_constraintEnd_toEndOf="@id/linkedin_card"
+                app:layout_constraintStart_toStartOf="@id/linkedin_card"
+                app:layout_constraintTop_toBottomOf="@id/github">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/github_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:drawableStart="@drawable/ic_github"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:hint="@string/github"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/main_color"
+                    android:singleLine="true"
+                    android:textColorHint="#B3164863"
+                    android:textSize="@dimen/_12sdp" />
+
+            </soup.neumorphism.NeumorphCardView>
+
+
+            <com.flod.loadingbutton.LoadingButton
+                android:id="@+id/linked_button"
+                style="@style/MainButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/github_card" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
