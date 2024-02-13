@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.Constants
 import com.graduation.presentation.R
@@ -34,11 +35,9 @@ class CertificateFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setOnClickListener()
         setAppBar()
         setupRV()
-
     }
 
     private fun setupRV() {
@@ -60,6 +59,7 @@ class CertificateFragment :
                     delay(1600)
                     onComplete(true)
                     delay(500)
+                    navigateTo(R.id.action_certificateFragment_to_linkedFragment)
                 }
             }
 
@@ -85,6 +85,7 @@ class CertificateFragment :
                 findNavController().navigateUp()
             }
             certificateAppBar.appBarSkipBtn.setOnClickListener {
+                navigateTo(R.id.action_certificateFragment_to_linkedFragment)
             }
 
         }
