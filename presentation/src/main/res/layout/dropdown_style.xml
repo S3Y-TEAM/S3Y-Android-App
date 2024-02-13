@@ -14,7 +14,7 @@
     <TextView
         android:id="@+id/type_text"
         style="@style/TextStyle"
-        android:fontFamily="@font/omnes_medium"
+        android:fontFamily="@font/omnes_regular"
         android:textSize="@dimen/_12sdp"
         android:layout_width="wrap_content"
         android:layout_margin="@dimen/_6sdp"
