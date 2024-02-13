@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentLinkedBinding
@@ -33,12 +34,14 @@ class LinkedFragment : BaseFragmentImpl<FragmentLinkedBinding>(FragmentLinkedBin
                     delay(1600)
                     onComplete(true)
                     delay(500)
+                    navigateTo(R.id.action_linkedFragment_to_nationalDataFragment)
                 }
             }
             linkedAppBar.appBarBackArrow.setOnClickListener {
                 findNavController().navigateUp()
             }
             linkedAppBar.appBarSkipBtn.setOnClickListener {
+                navigateTo(R.id.action_linkedFragment_to_nationalDataFragment)
             }
 
         }

@@ -24,8 +24,8 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/edit_project"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="@dimen/_24sdp"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
             android:layout_margin="@dimen/_12sdp"
             android:background="@drawable/ic_edit"
             app:layout_constraintBottom_toBottomOf="@id/project_title"
