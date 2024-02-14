@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_6sdp"
+    android:background="@drawable/button_save">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/confirm_email"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="@string/confirm_email"
+            app:layout_constraintStart_toStartOf="@id/otp_digit"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.ozcanalasalvar.otp_view.view.OtpView
+            android:id="@+id/otp_digit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_12sdp"
+            app:activeColor="@color/background"
+            app:autoFocusEnabled="false"
+            app:digits="5"
+            app:fontFamily="@font/omnes_medium"
+            app:keyboardType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirm_email"
+            app:passiveColor="@color/gray_17"
+            app:password="false"
+            app:textColor="@color/main_color"
+            app:textSize="22" />
+
+        <com.flod.loadingbutton.LoadingButton
+            android:id="@+id/confirm_btn"
+            style="@style/SkipButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_gravity="center|end"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:text="@string/confirm"
+            app:layout_constraintBottom_toTopOf="@id/linearlayout"
+            app:layout_constraintEnd_toEndOf="@id/otp_digit"
+            app:layout_constraintStart_toStartOf="@id/otp_digit"
+            app:layout_constraintTop_toBottomOf="@id/otp_digit" />
+
+        <LinearLayout
+            android:id="@+id/linearlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/otp_digit"
+            app:layout_constraintStart_toStartOf="@id/otp_digit"
+            app:layout_constraintTop_toBottomOf="@id/confirm_btn">
+
+            <TextView
+                android:id="@+id/no_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/omnes_regular"
+                android:text="@string/does_not_receive_code"
+                android:textColor="@color/main_color"
+                android:textSize="@dimen/_12sdp" />
+
+            <TextView
+                android:id="@+id/resend_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/omnes_semi_bold"
+                android:text="@string/resend_code"
+                android:textColor="@color/main_color"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

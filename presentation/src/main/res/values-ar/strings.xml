@@ -137,6 +137,14 @@
     <string name="project_name">اسم المشروع</string>
     <string name="save">حفظ</string>
     <string name="project_description">تثاصيل المشروع</string>
+    <string name="upload_certificate">Upload Certificate</string>
+    <string name="linked">روابط التواصل</string>
+    <string name="github">جيتهب</string>
+    <string name="linkedin">لينكد ان</string>
+    <string name="national_image">صوره البطاقة</string>
+    <string name="personal_image">صوره شخصيه</string>
+    <string name="national_data">بيانات الشخص</string>
+    <string name="upload_image">اضافه صوره</string>
 
     <string name="certificates">الشهادات</string>
 
@@ -157,6 +165,8 @@
     <string name="developer">مطور</string>
     <string name="skilled_worker">صاحب حرفه</string>
     <string name="user">مستخدم</string>
+    <string name="confirm_email">Confirm Email</string>
+    <string name="does_not_receive_code">doesn\'t receive code?</string>
 
 
 </resources>
