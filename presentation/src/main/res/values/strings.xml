@@ -203,5 +203,6 @@
     <string name="upload_image">Upload Image</string>
     <string name="confirm_email">Confirm Email</string>
     <string name="does_not_receive_code">doesn\'t receive code?</string>
+    <string name="send">Send</string>
 
 </resources>
