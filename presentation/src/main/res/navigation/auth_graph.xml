@@ -138,5 +138,18 @@
         android:id="@+id/nationalDataFragment"
         android:name="com.graduation.presentation.screens.auth.national.NationalDataFragment"
         android:label="fragment_national_data"
-        tools:layout="@layout/fragment_national_data" />
+        tools:layout="@layout/fragment_national_data" >
+        <action
+            android:id="@+id/action_nationalDataFragment_to_emailFragment"
+            app:destination="@id/emailFragment"
+            app:enterAnim="@anim/nav_fade_in"
+            app:exitAnim="@anim/nav_fade_out"
+            app:popEnterAnim="@anim/nav_slide_in"
+            app:popExitAnim="@anim/nav_slide_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="com.graduation.presentation.screens.auth.email.EmailFragment"
+        android:label="fragment_email"
+        tools:layout="@layout/fragment_email" />
 </navigation>
