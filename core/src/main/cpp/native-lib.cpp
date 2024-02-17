@@ -10,3 +10,14 @@ Java_com_alexon_core_keys_SecretKeysUtils_baseUrl(JNIEnv *env, jobject thiz) {
 }
 
 
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_graduation_core_keys_SecretKeysUtils_baseUrl(JNIEnv *env, jobject thiz) {
+
+    std::string base_url = "https://s3y.onrender.com/api/v1/";
+
+    return env->NewStringUTF(base_url.c_str());
+
+}
+
+
