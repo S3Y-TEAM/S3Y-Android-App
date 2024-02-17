@@ -18,6 +18,10 @@ class SharedPreferenceHelper @Inject constructor(@ApplicationContext context: Co
         get() = loadData(SHARED_OPENED_APP_BEFORE, false)
         set(value) = saveData(SHARED_OPENED_APP_BEFORE, value)
 
+    var sharedRole: String
+        get() = loadData(SHARED_ROLE, "")
+        set(value) = saveData(SHARED_ROLE, value)
+
     var appLanguage: String
         get() = loadData(SHARED_APP_LANGUAGE_KEY) ?: "ar"
         set(value) = saveData(SHARED_APP_LANGUAGE_KEY, value)
@@ -80,5 +84,6 @@ class SharedPreferenceHelper @Inject constructor(@ApplicationContext context: Co
         const val SHARED_USER_HOME_ADDRESS = "SHARED_USER_HOME_ADDRESS"
         const val SHARED_APP_LANGUAGE_KEY = "SHARED_APP_LANGUAGE_KEY"
         const val SHARED_OPENED_APP_BEFORE = "SHARED_OPENED_APP_BEFORE"
+        const val SHARED_ROLE = "SHARED_ROLE"
     }
 }
