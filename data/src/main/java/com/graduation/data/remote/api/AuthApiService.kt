@@ -1,11 +1,12 @@
 package com.graduation.data.remote.api
 
-import com.graduation.domain.models.auth.Auth.AuthRequest
-import com.graduation.domain.models.auth.otp.SendOtpRequest
 import com.graduation.core.base.network.BaseResponse
-import com.graduation.data.remote.dto.auth.login.AuthResponseDto
+import com.graduation.domain.models.auth.Auth.UserNameRequest
+import com.graduation.domain.models.auth.Auth.username.UsernameResponse
+import com.graduation.domain.models.auth.otp.SendOtpRequest
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface AuthApiService {
@@ -13,10 +14,22 @@ interface AuthApiService {
     @POST("users/sendOtp")
     suspend fun sendOtp(@Body otpRequest: SendOtpRequest): Response<BaseResponse>
 
-    @POST("users/auth")
-    suspend fun auth(
-        @Body authRequest: AuthRequest,
-    ): AuthResponseDto
+//    @POST("users/auth")
+//    suspend fun auth(
+//        @Body authRequest: AuthRequest,
+//    ): AuthResponseDto
+
+    @POST("username")
+    suspend fun username(
+        @Header("role") role: String,
+        @Body userNameRequest: UserNameRequest
+    ): Response<UsernameResponse>
+
+    @POST("categories")
+    suspend fun categories(
+        @Header("role") role: String,
+        @Body userNameRequest: UserNameRequest
+    )
 
 
 //    @POST("users/register")
