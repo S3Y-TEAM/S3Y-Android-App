@@ -10,3 +10,10 @@ data class AuthRequest(
     val countryId : Int ,
     val otp : String,
 )
+
+
+@Keep
+data class UserNameRequest(
+    @SerializedName("userName")
+    val userName : String
+)
