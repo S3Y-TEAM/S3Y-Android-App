@@ -197,9 +197,12 @@
     <string name="linked">Linked</string>
     <string name="github">GitHub</string>
     <string name="linkedin">LinkedIn</string>
-    <string name="national_image">Nationa Image</string>
+    <string name="national_image">National Image</string>
     <string name="personal_image">Personal Image</string>
     <string name="national_data">National Data</string>
     <string name="upload_image">Upload Image</string>
+    <string name="confirm_email">Confirm Email</string>
+    <string name="does_not_receive_code">doesn\'t receive code?</string>
+    <string name="send">Send</string>
 
 </resources>

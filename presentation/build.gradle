@@ -54,10 +54,14 @@ dependencies {
 
     //hilt
     implementation libs.dagger.hilt
+    implementation project(path: ':data')
     ksp libs.dagger.compiler
 
     //sdp
     implementation libs.sdp
+
+    //retrofit
+    implementation libs.bundles.retorfit
 
     //lottie
     implementation libs.lottie
@@ -73,5 +77,8 @@ dependencies {
 
     //rv layout
     implementation libs.flexbox
+
+    //otp view
+    implementation(libs.otpview)
 
 }

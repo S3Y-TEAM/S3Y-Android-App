@@ -9,14 +9,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.Constants.IMAGE_TYPE
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentNationalDataBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class NationalDataFragment :
     BaseFragmentImpl<FragmentNationalDataBinding>(FragmentNationalDataBinding::inflate) {
 
@@ -50,6 +53,7 @@ class NationalDataFragment :
                     delay(1600)
                     onComplete(true)
                     delay(500)
+                    navigateTo(R.id.action_nationalDataFragment_to_emailFragment)
                 }
             }
             nationalImageCard.apply {
@@ -96,6 +100,7 @@ class NationalDataFragment :
                 findNavController().navigateUp()
             }
             nationalAppBar.appBarSkipBtn.setOnClickListener {
+                navigateTo(R.id.action_nationalDataFragment_to_emailFragment)
             }
         }
     }
