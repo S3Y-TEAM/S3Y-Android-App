@@ -1,6 +1,8 @@
 [versions]
 compileSdk = "34"
 flexbox = "3.0.0"
+gradle = "7.4.2"
+kotlinGradlePlugin = "1.9.10"
 otpview = "2.0.1"
 loadingButton = "1.1.0-alpha01"
 targetSdk = "33"
@@ -37,6 +39,9 @@ neumorphism = "0.2.1"
 android-core = { module = "androidx.core:core-ktx", version.ref = "androidCore" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 flexbox = { module = "com.google.android.flexbox:flexbox", version.ref = "flexbox" }
+gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
+hilt-android-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinGradlePlugin" }
 loadingButton = { module = "com.github.FlodCoding:LoadingButton", version.ref = "loadingButton" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
