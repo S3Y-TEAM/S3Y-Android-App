@@ -69,10 +69,10 @@ fun <T : BaseResponse> globalNetworkCall(
                     if (e.localizedMessage?.contains("Unable to resolve host") == true)
                         onReply?.invoke(ResponseState.NetworkError())
 
-//                    else if (e.localizedMessage?.contains("timeout") == true)
-//                        onReply?.invoke(ResponseState.NetworkError())
-//                    else if (e.localizedMessage?.contains("Connection reset") == true)
-//                        onReply?.invoke(ResponseState.NetworkError())
+                    else if (e.localizedMessage?.contains("timeout") == true)
+                        onReply?.invoke(ResponseState.NetworkError())
+                    else if (e.localizedMessage?.contains("Connection reset") == true)
+                        onReply?.invoke(ResponseState.NetworkError())
 
                     else if (e.localizedMessage?.contains("java.net.SocketException: Socket closed") == true)
                         onReply?.invoke(ResponseState.NetworkError())

@@ -37,10 +37,24 @@
                 android:layout_marginTop="@dimen/_18sdp"
                 android:padding="@dimen/_36sdp"
                 android:src="@drawable/app_logo"
-                app:layout_constraintBottom_toTopOf="@id/full_name_card"
+                app:layout_constraintBottom_toTopOf="@id/full_name_error"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/full_name_error"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:textColor="@color/red_5"
+                android:textSize="@dimen/_12sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/full_name_card"
+                app:layout_constraintStart_toStartOf="@id/full_name_card"
+                app:layout_constraintTop_toBottomOf="@id/sign_up_logo"
+                tools:text="suzannnnnnnnnnn" />
 
             <soup.neumorphism.NeumorphCardView
                 android:id="@+id/full_name_card"
@@ -48,12 +62,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_14sdp"
-                android:layout_marginTop="@dimen/_18sdp"
                 android:layout_marginEnd="@dimen/_14sdp"
-                app:layout_constraintBottom_toTopOf="@id/user_name_card"
+                app:layout_constraintBottom_toTopOf="@id/user_name_error"
                 app:layout_constraintEnd_toEndOf="@id/sign_up_logo"
                 app:layout_constraintStart_toStartOf="@id/sign_up_logo"
-                app:layout_constraintTop_toBottomOf="@id/sign_up_logo">
+                app:layout_constraintTop_toBottomOf="@id/full_name_error">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/full_name_edittext"
@@ -71,16 +84,29 @@
 
             </soup.neumorphism.NeumorphCardView>
 
+            <TextView
+                android:id="@+id/user_name_error"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:textColor="@color/red_5"
+                android:textSize="@dimen/_12sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/user_name_card"
+                app:layout_constraintStart_toStartOf="@id/user_name_card"
+                app:layout_constraintTop_toBottomOf="@id/full_name_card"
+                tools:text="suzannnnnnnnnnn" />
+
             <soup.neumorphism.NeumorphCardView
                 android:id="@+id/user_name_card"
                 style="@style/MainEditText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:endIconMode="password_toggle"
-                app:layout_constraintBottom_toTopOf="@id/password_card"
+                app:layout_constraintBottom_toTopOf="@id/password_error"
                 app:layout_constraintEnd_toEndOf="@id/full_name_card"
                 app:layout_constraintStart_toStartOf="@id/full_name_card"
-                app:layout_constraintTop_toBottomOf="@id/full_name_card">
+                app:layout_constraintTop_toBottomOf="@id/user_name_error">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/user_name_edittext"
@@ -98,15 +124,29 @@
 
             </soup.neumorphism.NeumorphCardView>
 
+            <TextView
+                android:id="@+id/password_error"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:textColor="@color/red_5"
+                android:textSize="@dimen/_12sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/password_card"
+                app:layout_constraintStart_toStartOf="@id/password_card"
+                app:layout_constraintTop_toBottomOf="@id/user_name_card"
+                tools:text="suzannnnnnnnnnn" />
+
             <soup.neumorphism.NeumorphCardView
                 android:id="@+id/password_card"
                 style="@style/MainEditText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:endIconMode="password_toggle"
+                app:layout_constraintBottom_toTopOf="@+id/confirm_password_error"
                 app:layout_constraintEnd_toEndOf="@id/user_name_card"
                 app:layout_constraintStart_toStartOf="@id/user_name_card"
-                app:layout_constraintTop_toBottomOf="@id/user_name_card">
+                app:layout_constraintTop_toBottomOf="@id/password_error">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/password_edittext"
@@ -124,6 +164,20 @@
 
             </soup.neumorphism.NeumorphCardView>
 
+            <TextView
+                android:id="@+id/confirm_password_error"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:textColor="@color/red_5"
+                android:textSize="@dimen/_12sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/confirm_password_card"
+                app:layout_constraintStart_toStartOf="@id/confirm_password_card"
+                app:layout_constraintTop_toBottomOf="@id/password_card"
+                tools:text="suzannnnnnnnnnn" />
+
+
             <soup.neumorphism.NeumorphCardView
                 android:id="@+id/confirm_password_card"
                 style="@style/MainEditText"
@@ -132,7 +186,7 @@
                 app:endIconMode="password_toggle"
                 app:layout_constraintEnd_toEndOf="@id/password_card"
                 app:layout_constraintStart_toStartOf="@id/password_card"
-                app:layout_constraintTop_toBottomOf="@id/password_card">
+                app:layout_constraintTop_toBottomOf="@id/confirm_password_error">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/confirm_password_edittext"
@@ -141,7 +195,7 @@
                     android:background="@color/white"
                     android:drawableStart="@drawable/ic_confirm_password"
                     android:drawablePadding="@dimen/_6sdp"
-                    android:hint="@string/password"
+                    android:hint="@string/confirm_password"
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
                     android:textColor="@color/main_color"

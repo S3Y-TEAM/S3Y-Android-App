@@ -1,12 +1,13 @@
 package com.graduation.data.repositoryImpl
 
-import com.graduation.domain.models.auth.Auth.AuthRequest
-import com.graduation.data.mappers.toDomain
 import com.graduation.data.remote.api.AuthApiService
-import com.graduation.domain.models.auth.Auth.AuthResponse
+import com.graduation.domain.models.auth.Auth.UserNameRequest
+import com.graduation.domain.models.auth.Auth.username.UsernameResponse
 import com.graduation.domain.repositories.AuthRepository
+import retrofit2.Response
+import javax.inject.Inject
 
-class AuthRepositoryImpl(
+class AuthRepositoryImpl @Inject constructor(
     private val authApiService: AuthApiService,
 ) : AuthRepository {
 
@@ -14,8 +15,13 @@ class AuthRepositoryImpl(
 //        return authApiService.sendOtp(sendOtpRequest)
 //    }
 
-    override suspend fun auth(authRequest: AuthRequest): AuthResponse {
-        return authApiService.auth(authRequest).toDomain()
-    }
+//    override suspend fun auth(authRequest: AuthRequest): AuthResponse {
+//        return authApiService.auth(authRequest).toDomain()
+//    }
 
-}                 
+    override suspend fun username(
+        role: String,
+        userNameRequest: UserNameRequest,
+    ): Response<UsernameResponse> =
+        authApiService.username(role = role, userNameRequest = userNameRequest)
+}

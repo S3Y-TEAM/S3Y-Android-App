@@ -1,8 +1,8 @@
 package com.graduation.data.remote.dto.auth.login
 
 import androidx.annotation.Keep
-import com.graduation.core.base.network.BaseResponse
 import com.google.gson.annotations.SerializedName
+import com.graduation.core.base.network.BaseResponse
 
 @Keep
 data class AuthResponseDto(

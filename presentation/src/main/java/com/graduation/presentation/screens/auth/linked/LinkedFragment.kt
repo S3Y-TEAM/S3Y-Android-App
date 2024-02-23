@@ -10,9 +10,10 @@ import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentLinkedBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-
+@AndroidEntryPoint
 
 class LinkedFragment : BaseFragmentImpl<FragmentLinkedBinding>(FragmentLinkedBinding::inflate) {
 
