@@ -79,7 +79,7 @@ class PositionFragment :
     private fun buttonAction() {
         lifecycleScope.launch {
             onLoadingStart()
-            delay(1600)
+            delay(500)
             onComplete(true)
             delay(500)
 
@@ -103,12 +103,21 @@ class PositionFragment :
     }
 
     override fun onLoadingStart() {
-        if (isDevClicked)
-            binding.developerButton.start()
-        else if (isWorkerClicked)
-            binding.skilledButton.start()
-        else if (isEmpClicked)
-            binding.userButton.start()
+
+        binding.apply {
+            if (isDevClicked) {
+                developerButton.loadingDrawable.strokeWidth = developerButton.textSize * 0.14f
+                developerButton.start()
+            } else if (isWorkerClicked) {
+                skilledButton.loadingDrawable.strokeWidth = skilledButton.textSize * 0.14f
+                skilledButton.start()
+
+            } else if (isEmpClicked) {
+                userButton.loadingDrawable.strokeWidth = userButton.textSize * 0.14f
+                userButton.start()
+
+            }
+        }
     }
 
     override fun onComplete(isSuccess: Boolean) {
