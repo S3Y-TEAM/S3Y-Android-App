@@ -30,7 +30,7 @@ abstract class BaseActivity<VB : ViewBinding>(
 
     abstract fun initialize()
 
-    protected fun isUserLoggedIn() = encryptedSharedPreference.token != ""
+    protected fun isUserLoggedIn() = encryptedSharedPreference.loggedIn != ""
 
     protected fun isUserOpenedAppBefore() = sharedPreferenceHelper.openedTheAppBefore
 }
