@@ -41,6 +41,11 @@ class EncryptedSharedPreference @Inject constructor(@ApplicationContext context:
         get() = loadData(SHARED_AUTH_TOKEN_KEY) ?: ""
         set(value) = saveData(SHARED_AUTH_TOKEN_KEY, value)
 
+    var loggedIn: String
+        get() = loadData(USER_LOGGED_IN) ?: ""
+        set(value) = saveData(USER_LOGGED_IN, value)
+
+
     val brearToken: String
         get() = "Bearer ${loadData<String>(SHARED_AUTH_TOKEN_KEY)}"
 
@@ -97,5 +102,6 @@ class EncryptedSharedPreference @Inject constructor(@ApplicationContext context:
         const val ENCRYPTED_SHARED_PREFERENCE_APP_KEY = "Encrypted-Tavolo"
         const val SHARED_AUTH_TOKEN_KEY = "SHARED_AUTH_TOKEN_KEY"
         const val USER_DATA = "USER_DATA"
+        const val USER_LOGGED_IN = "USER_LOGGED_IN"
     }
 }

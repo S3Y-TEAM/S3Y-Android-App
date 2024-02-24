@@ -22,6 +22,10 @@ class SharedPreferenceHelper @Inject constructor(@ApplicationContext context: Co
         get() = loadData(SHARED_ROLE, "")
         set(value) = saveData(SHARED_ROLE, value)
 
+    var username: String
+        get() = loadData(SHARED_USERNAME, "")
+        set(value) = saveData(SHARED_USERNAME, value)
+
     var appLanguage: String
         get() = loadData(SHARED_APP_LANGUAGE_KEY) ?: "ar"
         set(value) = saveData(SHARED_APP_LANGUAGE_KEY, value)
@@ -71,11 +75,11 @@ class SharedPreferenceHelper @Inject constructor(@ApplicationContext context: Co
         }
     }
 
-    fun clean(keepAppSettings : Boolean) {
+    fun clean(keepAppSettings: Boolean) {
         sharedPreferences.edit()?.clear()?.apply()
     }
 
-    companion object{
+    companion object {
         //shared
         const val SHARED_PREFERENCE_APP_KEY = "Tavolo"
         const val SHARED_FCM_DEVICE_TOKEN = "SHARED_FCM_DEVICE_TOKEN"
@@ -85,5 +89,6 @@ class SharedPreferenceHelper @Inject constructor(@ApplicationContext context: Co
         const val SHARED_APP_LANGUAGE_KEY = "SHARED_APP_LANGUAGE_KEY"
         const val SHARED_OPENED_APP_BEFORE = "SHARED_OPENED_APP_BEFORE"
         const val SHARED_ROLE = "SHARED_ROLE"
+        const val SHARED_USERNAME = "SHARED_USERNAME"
     }
 }
