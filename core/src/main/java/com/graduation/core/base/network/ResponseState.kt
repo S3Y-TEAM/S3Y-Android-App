@@ -15,9 +15,10 @@ sealed class ResponseState<T>(
     // defines that the response was correct and data was sent
     class Success<T>(
         data: T,
+        token:String?,
         val lastStep: String? = null,
         hasBeenHandled: Boolean = false,
-    ) : ResponseState<T>(data)
+    ) : ResponseState<T>(data = data ,message= token)
 
     // Error class returns a non nullable message which defines what when wrong
     // optionally can take data as a pram if needed

@@ -16,11 +16,13 @@ open class BaseViewModel : ViewModel() {
         action: suspend () -> Response<T>,
         onReply: (suspend (ResponseState<T>) -> Unit)? = null,
         doAfter: (suspend (isSuccess: Boolean) -> Unit)? = null,
+        onToken: (suspend (String) -> Unit)? = null,
         showLoading: Boolean = true,
     ): Job {
         return globalNetworkCall(
             action = action,
             onReply = onReply,
+            onToken = onToken,
             doAfter = doAfter,
             showLoading = showLoading,
             scope = viewModelScope
