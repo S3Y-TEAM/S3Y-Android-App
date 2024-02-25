@@ -1,5 +1,6 @@
 package com.graduation.data.remote.interceptors
 
+import android.util.Log
 import com.graduation.core.utils.sharedPrefernces.EncryptedSharedPreference
 import com.graduation.core.utils.sharedPrefernces.SharedPreferenceHelper
 import okhttp3.Interceptor
@@ -36,6 +37,7 @@ class HeadersSetupInterceptor @Inject constructor(
                     if (shouldAttachAuthHeader) {
                         if (encryptedSharedPreference.token.isNotEmpty()) {
                             addHeader("Authorization", encryptedSharedPreference.brearToken)
+                            Log.d("suzanabdien" , encryptedSharedPreference.brearToken)
                         }
                     }
                     //latLng
