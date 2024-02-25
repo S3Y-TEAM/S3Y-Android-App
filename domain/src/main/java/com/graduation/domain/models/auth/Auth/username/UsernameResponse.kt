@@ -7,5 +7,5 @@ import com.graduation.core.base.network.BaseResponse
 @Keep
 data class UsernameResponse(
     @SerializedName("data")
-    val data: Data,
+    val data: UsernameResponseItem,
 ) : BaseResponse()
