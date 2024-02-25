@@ -2,6 +2,7 @@ package com.graduation.data.repositoryImpl
 
 import com.graduation.data.remote.api.AuthApiService
 import com.graduation.domain.models.auth.Auth.UserNameRequest
+import com.graduation.domain.models.auth.Auth.categories.CategoriesResponse
 import com.graduation.domain.models.auth.Auth.username.UsernameResponse
 import com.graduation.domain.repositories.AuthRepository
 import retrofit2.Response
@@ -24,4 +25,11 @@ class AuthRepositoryImpl @Inject constructor(
         userNameRequest: UserNameRequest,
     ): Response<UsernameResponse> =
         authApiService.username(role = role, userNameRequest = userNameRequest)
+
+    override suspend fun categories(
+        role: String,
+        categoriesRequest: UserNameRequest,
+    ): Response<CategoriesResponse> =
+        authApiService.categories(role = role
+            , categoriesRequest = categoriesRequest)
 }
