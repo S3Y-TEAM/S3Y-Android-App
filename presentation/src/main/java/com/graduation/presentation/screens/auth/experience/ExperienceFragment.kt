@@ -76,6 +76,7 @@ class ExperienceFragment :
                     }else {
                         sharedViewModel.setExperience(adapterItems.experience)
                         onComplete(true)
+                        delay(500)
                         navigateTo(R.id.action_experienceFragment_to_projectFragment)
                     }
                 }
