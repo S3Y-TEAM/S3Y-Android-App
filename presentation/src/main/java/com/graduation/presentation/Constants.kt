@@ -13,6 +13,7 @@ object Constants {
     const val SKILLED_KEY = "worker"
     const val USER_KEY = "emp"
     const val VALID = "valid"
+    const val CATEGORIES_MAX_NUMBER = 5
 
 
 }
