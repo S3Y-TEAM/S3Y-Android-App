@@ -1,12 +1,14 @@
 package com.graduation.presentation.screens.auth.signup
 
+import android.util.Log
+import android.webkit.CookieManager
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.graduation.core.base.network.ResponseState
 import com.graduation.core.base.ui.BaseViewModel
 import com.graduation.domain.models.auth.Auth.UserNameRequest
 import com.graduation.domain.models.auth.Auth.username.UsernameResponse
-import com.graduation.domain.usecase.auth.AuthUserUseCase
+import com.graduation.domain.usecase.auth.UsernameUseCase
 import com.graduation.presentation.Constants.VALID
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -16,18 +18,19 @@ import javax.inject.Inject
 
 @HiltViewModel
 
-class SignUpViewModel @Inject constructor(private val authUserUseCase: AuthUserUseCase) :
+class SignUpViewModel @Inject constructor(private val usernameUseCase: UsernameUseCase) :
     BaseViewModel() {
 
     private val _sendUsernameResponse =
         MutableStateFlow<ResponseState<UsernameResponse>>(ResponseState.Empty())
     //val sendUsernameResponse = _sendUsernameResponse.asStateFlow()
 
+    private var _token = MutableLiveData<String>()
+    val token = _token
+
     private val _fullName =
         MutableLiveData<String>()
     val fullName = _fullName
-
-    //suzan
 
     private val _userName =
         MutableLiveData<String>()
@@ -116,16 +119,17 @@ class SignUpViewModel @Inject constructor(private val authUserUseCase: AuthUserU
     }
 
     fun sendUsername(role: String, userNameRequest: UserNameRequest) {
-
+        Log.d("invalidrole" , role)
         viewModelScope.launch {
             _job =
                 networkCall(action = {
-                    authUserUseCase.invoke(
+                    usernameUseCase.invoke(
                         role = role,
                         userNameRequest = userNameRequest
                     )
-                }, onReply = { _sendUsernameResponse.emit(it) })
-
+                }, onReply = {
+                    _sendUsernameResponse.emit(it)
+                }, onToken = { _token })
         }
         validateUserName()
     }
@@ -151,7 +155,11 @@ class SignUpViewModel @Inject constructor(private val authUserUseCase: AuthUserU
                     is ResponseState.Empty -> _userName.value = "User Name is Empty"
                     is ResponseState.NetworkError -> _userName.value = "Check Internet Connection"
                     is ResponseState.Error -> _userName.value = it.message.toString()
-                    is ResponseState.Success -> _userName.value = VALID
+                    is ResponseState.Success -> {
+                        _userName.value = VALID
+                        _token.value = it.message.toString()
+                    }
+
                     is ResponseState.UnKnownError -> _userName.value = "UnKnownError"
                     is ResponseState.NotAuthorized -> _userName.value = "NotAuthorized"
                     is ResponseState.Loading -> _userName.value = "loading"

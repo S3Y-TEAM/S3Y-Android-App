@@ -1,12 +1,15 @@
 package com.graduation.presentation.screens.auth.signup
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.domain.models.auth.Auth.UserNameRequest
@@ -22,16 +25,17 @@ import kotlinx.coroutines.launch
 class SignUpFragment : BaseFragmentImpl<FragmentSignUpBinding>(FragmentSignUpBinding::inflate) {
 
     override val viewModel: SignUpViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by activityViewModels()
+
+    var sendRole = ""
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         observation()
         setOnClickListener()
         setAppBar()
         userNameChange()
-
     }
 
     private fun observation() {
@@ -70,16 +74,28 @@ class SignUpFragment : BaseFragmentImpl<FragmentSignUpBinding>(FragmentSignUpBin
                     binding.confirmPasswordError.text = confirmPassword
                 }
             }
+
+            token.observe(viewLifecycleOwner) { token ->
+                if (token != null)
+                    encryptedSharedPreference.token = token
+            }
+        }
+        sharedViewModel.role.observe(viewLifecycleOwner) { role ->
+            if (role != null)
+                sendRole = role
+            else
+                Log.d("LOL" , "NULL")
         }
     }
 
     private fun userNameChange() {
         binding.apply {
             userNameEdittext.addTextChangedListener { userNameEdittext ->
-                viewModel.sendUsername(
-                    role = sharedPreferenceHelper.sharedRole,
-                    userNameRequest = UserNameRequest(userNameEdittext.toString())
-                )
+                if (sendRole != "")
+                    viewModel.sendUsername(
+                        role = sendRole,
+                        userNameRequest = UserNameRequest(userNameEdittext.toString())
+                    )
             }
             fullNameEdittext.addTextChangedListener { fullNameEdittext ->
                 viewModel.fullNameEntered(fullNameEdittext.toString())
@@ -110,22 +126,30 @@ class SignUpFragment : BaseFragmentImpl<FragmentSignUpBinding>(FragmentSignUpBin
                     viewModel.sendSuccess()
                     if (viewModel.isSuccess.value == true) {
                         onComplete(true)
-                        delay(500)
+                        saveData()
                         navigateTo(R.id.action_signUpFragment_to_categoriesFragment)
                     } else {
                         onCancel()
-                        delay(500)
                         Toast.makeText(
                             requireContext(),
                             "Please, Complete all Data",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-                    //navigateTo(R.id.action_signUpFragment_to_categoriesFragment)
                 }
             }
             signUpAppBar.appBarBackArrow.setOnClickListener {
                 findNavController().navigateUp()
+            }
+        }
+    }
+
+    private fun saveData() {
+        sharedViewModel.apply {
+            binding.apply {
+                setUsername(username = userNameEdittext.text.toString())
+                setFullName(fullName = fullNameEdittext.text.toString())
+                setPassword(password = passwordEdittext.text.toString())
             }
         }
     }

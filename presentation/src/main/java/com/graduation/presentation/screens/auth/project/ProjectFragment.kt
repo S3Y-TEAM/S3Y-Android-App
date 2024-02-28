@@ -1,7 +1,14 @@
 package com.graduation.presentation.screens.auth.project
 
+import android.content.Context
 import android.content.Intent
+import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
+import android.os.FileUtils
+import android.provider.MediaStore
+import android.provider.OpenableColumns
+import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
@@ -14,6 +21,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.Constants.IMAGE_TYPE
@@ -27,13 +35,21 @@ import com.graduation.presentation.screens.auth.project.adapter.SpinnerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import java.io.File
 
 @AndroidEntryPoint
 class ProjectFragment : BaseFragmentImpl<FragmentProjectBinding>(FragmentProjectBinding::inflate) {
 
     override val viewModel: ProjectViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by viewModels()
+
     private lateinit var adapterItems: ProjectAdapter
     private var items: MutableList<String> = mutableListOf()
+    private lateinit var selectedPdfFile: File
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -83,7 +99,8 @@ class ProjectFragment : BaseFragmentImpl<FragmentProjectBinding>(FragmentProject
             projectItem.saveBtn.setOnClickListener {
                 items.add("S3Y Application")
                 //...
-                binding.projectRv.adapter!!.notifyDataSetChanged()
+                //binding.projectRv.adapter!!.notifyDataSetChanged()
+                adapterItems.differ.submitList(items)
                 projectItem.root.visibility = View.GONE
 
             }
@@ -143,13 +160,79 @@ class ProjectFragment : BaseFragmentImpl<FragmentProjectBinding>(FragmentProject
     private val intentResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
-                val data = result.data
+                val data = result.data!!.data
                 binding.blurView.visibility = View.GONE
+//                val inputStream = contentResolver.openInputStream(data)
+//                val fileData = inputStream?.readBytes()
+//
+//                val encodedData = Base64.encodeToString(fileData, Base64.DEFAULT)
+//                val requestBody = MultipartBody.Builder()
+//                    .setType(MultipartBody.FORM)
+//                    .addFormDataPart(
+//                        "pdf",
+//                        "filename.pdf",
+//                        RequestBody.create("application/pdf".toMediaTypeOrNull(), fileData)
+//                    )
+//                    .build()
+                data?.let {
+                    val c = FileUtils.getPath(requireContext(), data)
+                    if (c != null) {
+                        selectedPdfFile = File(c)
+                        Log.d("pdf", selectedPdfFile.toString())
+                        Log.d("pdf", selectedPdfFile.name.toString())
+                        Log.d("pdf", selectedPdfFile.absolutePath.toString())
+
+                    } else
+                        Log.d("pdf", "null")
+                }
+
+
+//                data?.let {
+//                    val inputStream = contentResolver.openInputStream(uri)
+//                    inputStream?.use { input ->
+//                        val tempFile = createTempFile("temp_pdf", ".pdf")
+//                        tempFile.outputStream().use { output ->
+//                            input.copyTo(output)
+//                        }
+//                        selectedPdfFile = tempFile
+//                        uploadPdfFile(selectedPdfFile)
+//                    }
+//                }
+
+
                 Log.d("suzan", data.toString())
-            }else
+            } else
                 binding.blurView.visibility = View.GONE
 
         }
+
+
+    object FileUtils {
+
+        fun getPath(context: Context, uri: Uri): String? {
+            var cursor: Cursor? = null
+            return try {
+                val projection = arrayOf(OpenableColumns.DISPLAY_NAME)
+                cursor = context.contentResolver.query(uri, projection, null, null, null)
+                cursor?.let {
+                    val nameIndex = it.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+                    if (it.moveToFirst()) {
+                        val fileName = it.getString(nameIndex)
+                        val file = File(context.cacheDir, fileName)
+                        return if (file.exists()) {
+                            file.delete()
+                            null
+                        } else {
+                            file.absolutePath
+                        }
+                    }
+                }
+                null
+            } finally {
+                cursor?.close()
+            }
+        }
+    }
 
     override fun setAppBar() {
         changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)

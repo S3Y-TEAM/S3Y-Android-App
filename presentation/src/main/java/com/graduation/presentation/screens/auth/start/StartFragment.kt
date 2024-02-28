@@ -3,6 +3,7 @@ package com.graduation.presentation.screens.auth.start
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
@@ -15,6 +16,7 @@ class StartFragment :
     BaseFragmentImpl<FragmentStartBinding>(FragmentStartBinding::inflate) {
 
     override val viewModel: StartViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by viewModels()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

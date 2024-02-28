@@ -12,6 +12,7 @@ import java.net.ConnectException
 fun <T : BaseResponse> globalNetworkCall(
     action: suspend () -> Response<T>,
     onReply: (suspend (ResponseState<T>) -> Unit)? = null,
+    onToken: (suspend (String) -> Unit)? = null,
     doAfter: (suspend (isSuccess: Boolean) -> Unit)? = null,
     showLoading: Boolean = true,
     scope: CoroutineScope,
@@ -31,7 +32,9 @@ fun <T : BaseResponse> globalNetworkCall(
                 )
                 else {
                     isSuccess = true
-                    onReply?.invoke(ResponseState.Success(data = body))
+                    val token = response.headers()["authorization"]!!.split(" ")[1]
+                    onToken!!.invoke(token)
+                    onReply?.invoke(ResponseState.Success(data = body , token = token))
                 }
             } else {
                 val errorBody = getBodyError(response)
@@ -68,12 +71,10 @@ fun <T : BaseResponse> globalNetworkCall(
                 is IOException -> {
                     if (e.localizedMessage?.contains("Unable to resolve host") == true)
                         onReply?.invoke(ResponseState.NetworkError())
-
                     else if (e.localizedMessage?.contains("timeout") == true)
                         onReply?.invoke(ResponseState.NetworkError())
                     else if (e.localizedMessage?.contains("Connection reset") == true)
                         onReply?.invoke(ResponseState.NetworkError())
-
                     else if (e.localizedMessage?.contains("java.net.SocketException: Socket closed") == true)
                         onReply?.invoke(ResponseState.NetworkError())
                     else onReply?.invoke(ResponseState.UnKnownError())

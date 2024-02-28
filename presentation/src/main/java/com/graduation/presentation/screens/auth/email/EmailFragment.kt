@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.graduation.core.base.ui.BaseViewModel
+import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentEmailBinding
@@ -20,6 +21,7 @@ import kotlinx.coroutines.launch
 
 class EmailFragment : BaseFragmentImpl<FragmentEmailBinding>(FragmentEmailBinding::inflate) {
     override val viewModel: BaseViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

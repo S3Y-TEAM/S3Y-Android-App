@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentLoginBinding
@@ -18,6 +19,7 @@ class LoginFragment : BaseFragmentImpl<FragmentLoginBinding>(FragmentLoginBindin
 
 
     override val viewModel: LoginViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

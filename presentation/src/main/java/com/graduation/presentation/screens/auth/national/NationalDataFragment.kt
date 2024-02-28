@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.Constants.IMAGE_TYPE
@@ -24,6 +25,7 @@ class NationalDataFragment :
     BaseFragmentImpl<FragmentNationalDataBinding>(FragmentNationalDataBinding::inflate) {
 
     override val viewModel: NationalDataViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by viewModels()
     private var isNational = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -8,12 +8,14 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.Constants
@@ -30,6 +32,8 @@ class CertificateFragment :
     BaseFragmentImpl<FragmentCertificateBinding>(FragmentCertificateBinding::inflate) {
 
     override val viewModel: CertificateViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by activityViewModels()
+
     private lateinit var adapterItems: ProjectAdapter
     private var items: MutableList<String> = mutableListOf()
 
@@ -150,11 +154,10 @@ class CertificateFragment :
                 val data = result.data
                 binding.blurViewCertificate.visibility = View.GONE
                 Log.d("suzan", data.toString())
-            }else
+            } else
                 binding.blurViewCertificate.visibility = View.GONE
 
         }
-
 
 
 }

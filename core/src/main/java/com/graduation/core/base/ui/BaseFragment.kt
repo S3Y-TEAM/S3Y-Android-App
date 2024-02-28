@@ -36,6 +36,7 @@ abstract class BaseFragment<VB : ViewBinding>(
     protected val binding: VB get() = _binding!!
 
     abstract val viewModel: BaseViewModel
+    abstract val sharedViewModel: SharedViewModel
 
     @Inject
     lateinit var sharedPreferenceHelper: SharedPreferenceHelper

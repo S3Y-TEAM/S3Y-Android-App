@@ -3,8 +3,10 @@ package com.graduation.presentation.screens.auth.position
 import android.os.Bundle
 import android.view.View
 import androidx.activity.addCallback
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.navigation.onBackPress
 import com.graduation.core.extensions.screen.changeStatusBarColor
@@ -23,6 +25,7 @@ class PositionFragment :
     BaseFragmentImpl<FragmentPositionBinding>(FragmentPositionBinding::inflate) {
 
     override val viewModel: PositionViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by activityViewModels()
 
     private var isDevClicked = false
     private var isWorkerClicked = false
@@ -70,7 +73,7 @@ class PositionFragment :
     }
 
     private fun positionSelected(position: String) {
-        sharedPreferenceHelper.sharedRole = position
+        sharedViewModel.setRole(position)
         navigateTo(
             R.id.action_positionFragment_to_signUpFragment
         )

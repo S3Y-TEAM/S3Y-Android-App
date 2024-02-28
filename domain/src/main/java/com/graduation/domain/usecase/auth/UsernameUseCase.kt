@@ -6,7 +6,7 @@ import com.graduation.domain.repositories.AuthRepository
 import retrofit2.Response
 import javax.inject.Inject
 
-class AuthUserUseCase @Inject constructor(
+class UsernameUseCase @Inject constructor(
     private val authRepository: AuthRepository,
 ) {
 //    suspend operator fun invoke(authRequest: AuthRequest): Flow<ResponseState<AuthResponse>> =

@@ -2,18 +2,22 @@ package com.graduation.presentation.screens.auth.experience
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
+import com.graduation.domain.models.auth.Auth.categories.CategoriesResponseItem
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentExperienceBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
 import com.graduation.presentation.screens.auth.categories.adapter.CategoriesAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -23,6 +27,7 @@ class ExperienceFragment :
     BaseFragmentImpl<FragmentExperienceBinding>(FragmentExperienceBinding::inflate) {
 
     override val viewModel: ExperienceViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by viewModels()
 
     private lateinit var adapterItems: CategoriesAdapter
 
@@ -44,13 +49,13 @@ class ExperienceFragment :
         }
     }
 
-    private fun setUpFriendsArrayList(): List<String> {
+    private fun setUpFriendsArrayList(): List<CategoriesResponseItem> {
         return listOf(
-            "less than 1 year",
-            "From 1 year to 3 year",
-            "From 3 year to 5 year",
-            "From 5 year to 8 year",
-            "More than 8 year"
+            CategoriesResponseItem(id = 0, name = "less than 1 year", parent = "exp"),
+            CategoriesResponseItem(id = 1, name = "From 1 year to 3 year", parent = "exp"),
+            CategoriesResponseItem(id = 2, name = "From 3 year to 5 year", parent = "exp"),
+            CategoriesResponseItem(id = 3, name = "From 5 year to 8 year", parent = "exp"),
+            CategoriesResponseItem(id = 4, name = "More than 8 year", parent = "exp"),
         )
     }
 
@@ -59,13 +64,21 @@ class ExperienceFragment :
         binding.apply {
             experienceButton.setOnClickListener {
                 lifecycleScope.launch {
-                    experienceButton.loadingDrawable.strokeWidth =
-                        experienceButton.textSize * 0.14f;
                     onLoadingStart()
-                    delay(1600)
-                    onComplete(true)
-                    delay(500)
-                    navigateTo(R.id.action_experienceFragment_to_projectFragment)
+                    if (adapterItems.selectedExperience == -1) {
+                        Toast.makeText(
+                            requireContext(),
+                            "Select maximum one Experience",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                        onCancel()
+                    }else {
+                        sharedViewModel.setExperience(adapterItems.experience)
+                        onComplete(true)
+                        delay(500)
+                        navigateTo(R.id.action_experienceFragment_to_projectFragment)
+                    }
                 }
             }
 
@@ -87,7 +100,11 @@ class ExperienceFragment :
     }
 
     override fun onLoadingStart() {
-        binding.experienceButton.start()
+        binding.apply {
+            experienceButton.loadingDrawable.strokeWidth =
+                experienceButton.textSize * 0.14f;
+            experienceButton.start()
+        }
     }
 
     override fun onComplete(isSuccess: Boolean) {
