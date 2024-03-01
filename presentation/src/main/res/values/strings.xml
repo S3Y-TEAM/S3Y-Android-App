@@ -17,7 +17,7 @@
 
     <!-- OTPFragment -->
     <string name="verification">Verify your number</string>
-    <string name="enter_the_otp_code_we_send_you">Enter the 4 digit code we\'ve sent to&#160;</string>
+    <string name="enter_the_otp_code_we_send_you">Enter the 5 digit code we\'ve sent to&#160;</string>
     <string name="didn_t_receive_code">Didn’t receive code.</string>
     <string name="resend_code">Resend code</string>
     <string name="failed_to_verify_account">Failed to verify your account</string>
@@ -204,6 +204,10 @@
     <string name="confirm_email">Confirm Email</string>
     <string name="does_not_receive_code">doesn\'t receive code?</string>
     <string name="send">Send</string>
-    <string name="confirm_password">Cnfirm Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="please_enter_email">Please, Enter Email</string>
+    <string name="please_complete_data">Please, Complete all Data</string>
+    <string name="invalid_otp">Invalid OTP code</string>
+    <string name="please_enter_phone_number">Please Enter Phone Number</string>
 
 </resources>

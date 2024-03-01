@@ -151,5 +151,18 @@
         android:id="@+id/emailFragment"
         android:name="com.graduation.presentation.screens.auth.email.EmailFragment"
         android:label="fragment_email"
-        tools:layout="@layout/fragment_email" />
+        tools:layout="@layout/fragment_email" >
+        <action
+            android:id="@+id/action_emailFragment_to_phoneFragment"
+            app:destination="@id/phoneFragment"
+            app:enterAnim="@anim/nav_fade_in"
+            app:exitAnim="@anim/nav_fade_out"
+            app:popEnterAnim="@anim/nav_slide_in"
+            app:popExitAnim="@anim/nav_slide_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/phoneFragment"
+        android:name="com.graduation.presentation.screens.auth.phone.PhoneFragment"
+        android:label="fragment_phone"
+        tools:layout="@layout/fragment_phone" />
 </navigation>
