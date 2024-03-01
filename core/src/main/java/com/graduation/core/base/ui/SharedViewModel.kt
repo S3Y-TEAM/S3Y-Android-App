@@ -28,6 +28,22 @@ class SharedViewModel @Inject constructor() : BaseViewModel() {
         MutableLiveData<String>()
     val experience = _experience
 
+    private val _github =
+        MutableLiveData<String>()
+    val github = _github
+
+    private val _linkedIn =
+        MutableLiveData<String>()
+    val linkedIn= _linkedIn
+
+    private val _emailAddress =
+        MutableLiveData<String>()
+    val emailAddress= _emailAddress
+
+    private val _phoneNumber =
+        MutableLiveData<Int>()
+    val phoneNumber= _phoneNumber
+
     private val _savedCategories =
         MutableLiveData<ArrayList<Int>>()
     val savedCategories = _savedCategories
@@ -53,13 +69,37 @@ class SharedViewModel @Inject constructor() : BaseViewModel() {
     fun setExperience(experience: String) = saveExperience(experience = experience)
 
     private fun saveExperience(experience: String) {
-        _role.value = experience
+        _experience.value = experience
+    }
+
+    fun setGitHub(github: String) = saveGitHub(github = github)
+
+    private fun saveGitHub(github: String) {
+        _github.value = github
+    }
+
+    fun setLinkedIn(linkedIn: String) = saveLinkedIn(linkedIn = linkedIn)
+
+    private fun saveLinkedIn(linkedIn: String) {
+        _linkedIn.value = linkedIn
     }
 
     fun setRole(role: String) = saveRole(role = role)
 
     private fun saveRole(role: String) {
         _role.value = role
+    }
+
+    fun setEmailAddress(emailAddress: String) = saveEmailAddress (emailAddress = emailAddress)
+
+    private fun saveEmailAddress(emailAddress: String) {
+        _emailAddress.value = emailAddress
+    }
+
+    fun setPhoneNumber(phoneNumber: Int) = savePhoneNumber (phoneNumber = phoneNumber)
+
+    private fun savePhoneNumber(phoneNumber: Int) {
+        _phoneNumber.value = phoneNumber
     }
 
     fun setSavedCategories(savedCategories: ArrayList<Int>) =

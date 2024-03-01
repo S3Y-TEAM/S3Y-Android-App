@@ -2,6 +2,8 @@ package com.graduation.presentation.screens.auth.linked
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -14,12 +16,13 @@ import com.graduation.presentation.screens.BaseFragmentImpl
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+
 @AndroidEntryPoint
 
 class LinkedFragment : BaseFragmentImpl<FragmentLinkedBinding>(FragmentLinkedBinding::inflate) {
 
     override val viewModel: LinkedViewModel by viewModels()
-    override val sharedViewModel: SharedViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,13 +34,24 @@ class LinkedFragment : BaseFragmentImpl<FragmentLinkedBinding>(FragmentLinkedBin
         binding.apply {
             linkedButton.setOnClickListener {
                 lifecycleScope.launch {
-                    linkedButton.loadingDrawable.strokeWidth =
-                        linkedButton.textSize * 0.14f;
                     onLoadingStart()
-                    delay(1600)
-                    onComplete(true)
-                    delay(500)
-                    navigateTo(R.id.action_linkedFragment_to_nationalDataFragment)
+                    if (linkedinEdittext.text.isNullOrBlank()) {
+                        Toast.makeText(requireContext(), "Enter LinkedIn", Toast.LENGTH_SHORT)
+                            .show()
+                        onCancel()
+                    } else if (githubEdittext.text.isNullOrBlank()) {
+                        Toast.makeText(requireContext(), "Enter GitHub", Toast.LENGTH_SHORT)
+                            .show()
+                        onCancel()
+                    } else if (linkedinEdittext.text.toString()
+                            .isNotEmpty() && githubEdittext.text.toString().isNotEmpty()
+                    ) {
+                        sharedViewModel.setGitHub(githubEdittext.text.toString())
+                        sharedViewModel.setLinkedIn(linkedinEdittext.text.toString())
+                        onComplete(true)
+                        delay(500)
+                        navigateTo(R.id.action_linkedFragment_to_nationalDataFragment)
+                    }
                 }
             }
             linkedAppBar.appBarBackArrow.setOnClickListener {
@@ -60,7 +74,11 @@ class LinkedFragment : BaseFragmentImpl<FragmentLinkedBinding>(FragmentLinkedBin
     }
 
     override fun onLoadingStart() {
-        binding.linkedButton.start()
+        binding.apply {
+            linkedButton.loadingDrawable.strokeWidth =
+                linkedButton.textSize * 0.14f;
+            linkedButton.start()
+        }
     }
 
     override fun onComplete(isSuccess: Boolean) {
@@ -70,6 +88,4 @@ class LinkedFragment : BaseFragmentImpl<FragmentLinkedBinding>(FragmentLinkedBin
     override fun onCancel() {
         binding.linkedButton.cancel()
     }
-
-
 }
