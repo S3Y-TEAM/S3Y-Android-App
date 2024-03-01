@@ -2,20 +2,19 @@ package com.graduation.presentation.screens.auth.categories.adapter
 
 import android.app.ActionBar.LayoutParams
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.graduation.core.extensions.getResourceColor
+import com.graduation.core.utils.toastMe
 import com.graduation.domain.models.auth.Auth.categories.CategoriesResponseItem
 import com.graduation.presentation.Constants.CATEGORIES_MAX_NUMBER
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.CategoriesItemBinding
 
-class CategoriesAdapter( var kind: Boolean) :
+class CategoriesAdapter(var kind: Boolean) :
     RecyclerView.Adapter<CategoriesAdapter.AllCategoriesAdapter>() {
 
     var chooseCategory = arrayListOf<Int>()
@@ -23,8 +22,8 @@ class CategoriesAdapter( var kind: Boolean) :
     var experience = ""
 
     inner class AllCategoriesAdapter(val binding: CategoriesItemBinding) :
-        RecyclerView.ViewHolder(binding.root){
-        }
+        RecyclerView.ViewHolder(binding.root) {
+    }
 
     private val differCallback = object : DiffUtil.ItemCallback<CategoriesResponseItem>() {
         override fun areItemsTheSame(
@@ -62,12 +61,10 @@ class CategoriesAdapter( var kind: Boolean) :
                     layoutParams.width = LayoutParams.WRAP_CONTENT
                     holder.binding.btnItem.layoutParams.width = LayoutParams.WRAP_CONTENT
 
-
                     if ((chooseCategory.contains(item.id)))
                         addedItemStyle(holder = holder)
                     else
                         removedItemStyle(holder = holder)
-
 
                     holder.binding.apply {
                         btnItem.text = item.name
@@ -82,8 +79,7 @@ class CategoriesAdapter( var kind: Boolean) :
                             if ((chooseCategory.contains(item.id)))
                                 removeItem(holder = holder, item = item)
                             else
-                                Toast.makeText(context, "Categories Completed", Toast.LENGTH_SHORT)
-                                    .show()
+                                toastMe(context = context, message = "Categories Completed")
                         }
                     }
                 }
@@ -105,15 +101,18 @@ class CategoriesAdapter( var kind: Boolean) :
                                 experience = item.name
                                 addedItemStyle(holder = holder)
                             }
+
                             item.id -> {
                                 removedItemStyle(holder)
                                 selectedExperience = -1
                                 experience = ""
                             }
-                            else -> {
-                                Toast.makeText(context, "Select maximum one Experience", Toast.LENGTH_SHORT)
-                                    .show()
-                            }
+
+                            else ->
+                                toastMe(
+                                    context = context,
+                                    message = "Select maximum one Experience"
+                                )
                         }
                     }
                 }

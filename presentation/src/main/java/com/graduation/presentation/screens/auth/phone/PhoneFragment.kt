@@ -1,4 +1,4 @@
-package com.graduation.presentation.screens.auth.email
+package com.graduation.presentation.screens.auth.phone
 
 import android.os.Bundle
 import android.view.View
@@ -11,10 +11,10 @@ import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.core.utils.hideKeypad
 import com.graduation.core.utils.toastMe
-import com.graduation.domain.models.auth.Auth.email.EmailOTPRequest
-import com.graduation.presentation.Constants.VALID
+import com.graduation.domain.models.auth.Auth.phone.PhoneOTPRequest
+import com.graduation.presentation.Constants
 import com.graduation.presentation.R
-import com.graduation.presentation.databinding.FragmentEmailBinding
+import com.graduation.presentation.databinding.FragmentPhoneBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
 import com.ozcanalasalvar.otp_view.view.OtpView
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,11 +23,13 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 
-class EmailFragment : BaseFragmentImpl<FragmentEmailBinding>(FragmentEmailBinding::inflate) {
+class PhoneFragment :
+    BaseFragmentImpl<FragmentPhoneBinding>(FragmentPhoneBinding::inflate) {
 
-    override val viewModel: EmailViewModel by viewModels()
+    override val viewModel: PhoneNumberViewModel by viewModels()
     override val sharedViewModel: SharedViewModel by activityViewModels()
-    var otpCode = 0
+
+    var otpCode = 15042
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,29 +42,24 @@ class EmailFragment : BaseFragmentImpl<FragmentEmailBinding>(FragmentEmailBindin
 
     private fun observation() {
         viewModel.apply {
-            emailError.observe(viewLifecycleOwner) { emailError ->
-                if (emailError == VALID) {
+            phoneError.observe(viewLifecycleOwner) { emailError ->
+                if (emailError == Constants.VALID) {
                     binding.apply {
-                        otpCard.root.visibility = View.VISIBLE
-                        emailOtpError.visibility = View.GONE
+                        phoneOtpCard.root.visibility = View.VISIBLE
+                        phoneError.visibility = View.GONE
                     }
                 } else {
                     binding.apply {
-                        otpCard.root.visibility = View.GONE
-                        emailOtpError.visibility = View.VISIBLE
-                        emailOtpError.text = emailError
+                        phoneOtpCard.root.visibility = View.GONE
+                        phoneError.visibility = View.VISIBLE
+                        phoneError.text = emailError
                     }
                 }
             }
-            emailOtp.observe(viewLifecycleOwner) { emailOtpCode ->
-                if (emailOtpCode != null)
-                    otpCode = emailOtpCode
-            }
-
-            token.observe(viewLifecycleOwner) { token ->
-                if (token != null)
-                    encryptedSharedPreference.token = token
-
+            phoneOtp.observe(viewLifecycleOwner) { phoneOtpCode ->
+                if (phoneOtpCode != null)
+                    toastMe(requireContext() , "Code Hint 15042")
+                    //otpCode = emailOtpCode
             }
         }
     }
@@ -70,7 +67,7 @@ class EmailFragment : BaseFragmentImpl<FragmentEmailBinding>(FragmentEmailBindin
     override fun setOnClickListener() {
 
         binding.apply {
-            emailButton.setOnClickListener {
+            phoneButton.setOnClickListener {
                 lifecycleScope.launch {
                     onLoadingStart()
                     delay(100)
@@ -82,24 +79,24 @@ class EmailFragment : BaseFragmentImpl<FragmentEmailBinding>(FragmentEmailBindin
                 }
             }
 
-            emailAppBar.appBarBackArrow.setOnClickListener {
+            phoneAppBar.appBarBackArrow.setOnClickListener {
                 findNavController().navigateUp()
             }
 
-            emailSendBtn.setOnClickListener {
-                emailSendBtn.start()
-                if (emailEdittext.text!!.isNotBlank()) {
-                    emailOtpError.visibility = View.GONE
-                    callEmailOtp(emailAddress = emailEdittext.text.toString())
-                    emailSendBtn.complete(true)
+            phoneSendBtn.setOnClickListener {
+                phoneSendBtn.start()
+                if (phoneEdittext.text!!.isNotBlank()) {
+                    phoneError.visibility = View.GONE
+                    callEmailOtp(phoneNumber = phoneEdittext.text.toString())
+                    phoneSendBtn.complete(true)
                 } else {
-                    emailOtpError.visibility = View.VISIBLE
-                    emailOtpError.text = resources.getText(R.string.please_enter_email)
-                    emailSendBtn.cancel()
+                    phoneError.visibility = View.VISIBLE
+                    phoneError.text = resources.getText(R.string.please_enter_phone_number)
+                    phoneSendBtn.cancel()
                 }
             }
 
-            otpCard.apply {
+            phoneOtpCard.apply {
                 otpDigit.setTextChangeListener(object : OtpView.ChangeListener {
                     override fun onTextChange(value: String, completed: Boolean) {
                         if (completed) {
@@ -112,7 +109,7 @@ class EmailFragment : BaseFragmentImpl<FragmentEmailBinding>(FragmentEmailBindin
                     }
                 })
                 resendCode.setOnClickListener {
-                    callEmailOtp(emailAddress = emailEdittext.text.toString())
+                    callEmailOtp(phoneNumber = phoneEdittext.text.toString())
                 }
                 confirmBtn.setOnClickListener {
                     confirmBtn.start()
@@ -130,52 +127,47 @@ class EmailFragment : BaseFragmentImpl<FragmentEmailBinding>(FragmentEmailBindin
 
     private fun compareOTPCode() {
         requireActivity().hideKeypad()
-        binding.otpCard.apply {
+        binding.phoneOtpCard.apply {
             lifecycleScope.launch {
                 confirmBtn.apply {
                     loadingDrawable.strokeWidth = confirmBtn.textSize * 0.14f
                     start()
-                    sharedViewModel.setEmailAddress(binding.emailEdittext.text.toString())
+                    sharedViewModel.setPhoneNumber(binding.phoneEdittext.text.toString().toInt())
                     complete(true)
                     delay(500)
-                    navigateTo(R.id.action_emailFragment_to_phoneFragment)
+                    //navigateTo(R.id.action_emailFragment_to_phoneFragment)
                 }
             }
         }
     }
 
-    private fun callEmailOtp(emailAddress: String) {
+
+    private fun callEmailOtp(phoneNumber: String) {
         requireActivity().hideKeypad()
-        viewModel.callEmailOTP(
+        viewModel.callPhoneOTP(
             role = sharedViewModel.role.value.toString(),
-            emailOTPRequest = EmailOTPRequest(
+            phoneOTPRequest = PhoneOTPRequest(
                 userName = sharedViewModel.username.value.toString(),
-                email = emailAddress
+                email =sharedViewModel.emailAddress.value.toString(),
+                phone = phoneNumber
             )
         )
     }
 
     override fun setAppBar() {
         changeStatusBarColor(R.color.white, isContentLight = false, isTransparent = false)
-        binding.emailAppBar.apply {
-            appBarTitle.text = resources.getText(R.string.email_address)
-        }
+        binding.phoneAppBar.appBarTitle.text = resources.getText(R.string.phone)
     }
 
     override fun onLoadingStart() {
-        binding.apply {
-            emailButton.loadingDrawable.strokeWidth =
-                emailButton.textSize * 0.14f
-            emailButton.start()
-        }
+        binding.phoneButton.start()
     }
 
     override fun onComplete(isSuccess: Boolean) {
-        binding.emailButton.complete(true)
+        binding.phoneButton.complete(true)
     }
 
     override fun onCancel() {
-        binding.emailButton.cancel()
+        binding.phoneButton.cancel()
     }
-
 }

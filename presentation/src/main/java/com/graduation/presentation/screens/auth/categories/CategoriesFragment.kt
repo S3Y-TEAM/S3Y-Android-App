@@ -1,9 +1,7 @@
 package com.graduation.presentation.screens.auth.categories
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -14,8 +12,9 @@ import com.google.android.flexbox.FlexboxLayoutManager
 import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
-import com.graduation.domain.models.auth.Auth.UserNameRequest
+import com.graduation.core.utils.toastMe
 import com.graduation.domain.models.auth.Auth.categories.CategoriesResponseItem
+import com.graduation.domain.models.auth.Auth.username.UserNameRequest
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentCategoriesBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
@@ -84,11 +83,7 @@ class CategoriesFragment :
                     onLoadingStart()
                     if (adapterItems.chooseCategory.size == 0) {
                         onCancel()
-                        Toast.makeText(
-                            requireContext(),
-                            "Please, Choose minimum one category ",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        toastMe(context = requireContext(), message = "Please, Choose minimum one category ")
                     } else {
                         sharedViewModel.setSavedCategories(adapterItems.chooseCategory)
                         onComplete(true)
