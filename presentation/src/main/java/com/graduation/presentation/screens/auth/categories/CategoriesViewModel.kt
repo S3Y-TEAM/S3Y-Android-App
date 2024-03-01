@@ -5,11 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.graduation.core.base.network.ResponseState
 import com.graduation.core.base.ui.BaseViewModel
-import com.graduation.domain.models.auth.Auth.UserNameRequest
 import com.graduation.domain.models.auth.Auth.categories.CategoriesResponse
 import com.graduation.domain.models.auth.Auth.categories.CategoriesResponseItem
+import com.graduation.domain.models.auth.Auth.username.UserNameRequest
 import com.graduation.domain.usecase.auth.CategoriesUseCase
-import com.graduation.presentation.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -51,10 +50,10 @@ class CategoriesViewModel @Inject constructor(private val categoriesUseCase: Cat
 
 
         }
-        validateUserName()
+        validateCategoriesCall()
     }
 
-    private fun validateUserName() {
+    private fun validateCategoriesCall() {
         viewModelScope.launch {
             _categoriesResponse.collect {
                 when (it) {

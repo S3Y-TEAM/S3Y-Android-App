@@ -27,10 +27,6 @@ class PositionFragment :
     override val viewModel: PositionViewModel by viewModels()
     override val sharedViewModel: SharedViewModel by activityViewModels()
 
-    private var isDevClicked = false
-    private var isWorkerClicked = false
-    private var isEmpClicked = false
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -42,23 +38,29 @@ class PositionFragment :
     override fun setOnClickListener() {
         binding.apply {
 
-            developerButton.setOnClickListener {
-                isDevClicked = true
-                isWorkerClicked = false
-                isEmpClicked = false
-                buttonAction()
+            developerButton.apply {
+                setOnClickListener {
+                    loadingDrawable.strokeWidth = textSize * 0.14f
+                    start()
+                    complete(true)
+                    buttonAction(DEVELOPER_KEY)
+                }
             }
-            skilledButton.setOnClickListener {
-                isWorkerClicked = true
-                isDevClicked = false
-                isEmpClicked = false
-                buttonAction()
+            skilledButton.apply {
+                setOnClickListener {
+                    loadingDrawable.strokeWidth = textSize * 0.14f
+                    start()
+                    complete(true)
+                    buttonAction(SKILLED_KEY)
+                }
             }
-            userButton.setOnClickListener {
-                isEmpClicked = true
-                isDevClicked = false
-                isWorkerClicked = false
-                buttonAction()
+            userButton.apply {
+                setOnClickListener {
+                    loadingDrawable.strokeWidth = textSize * 0.14f
+                    start()
+                    complete(true)
+                    buttonAction(USER_KEY)
+                }
 
             }
             login.setOnClickListener {
@@ -79,25 +81,12 @@ class PositionFragment :
         )
     }
 
-    private fun buttonAction() {
+    private fun buttonAction(position: String) {
         lifecycleScope.launch {
-            onLoadingStart()
-            delay(500)
-            onComplete(true)
-            delay(500)
 
-            if (isDevClicked)
-                positionSelected(
-                    position = DEVELOPER_KEY
-                )
-            else if (isWorkerClicked)
-                positionSelected(
-                    position = SKILLED_KEY
-                )
-            else if (isEmpClicked)
-                positionSelected(
-                    position = USER_KEY
-                )
+            positionSelected(
+                position = position
+            )
         }
     }
 
@@ -106,30 +95,9 @@ class PositionFragment :
     }
 
     override fun onLoadingStart() {
-
-        binding.apply {
-            if (isDevClicked) {
-                developerButton.loadingDrawable.strokeWidth = developerButton.textSize * 0.14f
-                developerButton.start()
-            } else if (isWorkerClicked) {
-                skilledButton.loadingDrawable.strokeWidth = skilledButton.textSize * 0.14f
-                skilledButton.start()
-
-            } else if (isEmpClicked) {
-                userButton.loadingDrawable.strokeWidth = userButton.textSize * 0.14f
-                userButton.start()
-
-            }
-        }
     }
 
     override fun onComplete(isSuccess: Boolean) {
-        if (isDevClicked)
-            binding.developerButton.complete(isSuccess)
-        else if (isWorkerClicked)
-            binding.skilledButton.complete(isSuccess)
-        else if (isEmpClicked)
-            binding.userButton.complete(isSuccess)
     }
 
     override fun onCancel() {
