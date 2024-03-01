@@ -58,7 +58,6 @@ class PhoneNumberViewModel @Inject constructor(private val phoneOTPUseCase: Phon
                     is ResponseState.NetworkError -> _phoneError.value = "Check Internet Connection"
                     is ResponseState.Error -> _phoneError.value = it.message.toString()
                     is ResponseState.Success -> {
-                        Log.d("LOGDATA", it.toString())
                         _phoneError.value = Constants.VALID
                         _phoneOtp.value = it.data!!.data.phone
                         _token.value = it.message.toString()

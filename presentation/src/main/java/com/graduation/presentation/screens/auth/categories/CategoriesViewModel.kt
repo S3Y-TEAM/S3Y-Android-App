@@ -9,6 +9,7 @@ import com.graduation.domain.models.auth.Auth.categories.CategoriesResponse
 import com.graduation.domain.models.auth.Auth.categories.CategoriesResponseItem
 import com.graduation.domain.models.auth.Auth.username.UserNameRequest
 import com.graduation.domain.usecase.auth.CategoriesUseCase
+import com.graduation.presentation.Constants.VALID
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -27,6 +28,9 @@ class CategoriesViewModel @Inject constructor(private val categoriesUseCase: Cat
 
     private var _token = MutableLiveData<String>()
     val token = _token
+
+    private var _categoriesError= MutableLiveData<String>()
+    val categoriesError = _categoriesError
 
     private val _categoriesList =
         MutableLiveData<List<CategoriesResponseItem>>()
@@ -57,17 +61,17 @@ class CategoriesViewModel @Inject constructor(private val categoriesUseCase: Cat
         viewModelScope.launch {
             _categoriesResponse.collect {
                 when (it) {
-                    is ResponseState.Empty -> Log.d("suzan", "User Name is Empty")
-                    is ResponseState.NetworkError -> Log.d("suzan", "Check Internet Connection")
-                    is ResponseState.Error -> Log.d("suzan", it.message.toString())
+                    is ResponseState.Empty -> _categoriesError.value =  "Categories is Empty"
+                    is ResponseState.NetworkError -> _categoriesError.value = "Check Internet Connection"
+                    is ResponseState.Error -> _categoriesError.value = it.message.toString()
                     is ResponseState.Success -> {
-                        Log.d("responseSuccess", it.data!!.data.toString())
+                        _categoriesError.value = VALID
                         _categoriesList.value = it.data!!.data
                     }
 
-                    is ResponseState.UnKnownError -> Log.d("suzan", "UnKnownError")
-                    is ResponseState.NotAuthorized -> Log.d("suzan", "NotAuthorized")
-                    is ResponseState.Loading -> Log.d("suzan", "loading")
+                    is ResponseState.UnKnownError -> _categoriesError.value = "UnKnownError"
+                    is ResponseState.NotAuthorized -> _categoriesError.value = "NotAuthorized"
+                    is ResponseState.Loading -> _categoriesError.value = "loading"
                 }
             }
         }
