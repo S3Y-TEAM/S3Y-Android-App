@@ -3,10 +3,10 @@ package com.graduation.data.mappers
 import com.graduation.data.remote.dto.auth.login.AuthResponseDto
 import com.graduation.data.remote.dto.auth.login.CountryDto
 import com.graduation.data.remote.dto.auth.login.UserDto
-import com.graduation.domain.models.auth.Auth.AuthData
-import com.graduation.domain.models.auth.Auth.AuthResponse
-import com.graduation.domain.models.auth.Auth.Country
-import com.graduation.domain.models.auth.Auth.User
+import com.graduation.domain.models.auth.Auth.login.AuthData
+import com.graduation.domain.models.auth.Auth.login.AuthResponse
+import com.graduation.domain.models.auth.Auth.login.Country
+import com.graduation.domain.models.auth.Auth.login.User
 
 
 fun AuthResponseDto?.toDomain(): AuthResponse {

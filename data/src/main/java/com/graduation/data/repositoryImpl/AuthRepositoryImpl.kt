@@ -1,8 +1,12 @@
 package com.graduation.data.repositoryImpl
 
 import com.graduation.data.remote.api.AuthApiService
-import com.graduation.domain.models.auth.Auth.UserNameRequest
 import com.graduation.domain.models.auth.Auth.categories.CategoriesResponse
+import com.graduation.domain.models.auth.Auth.email.EmailOTPRequest
+import com.graduation.domain.models.auth.Auth.email.EmailOTPResponse
+import com.graduation.domain.models.auth.Auth.phone.PhoneOTPRequest
+import com.graduation.domain.models.auth.Auth.phone.PhoneOTPResponse
+import com.graduation.domain.models.auth.Auth.username.UserNameRequest
 import com.graduation.domain.models.auth.Auth.username.UsernameResponse
 import com.graduation.domain.repositories.AuthRepository
 import retrofit2.Response
@@ -30,6 +34,20 @@ class AuthRepositoryImpl @Inject constructor(
         role: String,
         categoriesRequest: UserNameRequest,
     ): Response<CategoriesResponse> =
-        authApiService.categories(role = role
-            , categoriesRequest = categoriesRequest)
+        authApiService.categories(
+            role = role, categoriesRequest = categoriesRequest
+        )
+
+    override suspend fun emailOTP(
+        role: String,
+        emailOTPRequest: EmailOTPRequest,
+    ): Response<EmailOTPResponse> =
+        authApiService.emailOtp(role = role, emailOTPRequest = emailOTPRequest)
+
+    override suspend fun phoneOTP(
+        role: String,
+        phoneOTPRequest: PhoneOTPRequest,
+    ): Response<PhoneOTPResponse> =
+        authApiService.phoneOtp(role = role, phoneOTPRequest = phoneOTPRequest)
+
 }
