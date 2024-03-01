@@ -1,4 +1,4 @@
-package com.graduation.domain.models.auth.Auth
+package com.graduation.domain.models.auth.Auth.login
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName

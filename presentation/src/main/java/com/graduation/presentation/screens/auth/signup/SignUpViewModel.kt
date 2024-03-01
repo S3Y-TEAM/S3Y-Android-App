@@ -1,12 +1,10 @@
 package com.graduation.presentation.screens.auth.signup
 
-import android.util.Log
-import android.webkit.CookieManager
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.graduation.core.base.network.ResponseState
 import com.graduation.core.base.ui.BaseViewModel
-import com.graduation.domain.models.auth.Auth.UserNameRequest
+import com.graduation.domain.models.auth.Auth.username.UserNameRequest
 import com.graduation.domain.models.auth.Auth.username.UsernameResponse
 import com.graduation.domain.usecase.auth.UsernameUseCase
 import com.graduation.presentation.Constants.VALID
@@ -119,7 +117,6 @@ class SignUpViewModel @Inject constructor(private val usernameUseCase: UsernameU
     }
 
     fun sendUsername(role: String, userNameRequest: UserNameRequest) {
-        Log.d("invalidrole" , role)
         viewModelScope.launch {
             _job =
                 networkCall(action = {
@@ -159,7 +156,6 @@ class SignUpViewModel @Inject constructor(private val usernameUseCase: UsernameU
                         _userName.value = VALID
                         _token.value = it.message.toString()
                     }
-
                     is ResponseState.UnKnownError -> _userName.value = "UnKnownError"
                     is ResponseState.NotAuthorized -> _userName.value = "NotAuthorized"
                     is ResponseState.Loading -> _userName.value = "loading"
