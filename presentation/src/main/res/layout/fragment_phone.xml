@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.auth.email.EmailFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.auth.phone.PhoneFragment">
 
     <include
-        android:id="@+id/email_app_bar"
+        android:id="@+id/phone_app_bar"
         layout="@layout/app_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email_app_bar">
+        app:layout_constraintTop_toBottomOf="@id/phone_app_bar">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,27 +32,27 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/email_logo"
+                android:id="@+id/phone_logo"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_220sdp"
                 android:layout_marginTop="@dimen/_18sdp"
                 android:src="@drawable/mail_otp"
-                app:layout_constraintBottom_toTopOf="@id/linked_details"
+                app:layout_constraintBottom_toTopOf="@id/phone_number"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/linked_details"
+                android:id="@+id/phone_number"
                 style="@style/TextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/email_address"
-                app:layout_constraintStart_toStartOf="@id/email_logo"
-                app:layout_constraintTop_toBottomOf="@id/email_logo" />
+                android:text="@string/phone"
+                app:layout_constraintStart_toStartOf="@id/phone_logo"
+                app:layout_constraintTop_toBottomOf="@id/phone_logo" />
 
             <TextView
-                android:id="@+id/email_otp_error"
+                android:id="@+id/phone_error"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/_24sdp"
@@ -60,31 +60,31 @@
                 android:textColor="@color/red_5"
                 android:textSize="@dimen/_12sdp"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@id/email_card"
-                app:layout_constraintStart_toStartOf="@id/email_card"
-                app:layout_constraintTop_toBottomOf="@id/linked_details"
+                app:layout_constraintBottom_toTopOf="@id/phone_card"
+                app:layout_constraintStart_toStartOf="@id/phone_card"
+                app:layout_constraintTop_toBottomOf="@id/phone_number"
                 tools:text="suzannnnnnnnnnn" />
 
             <soup.neumorphism.NeumorphCardView
-                android:id="@+id/email_card"
+                android:id="@+id/phone_card"
                 style="@style/MainEditText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_14sdp"
                 android:layout_marginEnd="@dimen/_14sdp"
-                app:layout_constraintEnd_toEndOf="@id/email_logo"
-                app:layout_constraintStart_toStartOf="@id/email_logo"
-                app:layout_constraintTop_toBottomOf="@id/email_otp_error">
+                app:layout_constraintEnd_toEndOf="@id/phone_logo"
+                app:layout_constraintStart_toStartOf="@id/phone_logo"
+                app:layout_constraintTop_toBottomOf="@id/phone_error">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/email_edittext"
+                    android:id="@+id/phone_edittext"
                     android:layout_width="match_parent"
+                    android:inputType="phone"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:drawableStart="@drawable/ic_email"
                     android:drawablePadding="@dimen/_6sdp"
-                    android:inputType="textEmailAddress"
-                    android:hint="@string/email_address"
+                    android:hint="@string/phone"
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
                     android:textColor="@color/main_color"
@@ -95,35 +95,35 @@
 
 
             <com.flod.loadingbutton.LoadingButton
-                android:id="@+id/email_send_btn"
+                android:id="@+id/phone_send_btn"
                 style="@style/SkipButton"
+                android:drawableTint="@color/main_color"
+                app:drawableTint="@color/main_color"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_26sdp"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
-                android:drawableTint="@color/main_color"
                 android:text="@string/send"
-                app:drawableTint="@color/main_color"
-                app:layout_constraintEnd_toEndOf="@id/email_card"
-                app:layout_constraintStart_toStartOf="@id/email_card"
-                app:layout_constraintTop_toBottomOf="@id/email_card" />
+                app:layout_constraintEnd_toEndOf="@id/phone_card"
+                app:layout_constraintStart_toStartOf="@id/phone_card"
+                app:layout_constraintTop_toBottomOf="@id/phone_card" />
 
 
             <include
-                android:id="@+id/otp_card"
+                android:id="@+id/phone_otp_card"
                 layout="@layout/otp_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_12sdp"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@id/email_button"
-                app:layout_constraintEnd_toEndOf="@id/email_card"
-                app:layout_constraintStart_toStartOf="@id/email_card"
-                app:layout_constraintTop_toBottomOf="@id/email_send_btn" />
+                app:layout_constraintBottom_toTopOf="@id/phone_button"
+                app:layout_constraintEnd_toEndOf="@id/phone_card"
+                app:layout_constraintStart_toStartOf="@id/phone_card"
+                app:layout_constraintTop_toBottomOf="@id/phone_send_btn" />
 
 
             <com.flod.loadingbutton.LoadingButton
-                android:id="@+id/email_button"
+                android:id="@+id/phone_button"
                 style="@style/MainButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/otp_card" />
+                app:layout_constraintTop_toBottomOf="@id/phone_otp_card" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
