@@ -68,6 +68,7 @@ lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
 navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 neumorphism = {module = "com.github.fornewid:neumorphism", version.ref = "neumorphism"}
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version = "21.1.0" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidApplication" }
