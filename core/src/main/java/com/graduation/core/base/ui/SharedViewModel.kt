@@ -34,15 +34,31 @@ class SharedViewModel @Inject constructor() : BaseViewModel() {
 
     private val _linkedIn =
         MutableLiveData<String>()
-    val linkedIn= _linkedIn
+    val linkedIn = _linkedIn
 
     private val _emailAddress =
         MutableLiveData<String>()
-    val emailAddress= _emailAddress
+    val emailAddress = _emailAddress
 
     private val _phoneNumber =
         MutableLiveData<Int>()
-    val phoneNumber= _phoneNumber
+    val phoneNumber = _phoneNumber
+
+    private val _country =
+        MutableLiveData<String>()
+    val country = _country
+
+    private val _city =
+        MutableLiveData<String>()
+    val city = _city
+
+    private val _address =
+        MutableLiveData<String>()
+    val address = _address
+
+    private val _chosenCategories =
+        MutableLiveData<ArrayList<String>>()
+    val chosenCategories = _chosenCategories
 
     private val _savedCategories =
         MutableLiveData<ArrayList<Int>>()
@@ -90,16 +106,34 @@ class SharedViewModel @Inject constructor() : BaseViewModel() {
         _role.value = role
     }
 
-    fun setEmailAddress(emailAddress: String) = saveEmailAddress (emailAddress = emailAddress)
+    fun setEmailAddress(emailAddress: String) = saveEmailAddress(emailAddress = emailAddress)
 
     private fun saveEmailAddress(emailAddress: String) {
         _emailAddress.value = emailAddress
     }
 
-    fun setPhoneNumber(phoneNumber: Int) = savePhoneNumber (phoneNumber = phoneNumber)
+    fun setPhoneNumber(phoneNumber: Int) = savePhoneNumber(phoneNumber = phoneNumber)
 
     private fun savePhoneNumber(phoneNumber: Int) {
         _phoneNumber.value = phoneNumber
+    }
+
+    fun setCity(city: String) = saveCity(city = city)
+
+    private fun saveCity(city: String) {
+        _city.value = city
+    }
+
+    fun setCountry(country: String) = saveCountry(country = country)
+
+    private fun saveCountry(country: String) {
+        _country.value = country
+    }
+
+    fun setAddress(address: String) = saveAddress(address = address)
+
+    private fun saveAddress(address: String) {
+        _address.value = address
     }
 
     fun setSavedCategories(savedCategories: ArrayList<Int>) =
@@ -107,6 +141,13 @@ class SharedViewModel @Inject constructor() : BaseViewModel() {
 
     private fun savedCategories(savedCategories: ArrayList<Int>) {
         _savedCategories.value = savedCategories
+    }
+
+    fun setChosenCategories(savedChosenCategories: ArrayList<String>) =
+        savedChosenCategories(savedChosenCategories = savedChosenCategories)
+
+    private fun savedChosenCategories(savedChosenCategories: ArrayList<String>) {
+        _chosenCategories.value = savedChosenCategories
     }
 
 
