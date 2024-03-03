@@ -1,4 +1,4 @@
-package com.graduation.domain.models.auth.Auth.login
+package com.graduation.domain.models.auth.login
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
@@ -8,5 +8,5 @@ data class LoginRequest(
     @SerializedName("email")
     val email : String ,
     @SerializedName("password")
-    val password : Int ,
+    val password : String ,
 )

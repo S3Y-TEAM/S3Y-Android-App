@@ -1,4 +1,4 @@
-package com.graduation.domain.models.auth.Auth.phone
+package com.graduation.domain.models.auth.phone
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
