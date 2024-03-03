@@ -1,7 +1,7 @@
 package com.graduation.domain.usecase.auth
 
-import com.graduation.domain.models.auth.Auth.phone.PhoneOTPRequest
-import com.graduation.domain.models.auth.Auth.phone.PhoneOTPResponse
+import com.graduation.domain.models.auth.phone.PhoneOTPRequest
+import com.graduation.domain.models.auth.phone.PhoneOTPResponse
 import com.graduation.domain.repositories.AuthRepository
 import retrofit2.Response
 import javax.inject.Inject
