@@ -1,11 +1,11 @@
-package com.graduation.domain.models.auth.Auth.username
+package com.graduation.domain.models.auth.email
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 import com.graduation.core.base.network.BaseResponse
 
 @Keep
-data class UsernameResponse(
+data class EmailOTPResponse(
     @SerializedName("data")
-    val data: UsernameResponseItem,
+    val data: EmailOTPResponseItem,
 ) : BaseResponse()

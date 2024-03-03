@@ -1,11 +1,11 @@
-package com.graduation.domain.models.auth.Auth.categories
+package com.graduation.domain.models.auth.username
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 import com.graduation.core.base.network.BaseResponse
 
 @Keep
-data class CategoriesResponse(
+data class UsernameResponse(
     @SerializedName("data")
-    val data: List<CategoriesResponseItem>,
+    val data: UsernameResponseItem,
 ) : BaseResponse()

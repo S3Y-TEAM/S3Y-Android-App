@@ -1,7 +1,8 @@
-package com.graduation.domain.models.auth.Auth.categories
+package com.graduation.domain.models.auth.categories
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
-
+@Keep
 data class CategoriesResponseItem(
 
     @SerializedName("id")
