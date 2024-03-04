@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
+import com.graduation.core.utils.hideKeypad
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentLinkedBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
@@ -34,6 +35,7 @@ class LinkedFragment : BaseFragmentImpl<FragmentLinkedBinding>(FragmentLinkedBin
         binding.apply {
             linkedButton.setOnClickListener {
                 lifecycleScope.launch {
+                    requireActivity().hideKeypad()
                     onLoadingStart()
                     if (linkedinEdittext.text.isNullOrBlank()) {
                         Toast.makeText(requireContext(), "Enter LinkedIn", Toast.LENGTH_SHORT)
