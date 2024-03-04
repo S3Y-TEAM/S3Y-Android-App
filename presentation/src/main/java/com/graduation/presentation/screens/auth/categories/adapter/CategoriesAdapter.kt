@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.graduation.core.extensions.getResourceColor
 import com.graduation.core.utils.toastMe
-import com.graduation.domain.models.auth.Auth.categories.CategoriesResponseItem
+import com.graduation.domain.models.auth.categories.CategoriesResponseItem
 import com.graduation.presentation.Constants.CATEGORIES_MAX_NUMBER
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.CategoriesItemBinding
@@ -18,6 +18,7 @@ class CategoriesAdapter(var kind: Boolean) :
     RecyclerView.Adapter<CategoriesAdapter.AllCategoriesAdapter>() {
 
     var chooseCategory = arrayListOf<Int>()
+    var chooseCategoryName = arrayListOf<String>()
     var selectedExperience = -1
     var experience = ""
 
@@ -124,6 +125,7 @@ class CategoriesAdapter(var kind: Boolean) :
         holder: AllCategoriesAdapter, item: CategoriesResponseItem,
     ) {
         chooseCategory.add(item.id)
+        chooseCategoryName.add((item.name))
         addedItemStyle(holder = holder)
     }
 
@@ -131,6 +133,7 @@ class CategoriesAdapter(var kind: Boolean) :
         holder: AllCategoriesAdapter, item: CategoriesResponseItem,
     ) {
         chooseCategory.remove(item.id)
+        chooseCategoryName.remove((item.name))
         removedItemStyle(holder = holder)
     }
 

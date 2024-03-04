@@ -60,6 +60,20 @@
 
     </ScrollView>
 
+    <ProgressBar
+        android:id="@+id/today_progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/main_color"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="@id/scroll_view"
+        app:layout_constraintBottom_toBottomOf="@id/scroll_view"
+        app:layout_constraintEnd_toEndOf="@id/scroll_view"
+        app:layout_constraintStart_toStartOf="@id/scroll_view" />
+
     <com.flod.loadingbutton.LoadingButton
         android:id="@+id/categories_button"
         style="@style/MainButton"
