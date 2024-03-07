@@ -11,7 +11,7 @@ import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.core.utils.hideKeypad
 import com.graduation.core.utils.toastMe
-import com.graduation.domain.models.auth.Auth.phone.PhoneOTPRequest
+import com.graduation.domain.models.auth.phone.PhoneOTPRequest
 import com.graduation.presentation.Constants
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentPhoneBinding
@@ -61,23 +61,28 @@ class PhoneFragment :
                     toastMe(requireContext() , "Code Hint 15042")
                     //otpCode = emailOtpCode
             }
+            token.observe(viewLifecycleOwner) { token ->
+                if (token != null)
+                    encryptedSharedPreference.token = token
+
+            }
         }
     }
 
     override fun setOnClickListener() {
 
         binding.apply {
-            phoneButton.setOnClickListener {
-                lifecycleScope.launch {
-                    onLoadingStart()
-                    delay(100)
-                    toastMe(
-                        context = requireContext(),
-                        message = resources.getText(R.string.please_complete_data).toString()
-                    )
-                    onCancel()
-                }
-            }
+//            phoneButton.setOnClickListener {
+//                lifecycleScope.launch {
+//                    onLoadingStart()
+//                    delay(100)
+//                    toastMe(
+//                        context = requireContext(),
+//                        message = resources.getText(R.string.please_complete_data).toString()
+//                    )
+//                    onCancel()
+//                }
+//            }
 
             phoneAppBar.appBarBackArrow.setOnClickListener {
                 findNavController().navigateUp()
@@ -135,7 +140,7 @@ class PhoneFragment :
                     sharedViewModel.setPhoneNumber(binding.phoneEdittext.text.toString().toInt())
                     complete(true)
                     delay(500)
-                    //navigateTo(R.id.action_emailFragment_to_phoneFragment)
+                    navigateTo(R.id.action_phoneFragment_to_completeFragment)
                 }
             }
         }
@@ -160,14 +165,14 @@ class PhoneFragment :
     }
 
     override fun onLoadingStart() {
-        binding.phoneButton.start()
+        //binding.phoneButton.start()
     }
 
     override fun onComplete(isSuccess: Boolean) {
-        binding.phoneButton.complete(true)
+        //binding.phoneButton.complete(true)
     }
 
     override fun onCancel() {
-        binding.phoneButton.cancel()
+        //binding.phoneButton.cancel()
     }
 }
