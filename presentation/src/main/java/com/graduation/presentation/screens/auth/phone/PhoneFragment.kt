@@ -59,7 +59,6 @@ class PhoneFragment :
             phoneOtp.observe(viewLifecycleOwner) { phoneOtpCode ->
                 if (phoneOtpCode != null)
                     toastMe(requireContext() , "Code Hint 15042")
-                    //otpCode = emailOtpCode
             }
             token.observe(viewLifecycleOwner) { token ->
                 if (token != null)
@@ -72,17 +71,6 @@ class PhoneFragment :
     override fun setOnClickListener() {
 
         binding.apply {
-//            phoneButton.setOnClickListener {
-//                lifecycleScope.launch {
-//                    onLoadingStart()
-//                    delay(100)
-//                    toastMe(
-//                        context = requireContext(),
-//                        message = resources.getText(R.string.please_complete_data).toString()
-//                    )
-//                    onCancel()
-//                }
-//            }
 
             phoneAppBar.appBarBackArrow.setOnClickListener {
                 findNavController().navigateUp()
@@ -165,14 +153,11 @@ class PhoneFragment :
     }
 
     override fun onLoadingStart() {
-        //binding.phoneButton.start()
     }
 
     override fun onComplete(isSuccess: Boolean) {
-        //binding.phoneButton.complete(true)
     }
 
     override fun onCancel() {
-        //binding.phoneButton.cancel()
     }
 }
