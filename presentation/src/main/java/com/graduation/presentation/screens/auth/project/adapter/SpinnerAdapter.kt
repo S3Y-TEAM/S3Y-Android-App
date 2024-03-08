@@ -1,13 +1,16 @@
 package com.graduation.presentation.screens.auth.project.adapter
 
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
+import android.widget.TextView
+import com.graduation.presentation.R
 import com.graduation.presentation.databinding.DropdownStyleBinding
 import com.graduation.presentation.databinding.SpinnerStyleBinding
 import com.graduation.presentation.screens.auth.onboarding.model.OnboardingItem
-
 
 class SpinnerAdapter(private val objects: List<OnboardingItem>) : BaseAdapter() {
 
@@ -24,17 +27,22 @@ class SpinnerAdapter(private val objects: List<OnboardingItem>) : BaseAdapter() 
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val item = getItem(position) as OnboardingItem
         var v = convertView
+        val holder: ViewHolder
+        val item = getItem(position) as OnboardingItem
+
         if (v == null) {
-            val vi = SpinnerStyleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            v = vi.root
-            vi.dropdownLayout.apply {
-                typeText.text = item.description
-                typeIcon.setImageResource(item.image)
-            }
+            v = LayoutInflater.from(parent.context).inflate(R.layout.spinner_style, parent, false)
+            holder = ViewHolder(v)
+            v.tag = holder
+        } else {
+            holder = v.tag as ViewHolder
         }
-        return v
+
+        holder.typeText.text = item.description
+        holder.typeIcon.setImageResource(item.image)
+
+        return v!!
     }
 
     override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -44,5 +52,10 @@ class SpinnerAdapter(private val objects: List<OnboardingItem>) : BaseAdapter() 
         binding.typeText.text = item.description
         binding.typeIcon.setImageResource(item.image)
         return binding.root
+    }
+
+    private class ViewHolder(view: View) {
+        val typeText: TextView = view.findViewById(R.id.type_text)
+        val typeIcon: ImageView = view.findViewById(R.id.type_icon)
     }
 }

@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.graduation.core.utils.toastMe
 import com.graduation.presentation.databinding.ProjectItemBinding
 
 class ProjectAdapter : RecyclerView.Adapter<ProjectAdapter.AllProjectsAdapter>() {
@@ -39,11 +40,16 @@ class ProjectAdapter : RecyclerView.Adapter<ProjectAdapter.AllProjectsAdapter>()
 
     override fun onBindViewHolder(holder: AllProjectsAdapter, position: Int) {
         val item = differ.currentList[position]
+        holder.binding.root.apply {
 
-        holder.binding.apply {
-            projectTitle.text = item.toString()
+            holder.binding.apply {
+                projectTitle.text = item.toString()
+                editProject.setOnClickListener {
+                    toastMe(context = context , "Coming Soon")
+                }
+            }
+
         }
-
     }
 
 }
