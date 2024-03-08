@@ -209,5 +209,11 @@
     <string name="please_complete_data">Please, Complete all Data</string>
     <string name="invalid_otp">Invalid OTP code</string>
     <string name="please_enter_phone_number">Please Enter Phone Number</string>
+    <string name="please_enter_password">Please Enter Password</string>
+    <string name="forget_password_title">Forget Password</string>
+    <string name="password_not_match">Password Not Match</string>
+    <string name="please_select_role">Please Select Role</string>
+    <string name="job_type">Job Type</string>
+    <string name="your_password_changed_successfully">Your password changed successfully</string>
 
 </resources>
