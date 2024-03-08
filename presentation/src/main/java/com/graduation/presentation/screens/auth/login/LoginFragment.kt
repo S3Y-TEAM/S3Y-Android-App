@@ -1,15 +1,31 @@
 package com.graduation.presentation.screens.auth.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
+import androidx.activity.addCallback
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.graduation.core.base.ui.SharedViewModel
+import com.graduation.core.extensions.navigation.navigateTo
+import com.graduation.core.extensions.navigation.onBackPress
 import com.graduation.core.extensions.screen.changeStatusBarColor
+import com.graduation.core.utils.sharedPrefernces.LocalUser
+import com.graduation.core.utils.toastMe
+import com.graduation.domain.models.auth.login.LoginRequest
+import com.graduation.presentation.Constants
+import com.graduation.presentation.Constants.DEVELOPER_KEY
+import com.graduation.presentation.Constants.SKILLED_KEY
+import com.graduation.presentation.Constants.USER_KEY
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentLoginBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
+import com.graduation.presentation.screens.auth.onboarding.model.OnboardingItem
+import com.graduation.presentation.screens.auth.project.adapter.SpinnerAdapter
+import com.graduation.presentation.screens.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -19,14 +35,93 @@ class LoginFragment : BaseFragmentImpl<FragmentLoginBinding>(FragmentLoginBindin
 
 
     override val viewModel: LoginViewModel by viewModels()
-    override val sharedViewModel: SharedViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by activityViewModels()
+    private var role = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setOnClickListener()
         setAppBar()
+        observation()
+        setupSpinner()
 
+    }
+
+    private fun setupSpinner() {
+        binding.spinner.adapter = SpinnerAdapter(setDummyData())
+    }
+
+    private fun setDummyData(): List<OnboardingItem> {
+        return listOf(
+            OnboardingItem(0, "Select type"),
+            OnboardingItem(R.drawable.ic_person, "Developer"),
+            OnboardingItem(R.drawable.ic_person, "Skilled Worker"),
+            OnboardingItem(R.drawable.ic_person, "User"),
+        )
+    }
+
+
+    private fun observation() {
+        viewModel.apply {
+            loginError.observe(viewLifecycleOwner) { loginError ->
+                if (loginError != null) {
+                    if (loginError == Constants.VALID) {
+                        binding.apply {
+                            emailError.visibility = View.GONE
+                            passwordError.visibility = View.GONE
+                            binding.loginButton.complete(true)
+                        }
+                    } else {
+                        binding.apply {
+                            loginButton.cancel()
+                            emailError.visibility = View.VISIBLE
+                            emailError.text = loginError
+                            passwordError.visibility = View.VISIBLE
+                            passwordError.text = loginError
+                        }
+                    }
+                }
+            }
+            login.observe(viewLifecycleOwner) { login ->
+                login?.apply {
+                    encryptedSharedPreference.userData = LocalUser(
+                        address = address,
+                        city = city,
+                        country = country,
+                        email = email,
+                        fName = fName,
+                        id = id,
+                        lName = lName,
+                        nationalId = nationalId,
+                        personalImage = personalImage,
+                        phoneNumber = phoneNumber,
+                        userName = userName,
+                        verified = verified
+                    )
+                    encryptedSharedPreference.loggedIn = "done"
+                    setIsUserDataSaved(isUserDataSaved = true)
+                }
+            }
+
+            token.observe(viewLifecycleOwner) { token ->
+                if (token != null) {
+                    encryptedSharedPreference.token = token
+                    setIsTokenSaved(isTokenSaved = true)
+                }
+            }
+
+            isSuccess.observe(viewLifecycleOwner) { isSuccess ->
+                if (isSuccess) {
+                    successLogin()
+                }
+            }
+        }
+    }
+
+    private fun successLogin() {
+        startActivity(Intent(requireActivity(), MainActivity::class.java))
+        requireActivity().finish()
     }
 
     override fun setOnClickListener() {
@@ -34,19 +129,66 @@ class LoginFragment : BaseFragmentImpl<FragmentLoginBinding>(FragmentLoginBindin
         binding.apply {
             loginButton.setOnClickListener {
                 lifecycleScope.launch {
-                    loginButton.loadingDrawable.strokeWidth = loginButton.textSize * 0.14f;
-                    onLoadingStart()
-                    delay(1600)
-                    onComplete(true)
-                    delay(1600)
+                    if (emailEdittext.text.isNullOrBlank())
+                        toastMe(
+                            context = requireContext(),
+                            message = resources.getText(R.string.please_enter_email).toString()
+                        )
+                    else if (passwordEdittext.text.isNullOrBlank())
+                        toastMe(
+                            context = requireContext(),
+                            message = resources.getText(R.string.please_enter_password).toString()
+                        )
+                    else if (role == "" || role == "noting")
+                        toastMe(
+                            context = requireContext(),
+                            message = resources.getText(R.string.please_select_role).toString()
+                        )
+                    else {
+                        onLoadingStart()
+                        viewModel.callLogin(
+                            role = role,
+                            LoginRequest(
+                                email = emailEdittext.text.toString(),
+                                password = passwordEdittext.text.toString()
+                            )
+                        )
+                    }
                 }
             }
+
+            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long,
+                ) {
+                    val data = listOf("noting", DEVELOPER_KEY, SKILLED_KEY, USER_KEY)
+                    val selectedItem = data[position]
+                    role = selectedItem
+                    //toastMe(requireContext(), selectedItem)
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    // Handle case when no item is selected
+                }
+            }
+
 
             signup.setOnClickListener {
                 findNavController().navigateUp()
             }
+            forgetPassword.setOnClickListener {
+                navigateTo(R.id.action_loginFragment_to_forgetPasswordFragment)
+            }
             loginAppBar.appBarBackArrow.setOnClickListener {
-                findNavController().navigateUp()
+                navigateTo(R.id.action_loginFragment_to_positionFragment)
+            }
+            onBackPress {
+                requireActivity().onBackPressedDispatcher.addCallback(requireActivity()) {
+                    return@addCallback navigateTo(R.id.action_loginFragment_to_positionFragment)
+                }
             }
         }
     }
@@ -57,7 +199,10 @@ class LoginFragment : BaseFragmentImpl<FragmentLoginBinding>(FragmentLoginBindin
     }
 
     override fun onLoadingStart() {
-        binding.loginButton.start()
+        binding.apply {
+            loginButton.loadingDrawable.strokeWidth = loginButton.textSize * 0.14f
+            loginButton.start()
+        }
     }
 
     override fun onComplete(isSuccess: Boolean) {

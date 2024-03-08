@@ -1,15 +1,20 @@
 package com.graduation.data.remote.api
 
-import com.graduation.core.base.network.BaseResponse
 import com.graduation.data.remote.interceptors.Authenticated
-import com.graduation.domain.models.auth.Auth.categories.CategoriesResponse
-import com.graduation.domain.models.auth.Auth.email.EmailOTPRequest
-import com.graduation.domain.models.auth.Auth.email.EmailOTPResponse
-import com.graduation.domain.models.auth.Auth.phone.PhoneOTPRequest
-import com.graduation.domain.models.auth.Auth.phone.PhoneOTPResponse
-import com.graduation.domain.models.auth.Auth.username.UserNameRequest
-import com.graduation.domain.models.auth.Auth.username.UsernameResponse
-import com.graduation.domain.models.auth.otp.SendOtpRequest
+import com.graduation.domain.models.auth.categories.CategoriesResponse
+import com.graduation.domain.models.auth.email.EmailOTPRequest
+import com.graduation.domain.models.auth.email.EmailOTPResponse
+import com.graduation.domain.models.auth.forgetpassword.ForgetPasswordRequest
+import com.graduation.domain.models.auth.login.LoginRequest
+import com.graduation.domain.models.auth.login.LoginResponse
+import com.graduation.domain.models.auth.phone.PhoneOTPRequest
+import com.graduation.domain.models.auth.phone.PhoneOTPResponse
+import com.graduation.domain.models.auth.resetpassword.ResetPasswordRequest
+import com.graduation.domain.models.auth.resetpassword.ResetPasswordResponse
+import com.graduation.domain.models.auth.signup.SignUpRequest
+import com.graduation.domain.models.auth.signup.SignUpResponse
+import com.graduation.domain.models.auth.username.UserNameRequest
+import com.graduation.domain.models.auth.username.UsernameResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Header
@@ -17,60 +22,57 @@ import retrofit2.http.POST
 
 interface AuthApiService {
 
-    @POST("users/sendOtp")
-    suspend fun sendOtp(@Body otpRequest: SendOtpRequest): Response<BaseResponse>
-
-//    @POST("users/auth")
-//    suspend fun auth(
-//        @Body authRequest: AuthRequest,
-//    ): AuthResponseDto
-
     @POST("username")
     suspend fun username(
         @Header("role") role: String,
-        @Body userNameRequest: UserNameRequest
+        @Body userNameRequest: UserNameRequest,
     ): Response<UsernameResponse>
 
     @POST("categories")
     @Authenticated
     suspend fun categories(
         @Header("role") role: String,
-        @Body categoriesRequest: UserNameRequest
-    ) : Response<CategoriesResponse>
+        @Body categoriesRequest: UserNameRequest,
+    ): Response<CategoriesResponse>
 
     @POST("email")
     @Authenticated
     suspend fun emailOtp(
         @Header("role") role: String,
-        @Body emailOTPRequest: EmailOTPRequest
-    ) : Response<EmailOTPResponse>
+        @Body emailOTPRequest: EmailOTPRequest,
+    ): Response<EmailOTPResponse>
 
     @POST("phone")
     @Authenticated
     suspend fun phoneOtp(
         @Header("role") role: String,
-        @Body phoneOTPRequest: PhoneOTPRequest
-    ) : Response<PhoneOTPResponse>
+        @Body phoneOTPRequest: PhoneOTPRequest,
+    ): Response<PhoneOTPResponse>
 
+    @POST("signup")
+    @Authenticated
+    suspend fun signUp(
+        @Header("role") role: String,
+        @Body signupRequest: SignUpRequest,
+    ): Response<SignUpResponse>
 
+    @POST("signin")
+    suspend fun login(
+        @Header("role") role: String,
+        @Body loginRequest: LoginRequest,
+    ): Response<LoginResponse>
 
+    @POST("forgetpassword")
+    suspend fun forgetPassword(
+        @Header("role") role: String,
+        @Body forgetPasswordRequest: ForgetPasswordRequest,
+    ): Response<EmailOTPResponse>
 
-//    @POST("users/register")
-//    @Multipart
-//    suspend fun register(
-//        @Query("device_token") device_token: String,
-//        @Query("token") token: String,
-//        @Query("name") name: String,
-//        @Part image: MultipartBody.Part
-//    ): Response<RegisterResponse>
-//
-//
-//    @POST("users/checkOtp")
-//    @HeadersSetup
-//    suspend fun checkOtp(@Body checkOtpRequest: CheckOtpRequest): Response<CheckOtpResponse>
-//
-//    @POST("users/auth")
-//    @HeadersSetup
-//    suspend fun auth(@Body otpRequest: AuthRequest): Response<AuthResponse>
+    @POST("resetpassword")
+    @Authenticated
+    suspend fun resetPassword(
+        @Header("role") role: String,
+        @Body resetPasswordRequest: ResetPasswordRequest,
+    ): Response<ResetPasswordResponse>
 
 }

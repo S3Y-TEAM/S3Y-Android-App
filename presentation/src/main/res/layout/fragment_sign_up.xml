@@ -148,19 +148,22 @@
                 app:layout_constraintStart_toStartOf="@id/user_name_card"
                 app:layout_constraintTop_toBottomOf="@id/password_error">
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/password_edittext"
+                    style="@style/MainEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:drawableStart="@drawable/ic_lock"
                     android:drawablePadding="@dimen/_6sdp"
                     android:hint="@string/password"
+                    android:inputType="textPassword"
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
                     android:textColor="@color/main_color"
                     android:textColorHint="#B3164863"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_12sdp"
+                    app:endIconMode="password_toggle" />
 
             </soup.neumorphism.NeumorphCardView>
 
@@ -196,6 +199,7 @@
                     android:drawableStart="@drawable/ic_confirm_password"
                     android:drawablePadding="@dimen/_6sdp"
                     android:hint="@string/confirm_password"
+                    android:inputType="textPassword"
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
                     android:textColor="@color/main_color"

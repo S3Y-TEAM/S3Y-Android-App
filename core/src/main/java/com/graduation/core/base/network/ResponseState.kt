@@ -15,7 +15,7 @@ sealed class ResponseState<T>(
     // defines that the response was correct and data was sent
     class Success<T>(
         data: T,
-        token:String?,
+        token:String? = null,
         val lastStep: String? = null,
         hasBeenHandled: Boolean = false,
     ) : ResponseState<T>(data = data ,message= token)

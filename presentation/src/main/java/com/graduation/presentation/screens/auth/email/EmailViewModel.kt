@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.graduation.core.base.network.ResponseState
 import com.graduation.core.base.ui.BaseViewModel
-import com.graduation.domain.models.auth.Auth.email.EmailOTPRequest
-import com.graduation.domain.models.auth.Auth.email.EmailOTPResponse
+import com.graduation.domain.models.auth.email.EmailOTPRequest
+import com.graduation.domain.models.auth.email.EmailOTPResponse
 import com.graduation.domain.usecase.auth.EmailOTPUseCase
 import com.graduation.presentation.Constants.VALID
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -55,6 +55,7 @@ dependencies {
     //hilt
     implementation libs.dagger.hilt
     implementation project(path: ':data')
+    implementation libs.play.services.location
     ksp libs.dagger.compiler
 
     //sdp

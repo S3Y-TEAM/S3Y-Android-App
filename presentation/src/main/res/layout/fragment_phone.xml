@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
     tools:context=".screens.auth.phone.PhoneFragment">
 
     <include
@@ -79,12 +80,12 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/phone_edittext"
                     android:layout_width="match_parent"
-                    android:inputType="phone"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:drawableStart="@drawable/ic_email"
                     android:drawablePadding="@dimen/_6sdp"
                     android:hint="@string/phone"
+                    android:inputType="phone"
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
                     android:textColor="@color/main_color"
@@ -97,13 +98,14 @@
             <com.flod.loadingbutton.LoadingButton
                 android:id="@+id/phone_send_btn"
                 style="@style/SkipButton"
-                android:drawableTint="@color/main_color"
-                app:drawableTint="@color/main_color"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_26sdp"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
+                android:drawableTint="@color/main_color"
                 android:text="@string/send"
+                android:textStyle="bold"
+                app:drawableTint="@color/main_color"
                 app:layout_constraintEnd_toEndOf="@id/phone_card"
                 app:layout_constraintStart_toStartOf="@id/phone_card"
                 app:layout_constraintTop_toBottomOf="@id/phone_card" />
@@ -115,23 +117,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@id/phone_button"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/phone_card"
                 app:layout_constraintStart_toStartOf="@id/phone_card"
                 app:layout_constraintTop_toBottomOf="@id/phone_send_btn" />
 
 
-            <com.flod.loadingbutton.LoadingButton
-                android:id="@+id/phone_button"
-                style="@style/MainButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/next"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/phone_otp_card" />
+            <!--            <com.flod.loadingbutton.LoadingButton-->
+            <!--                android:id="@+id/phone_button"-->
+            <!--                style="@style/MainButton"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="@string/next"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/phone_otp_card" />-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

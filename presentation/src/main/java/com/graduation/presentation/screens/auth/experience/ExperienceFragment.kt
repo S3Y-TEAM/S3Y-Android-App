@@ -11,13 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
-import com.graduation.domain.models.auth.Auth.categories.CategoriesResponseItem
+import com.graduation.domain.models.auth.categories.CategoriesResponseItem
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentExperienceBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
 import com.graduation.presentation.screens.auth.categories.adapter.CategoriesAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

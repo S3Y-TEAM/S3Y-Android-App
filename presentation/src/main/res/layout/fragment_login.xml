@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
@@ -34,32 +35,74 @@
                 android:layout_marginTop="@dimen/_18sdp"
                 android:padding="@dimen/_36sdp"
                 android:src="@drawable/app_logo"
-                app:layout_constraintBottom_toTopOf="@id/phone_card"
+                app:layout_constraintBottom_toTopOf="@id/spinner_error"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/spinner_error"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:textColor="@color/red_5"
+                android:textSize="@dimen/_12sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/spinner_card"
+                app:layout_constraintStart_toStartOf="@id/email_card"
+                app:layout_constraintTop_toBottomOf="@id/login_logo"
+                tools:text="suzannnnnnnnnnn" />
+
             <soup.neumorphism.NeumorphCardView
-                android:id="@+id/phone_card"
+                android:id="@+id/spinner_card"
+                style="@style/MainEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:padding="@dimen/_12sdp"
+                app:layout_constraintStart_toStartOf="@id/email_card"
+                app:layout_constraintTop_toBottomOf="@id/spinner_error">
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/transparent_image" />
+
+            </soup.neumorphism.NeumorphCardView>
+
+            <TextView
+                android:id="@+id/email_error"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:textColor="@color/red_5"
+                android:visibility="gone"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintBottom_toTopOf="@id/email_card"
+                app:layout_constraintStart_toStartOf="@id/email_card"
+                app:layout_constraintTop_toBottomOf="@id/spinner_card"
+                tools:text="suzannnnnnnnnnn" />
+
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/email_card"
                 style="@style/MainEditText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_14sdp"
-                android:layout_marginTop="@dimen/_18sdp"
                 android:layout_marginEnd="@dimen/_14sdp"
-                app:layout_constraintBottom_toTopOf="@id/password_card"
                 app:layout_constraintEnd_toEndOf="@id/login_logo"
                 app:layout_constraintStart_toStartOf="@id/login_logo"
-                app:layout_constraintTop_toBottomOf="@id/login_logo">
+                app:layout_constraintTop_toBottomOf="@id/email_error">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/phone_edittext"
+                    android:id="@+id/email_edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:drawableStart="@drawable/ic_phone"
+                    android:drawableStart="@drawable/ic_email"
                     android:drawablePadding="@dimen/_6sdp"
-                    android:hint="@string/phone"
+                    android:hint="@string/email_address"
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
                     android:textColor="@color/main_color"
@@ -68,15 +111,28 @@
 
             </soup.neumorphism.NeumorphCardView>
 
+            <TextView
+                android:id="@+id/password_error"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:textColor="@color/red_5"
+                android:textSize="@dimen/_12sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/password_card"
+                app:layout_constraintStart_toStartOf="@id/password_card"
+                app:layout_constraintTop_toBottomOf="@id/email_card"
+                tools:text="suzannnnnnnnnnn" />
+
             <soup.neumorphism.NeumorphCardView
                 android:id="@+id/password_card"
                 style="@style/MainEditText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:endIconMode="password_toggle"
-                app:layout_constraintEnd_toEndOf="@id/phone_card"
-                app:layout_constraintStart_toStartOf="@id/phone_card"
-                app:layout_constraintTop_toBottomOf="@id/phone_card">
+                app:layout_constraintEnd_toEndOf="@id/email_card"
+                app:layout_constraintStart_toStartOf="@id/email_card"
+                app:layout_constraintTop_toBottomOf="@id/password_error">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/password_edittext"
@@ -87,8 +143,8 @@
                     android:drawablePadding="@dimen/_6sdp"
                     android:hint="@string/password"
                     android:padding="@dimen/_10sdp"
-                    android:textColor="@color/main_color"
                     android:singleLine="true"
+                    android:textColor="@color/main_color"
                     android:textColorHint="#B3164863"
                     android:textSize="@dimen/_12sdp" />
 

@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
+import com.graduation.core.extensions.navigation.navigateToWithBundle
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.presentation.Constants.IMAGE_TYPE
 import com.graduation.presentation.R
@@ -31,7 +32,6 @@ class NationalDataFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setData()
-
         setOnClickListener()
         setAppBar()
 
@@ -103,6 +103,10 @@ class NationalDataFragment :
             }
             nationalAppBar.appBarSkipBtn.setOnClickListener {
                 navigateTo(R.id.action_nationalDataFragment_to_emailFragment)
+//                navigateToWithBundle(
+//                    R.id.action_positionFragment_to_signUpFragment,
+//                    mapOf("email" to "Email")
+//                )
             }
         }
     }
@@ -111,6 +115,7 @@ class NationalDataFragment :
         binding.apply {
             nationalImageCard.root.visibility = nationalCardVisibility
             nationalSaved.root.visibility = imageSavedVisibility
+            nationalSaved.projectTitle.text = "National Image"
         }
     }
 
@@ -118,6 +123,7 @@ class NationalDataFragment :
         binding.apply {
             personalImageCard.root.visibility = personalCardVisibility
             personalSaved.root.visibility = imageSavedVisibility
+            personalSaved.projectTitle.text = "Personal Image"
         }
     }
 

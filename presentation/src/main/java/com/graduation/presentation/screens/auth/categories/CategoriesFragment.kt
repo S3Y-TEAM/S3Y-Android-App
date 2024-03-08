@@ -2,6 +2,7 @@ package com.graduation.presentation.screens.auth.categories
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -13,8 +14,8 @@ import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.core.utils.toastMe
-import com.graduation.domain.models.auth.Auth.categories.CategoriesResponseItem
-import com.graduation.domain.models.auth.Auth.username.UserNameRequest
+import com.graduation.domain.models.auth.categories.CategoriesResponseItem
+import com.graduation.domain.models.auth.username.UserNameRequest
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentCategoriesBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
@@ -54,12 +55,15 @@ class CategoriesFragment :
                 encryptedSharedPreference.token = token
 
         }
+        viewModel.categoriesError.observe(viewLifecycleOwner) { error ->
+            binding.todayProgressBar.isVisible = error == "loading"
+        }
     }
 
     private fun callCategories() {
         viewModel.callCategories(
             role = sharedViewModel.role.value.toString(),
-            categoriesRequest = UserNameRequest(userName = sharedViewModel.username.value.toString())
+            categoriesRequest = UserNameRequest(username = sharedViewModel.username.value.toString())
         )
     }
 
@@ -83,11 +87,15 @@ class CategoriesFragment :
                     onLoadingStart()
                     if (adapterItems.chooseCategory.size == 0) {
                         onCancel()
-                        toastMe(context = requireContext(), message = "Please, Choose minimum one category ")
+                        toastMe(
+                            context = requireContext(),
+                            message = "Please, Choose minimum one category "
+                        )
                     } else {
                         sharedViewModel.setSavedCategories(adapterItems.chooseCategory)
+                        sharedViewModel.setChosenCategories(adapterItems.chooseCategoryName)
                         onComplete(true)
-                        delay(500)
+                        delay(100)
                         navigateTo(R.id.action_categoriesFragment_to_experienceFragment)
                     }
                 }

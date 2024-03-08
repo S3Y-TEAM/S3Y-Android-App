@@ -10,8 +10,10 @@ import androidx.navigation.fragment.findNavController
 import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
+import com.graduation.core.utils.hideKeypad
 import com.graduation.core.utils.toastMe
-import com.graduation.domain.models.auth.Auth.username.UserNameRequest
+import com.graduation.domain.models.auth.username.UserNameRequest
+import com.graduation.presentation.Constants.USER_KEY
 import com.graduation.presentation.Constants.VALID
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentSignUpBinding
@@ -110,16 +112,20 @@ class SignUpFragment : BaseFragmentImpl<FragmentSignUpBinding>(FragmentSignUpBin
         binding.apply {
             signUpButton.setOnClickListener {
                 lifecycleScope.launch {
+                    requireActivity().hideKeypad()
                     onLoadingStart()
                     delay(500)
                     viewModel.sendSuccess()
                     if (viewModel.isSuccess.value == true) {
                         onComplete(true)
                         saveData()
-                        navigateTo(R.id.action_signUpFragment_to_categoriesFragment)
+                        navigationAction()
                     } else {
                         onCancel()
-                        toastMe(context = requireContext(), message = resources.getText(R.string.please_complete_data).toString())
+                        toastMe(
+                            context = requireContext(),
+                            message = resources.getText(R.string.please_complete_data).toString()
+                        )
                     }
                 }
             }
@@ -127,6 +133,14 @@ class SignUpFragment : BaseFragmentImpl<FragmentSignUpBinding>(FragmentSignUpBin
                 findNavController().navigateUp()
             }
         }
+    }
+
+    private fun navigationAction() {
+        if (sharedViewModel.role.value == USER_KEY)
+            navigateTo(R.id.action_signUpFragment_to_nationalDataFragment)
+        else
+            navigateTo(R.id.action_signUpFragment_to_categoriesFragment)
+
     }
 
     private fun saveData() {

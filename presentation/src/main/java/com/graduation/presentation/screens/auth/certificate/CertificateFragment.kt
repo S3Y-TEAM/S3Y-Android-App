@@ -1,7 +1,11 @@
 package com.graduation.presentation.screens.auth.certificate
 
+import android.content.Context
 import android.content.Intent
+import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
+import android.provider.OpenableColumns
 import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
@@ -18,14 +22,19 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
+import com.graduation.core.utils.toastMe
 import com.graduation.presentation.Constants
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentCertificateBinding
 import com.graduation.presentation.screens.BaseFragmentImpl
+import com.graduation.presentation.screens.auth.project.ProjectFragment
 import com.graduation.presentation.screens.auth.project.adapter.ProjectAdapter
+import com.graduation.presentation.screens.auth.utils.FileUtils
+import com.graduation.presentation.screens.auth.utils.imageRefactored
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.io.File
 
 @AndroidEntryPoint
 class CertificateFragment :
@@ -36,6 +45,11 @@ class CertificateFragment :
 
     private lateinit var adapterItems: ProjectAdapter
     private var items: MutableList<String> = mutableListOf()
+    private lateinit var selectedPdfFile: File
+    private var isImage = false
+    private var imageName = ""
+    private var fileName = ""
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -68,10 +82,20 @@ class CertificateFragment :
             }
 
             certificateItem.saveBtn.setOnClickListener {
-                items.add("Certificate")
-                //...
-                binding.certificateRv.adapter!!.notifyDataSetChanged()
-                certificateItem.root.visibility = View.GONE
+                if (fileName == "" && imageName == "") {
+                    certificateItem.root.visibility = View.GONE
+                } else if (fileName != "") {
+                    items.add(fileName)
+                    binding.certificateRv.adapter!!.notifyItemInserted(items.size - 1)
+                    certificateItem.root.visibility = View.GONE
+                    fileName = ""
+                } else {
+                    items.add(imageName)
+                    binding.certificateRv.adapter!!.notifyItemInserted(items.size - 1)
+                    certificateItem.root.visibility = View.GONE
+                    imageName = ""
+                }
+
 
             }
             certificateItem.certificateFile.setOnClickListener {
@@ -102,6 +126,7 @@ class CertificateFragment :
             appBarTitle.text = resources.getText(R.string.certificates)
             appBarSkipBtn.visibility = View.VISIBLE
         }
+        binding.certificateItem.certificateFile.text = resources.getText(R.string.upload_image)
     }
 
     override fun onLoadingStart() {
@@ -122,6 +147,7 @@ class CertificateFragment :
         val btnCamera: LinearLayout = view.findViewById(R.id.image_type)
         btnCamera.setOnClickListener {
             startIntent(Constants.IMAGE_TYPE)
+            isImage = true
             dialog.dismiss()
         }
         val btnGallery: LinearLayout = view.findViewById(R.id.pdf_type)
@@ -147,17 +173,31 @@ class CertificateFragment :
         intentResultLauncher.launch(i)
     }
 
-
     private val intentResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
-                val data = result.data
-                binding.blurViewCertificate.visibility = View.GONE
-                Log.d("suzan", data.toString())
+                if (isImage) {
+                    binding.blurViewCertificate.visibility = View.GONE
+                    val m = imageRefactored(requireContext(), result.data!!.data!!)
+                    if (m != null) {
+                        imageName = m.name
+                        binding.certificateItem.certificateFile.text = m.name
+                    }
+
+                } else {
+                    val data = result.data!!.data
+                    binding.blurViewCertificate.visibility = View.GONE
+                    data?.let {
+                        val c = FileUtils.getPath(requireContext(), data)
+                        if (c != null) {
+                            selectedPdfFile = File(c)
+                            fileName = selectedPdfFile.name
+                        } else
+                            Log.d("pdf", "null")
+                    }
+                    Log.d("suzan", data.toString())
+                }
             } else
                 binding.blurViewCertificate.visibility = View.GONE
-
         }
-
-
 }

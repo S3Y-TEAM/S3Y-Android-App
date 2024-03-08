@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.graduation.core.base.network.ResponseState
 import com.graduation.core.base.ui.BaseViewModel
-import com.graduation.domain.models.auth.Auth.phone.PhoneOTPRequest
-import com.graduation.domain.models.auth.Auth.phone.PhoneOTPResponse
+import com.graduation.domain.models.auth.phone.PhoneOTPRequest
+import com.graduation.domain.models.auth.phone.PhoneOTPResponse
 import com.graduation.domain.usecase.auth.PhoneOTPUseCase
 import com.graduation.presentation.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel

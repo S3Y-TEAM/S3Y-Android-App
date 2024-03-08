@@ -92,9 +92,7 @@
                 android:id="@+id/spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/transparent_image"
-                app:layout_constraintStart_toStartOf="@id/project_name_card"
-                app:layout_constraintTop_toBottomOf="@id/project_name_card" />
+                android:background="@drawable/transparent_image" />
 
 
         </soup.neumorphism.NeumorphCardView>

@@ -1,6 +1,7 @@
 package com.graduation.presentation.screens.auth.email
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -11,7 +12,7 @@ import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.core.utils.hideKeypad
 import com.graduation.core.utils.toastMe
-import com.graduation.domain.models.auth.Auth.email.EmailOTPRequest
+import com.graduation.domain.models.auth.email.EmailOTPRequest
 import com.graduation.presentation.Constants.VALID
 import com.graduation.presentation.R
 import com.graduation.presentation.databinding.FragmentEmailBinding
@@ -31,7 +32,6 @@ class EmailFragment : BaseFragmentImpl<FragmentEmailBinding>(FragmentEmailBindin
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setOnClickListener()
         setAppBar()
         observation()
@@ -45,6 +45,7 @@ class EmailFragment : BaseFragmentImpl<FragmentEmailBinding>(FragmentEmailBindin
                     binding.apply {
                         otpCard.root.visibility = View.VISIBLE
                         emailOtpError.visibility = View.GONE
+                        emailSendBtn.complete(true)
                     }
                 } else {
                     binding.apply {
@@ -70,18 +71,6 @@ class EmailFragment : BaseFragmentImpl<FragmentEmailBinding>(FragmentEmailBindin
     override fun setOnClickListener() {
 
         binding.apply {
-            emailButton.setOnClickListener {
-                lifecycleScope.launch {
-                    onLoadingStart()
-                    delay(100)
-                    toastMe(
-                        context = requireContext(),
-                        message = resources.getText(R.string.please_complete_data).toString()
-                    )
-                    onCancel()
-                }
-            }
-
             emailAppBar.appBarBackArrow.setOnClickListener {
                 findNavController().navigateUp()
             }
@@ -91,7 +80,7 @@ class EmailFragment : BaseFragmentImpl<FragmentEmailBinding>(FragmentEmailBindin
                 if (emailEdittext.text!!.isNotBlank()) {
                     emailOtpError.visibility = View.GONE
                     callEmailOtp(emailAddress = emailEdittext.text.toString())
-                    emailSendBtn.complete(true)
+                    //emailSendBtn.complete(true)
                 } else {
                     emailOtpError.visibility = View.VISIBLE
                     emailOtpError.text = resources.getText(R.string.please_enter_email)
@@ -146,6 +135,9 @@ class EmailFragment : BaseFragmentImpl<FragmentEmailBinding>(FragmentEmailBindin
 
     private fun callEmailOtp(emailAddress: String) {
         requireActivity().hideKeypad()
+        Log.d("accessToken", sharedViewModel.role.value.toString())
+        Log.d("accessToken", sharedViewModel.username.value.toString())
+        Log.d("accessToken", emailAddress)
         viewModel.callEmailOTP(
             role = sharedViewModel.role.value.toString(),
             emailOTPRequest = EmailOTPRequest(
@@ -160,22 +152,18 @@ class EmailFragment : BaseFragmentImpl<FragmentEmailBinding>(FragmentEmailBindin
         binding.emailAppBar.apply {
             appBarTitle.text = resources.getText(R.string.email_address)
         }
+        binding.roleDetails.visibility = View.GONE
+        binding.spinnerCard.visibility = View.GONE
+        binding.spinnerError.visibility = View.GONE
     }
 
     override fun onLoadingStart() {
-        binding.apply {
-            emailButton.loadingDrawable.strokeWidth =
-                emailButton.textSize * 0.14f
-            emailButton.start()
-        }
     }
 
     override fun onComplete(isSuccess: Boolean) {
-        binding.emailButton.complete(true)
     }
 
     override fun onCancel() {
-        binding.emailButton.cancel()
     }
 
 }

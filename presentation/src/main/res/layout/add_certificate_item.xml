@@ -1,35 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<soup.neumorphism.NeumorphCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MainEditText"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    app:cardCornerRadius="@dimen/_12sdp">
 
-    <soup.neumorphism.NeumorphButton
-        android:id="@+id/certificate_file"
-        style="@style/MainEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_6sdp"
-        android:drawableEnd="@drawable/ic_upload"
-        android:drawablePadding="@dimen/_8sdp"
-        android:padding="@dimen/_16sdp"
-        android:text="@string/upload_project"
-        android:textColor="@color/main_color"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <com.flod.loadingbutton.LoadingButton
-        android:id="@+id/save_btn"
-        style="@style/SkipButton"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/_26sdp"
-        android:layout_gravity="center|end"
-        android:layout_margin="@dimen/_12sdp"
-        android:layout_marginTop="0dp"
-        android:text="@string/save"
-        app:layout_constraintBottom_toBottomOf="@id/certificate_file"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/certificate_file" />
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/certificate_file"
+            style="@style/MainEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_upload"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="@dimen/_16sdp"
+            android:text="@string/upload_project"
+            android:textColor="@color/main_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.flod.loadingbutton.LoadingButton
+            android:id="@+id/save_btn"
+            style="@style/SkipButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_gravity="center|end"
+            android:layout_margin="@dimen/_12sdp"
+            android:layout_marginTop="0dp"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="@id/certificate_file"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/certificate_file" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</soup.neumorphism.NeumorphCardView>
