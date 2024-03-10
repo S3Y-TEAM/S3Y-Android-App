@@ -3,6 +3,7 @@ package com.graduation.presentation.screens.auth.experience
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -26,7 +27,7 @@ class ExperienceFragment :
     BaseFragmentImpl<FragmentExperienceBinding>(FragmentExperienceBinding::inflate) {
 
     override val viewModel: ExperienceViewModel by viewModels()
-    override val sharedViewModel: SharedViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by activityViewModels()
 
     private lateinit var adapterItems: CategoriesAdapter
 

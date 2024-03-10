@@ -2,6 +2,7 @@ package com.graduation.presentation.screens.auth.start
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.navigateTo
@@ -16,7 +17,7 @@ class StartFragment :
     BaseFragmentImpl<FragmentStartBinding>(FragmentStartBinding::inflate) {
 
     override val viewModel: StartViewModel by viewModels()
-    override val sharedViewModel: SharedViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by activityViewModels()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

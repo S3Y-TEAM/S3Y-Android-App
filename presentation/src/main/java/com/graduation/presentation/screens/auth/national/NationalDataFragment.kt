@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -26,7 +27,7 @@ class NationalDataFragment :
     BaseFragmentImpl<FragmentNationalDataBinding>(FragmentNationalDataBinding::inflate) {
 
     override val viewModel: NationalDataViewModel by viewModels()
-    override val sharedViewModel: SharedViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by activityViewModels()
     private var isNational = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -3,6 +3,7 @@ package com.graduation.presentation.screens.auth.onboarding
 import android.os.Bundle
 import android.view.View
 import androidx.activity.addCallback
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.graduation.core.base.ui.SharedViewModel
@@ -21,7 +22,7 @@ class OnboardingFragment :
     BaseFragmentImpl<FragmentOnboardingBinding>(FragmentOnboardingBinding::inflate) {
 
     override val viewModel: OnboardingViewModel by viewModels()
-    override val sharedViewModel: SharedViewModel by viewModels()
+    override val sharedViewModel: SharedViewModel by activityViewModels()
     private lateinit var adapterItems: OnboardingAdapter
 
 
