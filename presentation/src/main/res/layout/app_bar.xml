@@ -20,13 +20,13 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_48sdp"
             app:layout_collapseMode="pin"
-            app:popupTheme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            app:popupTheme="@style/Theme.DrawerAndBottom.PopupOverlay" />
 
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/app_bar_back_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
             android:layout_gravity="start|center"
             android:layout_marginStart="@dimen/_24sdp"
             android:adjustViewBounds="true"
@@ -55,8 +55,16 @@
             android:layout_marginTop="0dp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:text="@string/skip"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/search_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_home"
+            android:layout_marginEnd="@dimen/_24sdp"
+            android:layout_gravity="center|end"
+            android:tint="@color/main_color"
             android:visibility="gone"/>
 
     </com.google.android.material.appbar.CollapsingToolbarLayout>
