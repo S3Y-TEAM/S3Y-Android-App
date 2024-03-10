@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".screens.main.dev.applied.AppliedFragment">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/no_applied"
+        android:layout_width="@dimen/_272sdp"
+        android:layout_height="@dimen/_272sdp"
+        android:layout_margin="@dimen/_18sdp"
+        android:src="@drawable/applied_posts"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No applied posts yet"
+        android:textColor="@color/main_color"
+        android:textSize="@dimen/_12sdp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/no_applied"
+        app:layout_constraintStart_toStartOf="@id/no_applied"
+        app:layout_constraintTop_toBottomOf="@id/no_applied" />
+
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="@dimen/_12sdp"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/applied_rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:listitem="@layout/applied_item"
+            app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
