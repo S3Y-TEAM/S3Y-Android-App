@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/_12sdp"
+    android:layout_margin="@dimen/_6sdp"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/client_image"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_margin="@dimen/_12sdp"
+            android:src="@drawable/app_logo"
+            app:layout_constraintEnd_toStartOf="@id/client_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/client_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/client_image"
+            app:layout_constraintStart_toEndOf="@id/client_image"
+            app:layout_constraintTop_toTopOf="@id/client_image"
+            tools:text="Suzan Abdien" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/more_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_18sdp"
+            android:src="@drawable/ic_more_horiz"
+            app:layout_constraintBottom_toBottomOf="@id/client_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/client_image" />
+
+        <TextView
+            android:id="@+id/home_task_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintStart_toStartOf="@id/client_image"
+            app:layout_constraintTop_toBottomOf="@id/client_image"
+            tools:text="Android Application" />
+
+        <TextView
+            android:id="@+id/post_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginEnd="@dimen/_6sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:maxLines="6"
+            android:textColor="@color/main_color_2"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/more_button"
+            app:layout_constraintStart_toStartOf="@id/home_task_title"
+            app:layout_constraintTop_toBottomOf="@id/home_task_title"
+            tools:text="Description Description lol Description Description lol Description Description lol Description Description Description Description Description Description Description Description Description Description Description " />
+
+        <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_margin="@dimen/_16sdp"-->
+        <!--        android:backgroundTint="@color/main_color"-->
+        <!--        android:foregroundTint="@color/white"-->
+        <!--        android:src="@drawable/ic_forward"-->
+        <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/more_button"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_margin="@dimen/_16sdp"
+            android:background="@drawable/circle_button_shape"
+            android:padding="@dimen/_12sdp"
+            android:src="@drawable/ic_forward"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
