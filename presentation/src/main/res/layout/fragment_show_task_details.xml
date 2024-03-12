@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.main.user.show.ShowTaskDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/show_client_name"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Client Name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <soup.neumorphism.NeumorphTextView
+            android:id="@+id/tv_client_name"
+            style="@style/TextStyle"
+            android:fontFamily="@font/omnes_medium"
+            android:textColor="@color/main_color_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:text="name of client "
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/show_client_name"
+            app:layout_constraintTop_toBottomOf="@id/show_client_name"/>
+
+        <TextView
+            android:id="@+id/add_task_title"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Task Title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_client_name" />
+
+        <soup.neumorphism.NeumorphTextView
+            android:id="@+id/tv_task_title"
+            style="@style/TextStyle"
+            android:fontFamily="@font/omnes_medium"
+            android:textColor="@color/main_color_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:text="Title of task"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/add_task_title"
+            app:layout_constraintTop_toBottomOf="@id/add_task_title"/>
+
+
+        <TextView
+            android:id="@+id/add_task_type"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Task Type"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_task_title" />
+
+        <soup.neumorphism.NeumorphTextView
+            android:id="@+id/tv_task_type"
+            style="@style/TextStyle"
+            android:fontFamily="@font/omnes_medium"
+            android:textColor="@color/main_color_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:text="Type of task"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="@id/add_task_type"
+            app:layout_constraintTop_toBottomOf="@id/add_task_type"/>
+
+        <TextView
+            android:id="@+id/add_task_description"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Task Description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_task_type" />
+
+
+        <soup.neumorphism.NeumorphTextView
+            android:id="@+id/tv_task_description"
+            style="@style/TextStyle"
+            android:fontFamily="@font/omnes_medium"
+            android:textColor="@color/main_color_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:text="Description of task"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/add_task_description"
+            app:layout_constraintTop_toBottomOf="@id/add_task_description"/>
+
+
+        <TextView
+            android:id="@+id/add_task_location"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Task Location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_task_description" />
+
+        <soup.neumorphism.NeumorphTextView
+            android:id="@+id/tv_task_location"
+            style="@style/TextStyle"
+            android:fontFamily="@font/omnes_medium"
+            android:textColor="@color/main_color_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:text="Location of task"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/add_task_location"
+            app:layout_constraintTop_toBottomOf="@id/add_task_location"/>
+
+
+        <TextView
+            android:id="@+id/add_task_budget"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Task Budget"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_task_location" />
+
+        <soup.neumorphism.NeumorphTextView
+            android:id="@+id/tv_task_budget"
+            style="@style/TextStyle"
+            android:fontFamily="@font/omnes_medium"
+            android:textColor="@color/main_color_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:text="Budget of task"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/add_task_budget"
+            app:layout_constraintTop_toBottomOf="@id/add_task_budget"/>
+
+        <TextView
+            android:id="@+id/add_task_attachment"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Task Attachment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_task_budget" />
+
+        <soup.neumorphism.NeumorphTextView
+            android:id="@+id/tv_attachment"
+            style="@style/TextStyle"
+            android:fontFamily="@font/omnes_medium"
+            android:textColor="@color/main_color_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:text="Attachment of task"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="@id/add_task_attachment"
+            app:layout_constraintTop_toBottomOf="@id/add_task_attachment"/>
+
+        <TextView
+            android:id="@+id/add_task_time"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="How long will this project take?"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_attachment" />
+
+        <soup.neumorphism.NeumorphTextView
+            android:id="@+id/tv_time"
+            style="@style/TextStyle"
+            android:fontFamily="@font/omnes_medium"
+            android:textColor="@color/main_color_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:text="Time of task"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="@id/add_task_time"
+            app:layout_constraintTop_toBottomOf="@id/add_task_time"/>
+
+        <TextView
+            android:id="@+id/add_task_note"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Note"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_time" />
+
+        <soup.neumorphism.NeumorphTextView
+            android:id="@+id/tv_task_note"
+            style="@style/TextStyle"
+            android:fontFamily="@font/omnes_medium"
+            android:textColor="@color/main_color_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:text="Title of task"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/add_task_note"
+            app:layout_constraintTop_toBottomOf="@id/add_task_note"/>
+
+        <com.flod.loadingbutton.LoadingButton
+            android:id="@+id/show_applicants_button"
+            style="@style/MainButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Show Applicants "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="@dimen/_72sdp"
+            app:layout_constraintTop_toBottomOf="@id/tv_task_note" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
