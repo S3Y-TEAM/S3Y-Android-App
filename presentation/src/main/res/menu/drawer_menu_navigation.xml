@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <!--    <group-->
+    <!--        android:id="@+id/Main_Data"-->
+    <!--        android:checkableBehavior="all"-->
+    <!--        android:menuCategory="secondary">-->
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_person"
+        android:title="@string/profile" />
+    <item
+        android:id="@+id/nav_bookmarks"
+        android:icon="@drawable/ic_bookmark"
+        android:title="@string/bookmarks" />
+
+    <item
+        android:id="@+id/nav_setting"
+        android:icon="@drawable/ic_setting"
+        android:title="@string/setting" />
+    <item
+        android:id="@+id/nav_contact_us"
+        android:icon="@drawable/ic_phone"
+        android:title="@string/contact_us" />
+    <item
+        android:id="@+id/nav_rate_us"
+        android:icon="@drawable/ic_rate_us"
+        android:title="@string/rate_us" />
+    <item
+        android:id="@+id/nav_about_team"
+        android:icon="@drawable/ic_about_team"
+        android:title="@string/about_team" />
+    <item
+        android:id="@+id/nav_about_app"
+        android:icon="@drawable/app_logo"
+        android:title="@string/about_app" />
+    <!--    </group>-->
+
+    <group
+        android:id="@+id/Logout"
+        android:checkableBehavior="all"
+        android:menuCategory="secondary">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/logout" />
+
+    </group>
+
+</menu>
