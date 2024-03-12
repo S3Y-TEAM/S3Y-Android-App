@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.main.user.details.AddTaskDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/add_task_title"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Task Title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/task_title_card"
+            style="@style/MainEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/add_task_title"
+            app:layout_constraintTop_toBottomOf="@id/add_task_title">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/task_title_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableStart="@drawable/ic_title_task"
+                android:drawablePadding="@dimen/_6sdp"
+                android:hint="Task Title"
+                android:padding="@dimen/_10sdp"
+                android:singleLine="true"
+                android:textColor="@color/main_color"
+                android:textColorHint="#B3164863"
+                android:textSize="@dimen/_12sdp" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <TextView
+            android:id="@+id/add_task_type"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Task Type"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/task_title_card" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/add_spinner_card"
+            style="@style/MainEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="@id/add_task_type"
+            app:layout_constraintTop_toBottomOf="@id/add_task_type">
+
+            <Spinner
+                android:id="@+id/task_type_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent_image" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <TextView
+            android:id="@+id/add_task_description"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Task Description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_spinner_card" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/task_description_card"
+            style="@style/MainEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/add_task_description"
+            app:layout_constraintTop_toBottomOf="@id/add_task_description">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/description_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableStart="@drawable/ic_description"
+                android:drawablePadding="@dimen/_6sdp"
+                android:hint="Task Description"
+                android:padding="@dimen/_10sdp"
+                android:singleLine="true"
+                android:textColor="@color/main_color"
+                android:textColorHint="#B3164863"
+                android:textSize="@dimen/_12sdp" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <TextView
+            android:id="@+id/add_task_location"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Task Location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/task_description_card" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/task_location_card"
+            style="@style/MainEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/add_task_location"
+            app:layout_constraintTop_toBottomOf="@id/add_task_location">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/location_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableStart="@drawable/ic_location"
+                android:drawablePadding="@dimen/_6sdp"
+                android:hint="Task Location"
+                android:padding="@dimen/_10sdp"
+                android:singleLine="true"
+                android:textColor="@color/main_color"
+                android:textColorHint="#B3164863"
+                android:textSize="@dimen/_12sdp" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <TextView
+            android:id="@+id/add_task_budget"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Task Budget"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/task_location_card" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/task_budget_card"
+            style="@style/MainEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/add_task_budget"
+            app:layout_constraintTop_toBottomOf="@id/add_task_budget">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/budget_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableStart="@drawable/ic_money"
+                android:drawablePadding="@dimen/_6sdp"
+                android:hint="Task Budget"
+                android:padding="@dimen/_10sdp"
+                android:singleLine="true"
+                android:textColor="@color/main_color"
+                android:textColorHint="#B3164863"
+                android:textSize="@dimen/_12sdp" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <TextView
+            android:id="@+id/add_task_attachment"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Task Attachment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/task_budget_card" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/attachment_spinner_card"
+            style="@style/MainEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="@id/add_task_attachment"
+            app:layout_constraintTop_toBottomOf="@id/add_task_attachment">
+
+            <Spinner
+                android:id="@+id/attachment_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent_image" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+
+        <TextView
+            android:id="@+id/add_task_time"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="How long will this project take?"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/attachment_spinner_card" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/time_spinner_card"
+            style="@style/MainEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="@id/add_task_time"
+            app:layout_constraintTop_toBottomOf="@id/add_task_time">
+
+            <Spinner
+                android:id="@+id/time_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent_image" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <TextView
+            android:id="@+id/add_task_note"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Note"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/time_spinner_card" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/task_note_card"
+            style="@style/MainEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/add_task_note"
+            app:layout_constraintTop_toBottomOf="@id/add_task_note">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/note_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableStart="@drawable/ic_note"
+                android:drawablePadding="@dimen/_6sdp"
+                android:hint="Note"
+                android:padding="@dimen/_10sdp"
+                android:singleLine="true"
+                android:textColor="@color/main_color"
+                android:textColorHint="#B3164863"
+                android:textSize="@dimen/_12sdp" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <com.flod.loadingbutton.LoadingButton
+            android:id="@+id/publish_button"
+            style="@style/MainButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Publish"
+            android:layout_marginBottom="@dimen/_72sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/task_note_card" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
