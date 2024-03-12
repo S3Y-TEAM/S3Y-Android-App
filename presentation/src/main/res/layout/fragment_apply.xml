@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.main.dev.apply.ApplyFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/cover_letter"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Cover letter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/cover_letter_card"
+            style="@style/MainEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/cover_letter"
+            app:layout_constraintTop_toBottomOf="@id/cover_letter">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_cover_letter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableStart="@drawable/ic_title_task"
+                android:drawablePadding="@dimen/_6sdp"
+                android:hint="Cover letter"
+                android:padding="@dimen/_10sdp"
+                android:singleLine="true"
+                android:textColor="@color/main_color"
+                android:textColorHint="#B3164863"
+                android:textSize="@dimen/_12sdp" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <TextView
+            android:id="@+id/similar_project"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Similar Project"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cover_letter_card" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/similar_project_card"
+            style="@style/MainEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/similar_project"
+            app:layout_constraintTop_toBottomOf="@id/similar_project">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_similar_project"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableStart="@drawable/ic_task"
+                android:drawablePadding="@dimen/_6sdp"
+                android:hint="Similar Project"
+                android:padding="@dimen/_10sdp"
+                android:singleLine="true"
+                android:textColor="@color/main_color"
+                android:textColorHint="#B3164863"
+                android:textSize="@dimen/_12sdp" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <TextView
+            android:id="@+id/expected_budget"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Expected budget"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/similar_project_card" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/expected_budget_card"
+            style="@style/MainEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/expected_budget"
+            app:layout_constraintTop_toBottomOf="@id/expected_budget">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_expected_budget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableStart="@drawable/ic_money"
+                android:drawablePadding="@dimen/_6sdp"
+                android:hint="Expected budget"
+                android:inputType="number"
+                android:padding="@dimen/_10sdp"
+                android:singleLine="true"
+                android:textColor="@color/main_color"
+                android:textColorHint="#B3164863"
+                android:textSize="@dimen/_12sdp" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <TextView
+            android:id="@+id/deadline"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Deadline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/expected_budget_card" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/deadline_card"
+            style="@style/MainEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/deadline"
+            app:layout_constraintTop_toBottomOf="@id/deadline">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_deadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableStart="@drawable/ic_money"
+                android:drawablePadding="@dimen/_6sdp"
+                android:hint="Deadline"
+                android:padding="@dimen/_10sdp"
+                android:singleLine="true"
+                android:textColor="@color/main_color"
+                android:textColorHint="#B3164863"
+                android:textSize="@dimen/_12sdp" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <TextView
+            android:id="@+id/_note"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="Note"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/deadline_card" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/task_note_card"
+            style="@style/MainEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/_note"
+            app:layout_constraintTop_toBottomOf="@id/_note">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/note_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableStart="@drawable/ic_note"
+                android:drawablePadding="@dimen/_6sdp"
+                android:hint="Note"
+                android:padding="@dimen/_10sdp"
+                android:singleLine="true"
+                android:textColor="@color/main_color"
+                android:textColorHint="#B3164863"
+                android:textSize="@dimen/_12sdp" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <com.flod.loadingbutton.LoadingButton
+            android:id="@+id/publish_button"
+            style="@style/MainButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/apply"
+            android:layout_marginBottom="@dimen/_72sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/task_note_card" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
