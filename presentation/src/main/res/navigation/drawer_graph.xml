@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_graph"
+    app:startDestination="@id/nav_profile">
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.graduation.presentation.screens.main.drawer.profile.ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_bookmarks"
+        android:name="com.graduation.presentation.screens.main.drawer.bookmark.BookmarkFragment"
+        android:label="fragment_bookmark"
+        tools:layout="@layout/fragment_bookmark" />
+    <fragment
+        android:id="@+id/nav_about_app"
+        android:name="com.graduation.presentation.screens.main.drawer.about.app.AboutAppFragment"
+        android:label="fragment_about_app"
+        tools:layout="@layout/fragment_about_app" />
+    <fragment
+        android:id="@+id/nav_about_team"
+        android:name="com.graduation.presentation.screens.main.drawer.about.team.AboutTeamFragment"
+        android:label="fragment_about_team"
+        tools:layout="@layout/fragment_about_team" />
+    <fragment
+        android:id="@+id/nav_rate_us"
+        android:name="com.graduation.presentation.screens.main.drawer.rate.RateUsFragment"
+        android:label="fragment_rate_us"
+        tools:layout="@layout/fragment_rate_us" />
+    <fragment
+        android:id="@+id/nav_contact_us"
+        android:name="com.graduation.presentation.screens.main.drawer.contact.ContactUsFragment"
+        android:label="fragment_contact_us"
+        tools:layout="@layout/fragment_contact_us" />
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.graduation.presentation.screens.main.drawer.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+</navigation>

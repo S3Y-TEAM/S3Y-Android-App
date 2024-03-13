@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/allChatsFragment"
+        android:name="com.graduation.presentation.screens.main.chat.AllChatsFragment"
+        android:label="fragment_all_chats"
+        tools:layout="@layout/fragment_all_chats" />
+    <fragment
+        android:id="@+id/appliedFragment"
+        android:name="com.graduation.presentation.screens.main.dev.applied.AppliedFragment"
+        android:label="fragment_applied"
+        tools:layout="@layout/fragment_applied" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.graduation.presentation.screens.main.dev.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_showTaskDetailsFragment2"
+            app:destination="@id/showTaskDetailsFragment2"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/tasksFragment"
+        android:name="com.graduation.presentation.screens.main.tasks.TasksFragment"
+        android:label="fragment_tasks"
+        tools:layout="@layout/fragment_tasks" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.graduation.presentation.screens.main.notification.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/showTaskDetailsFragment2"
+        android:name="com.graduation.presentation.screens.main.user.show.ShowTaskDetailsFragment"
+        android:label="fragment_show_task_details"
+        tools:layout="@layout/fragment_show_task_details" >
+        <action
+            android:id="@+id/action_showTaskDetailsFragment2_to_applyFragment"
+            app:destination="@id/applyFragment" />
+        <action
+            android:id="@+id/action_showTaskDetailsFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/applyFragment"
+        android:name="com.graduation.presentation.screens.main.dev.apply.ApplyFragment"
+        android:label="fragment_apply"
+        tools:layout="@layout/fragment_apply" >
+        <action
+            android:id="@+id/action_applyFragment_to_showTaskDetailsFragment2"
+            app:destination="@id/showTaskDetailsFragment2" />
+    </fragment>
+</navigation>
