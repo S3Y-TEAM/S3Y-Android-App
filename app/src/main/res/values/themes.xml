@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.TavoloNew" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/blue_6</item>
+        <item name="colorPrimary">@color/main_color</item>
         <item name="colorPrimaryVariant">@color/blue_10</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
