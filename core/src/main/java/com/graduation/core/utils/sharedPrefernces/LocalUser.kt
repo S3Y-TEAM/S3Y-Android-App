@@ -20,11 +20,20 @@ data class LocalUser(
     @SerializedName("National_id")
     val nationalId: String? = "",
     @SerializedName("Personal_image")
-    val personalImage: String? = "",
+    val personalImage: PersonalImage? = null,
     @SerializedName("Phone_number")
     val phoneNumber: String? = "",
     @SerializedName("user_name")
     val userName: String? = "",
     @SerializedName("verified")
     val verified: Int? = -1,
+    @SerializedName("roel")
+    val role: String? = "",
+
+)
+
+data class PersonalImage(
+    val id: String,
+    val webContentLink: String,
+    val webViewLink: String
 )
