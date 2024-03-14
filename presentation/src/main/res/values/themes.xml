@@ -2,12 +2,12 @@
 
     <style name="Base.Theme.TavoloNew" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/blue_6</item>
-        <item name="colorPrimaryVariant">@color/blue_10</item>
+        <item name="colorPrimary">@color/main_color</item>
+        <item name="colorPrimaryVariant">@color/main_color_2</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/orange_5</item>
-        <item name="colorSecondaryVariant">@color/orange_7</item>
+        <item name="colorSecondary">@color/main_color</item>
+        <item name="colorSecondaryVariant">@color/main_color_2</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorOnPrimary</item>
@@ -17,6 +17,11 @@
     <style name="rounded25">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">25%</item>
+    </style>
+
+    <style name="rounded50">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 
     <style name="rounded10">
@@ -225,10 +230,18 @@
 
     <style name="CustomShapeAppearance">
         <item name="neumorph_cornerFamily">rounded</item>
-        <item name="neumorph_cornerSizeTopLeft">8dp</item>
-        <item name="neumorph_cornerSizeTopRight">8dp</item>
-        <item name="neumorph_cornerSizeBottomLeft">8dp</item>
-        <item name="neumorph_cornerSizeBottomRight">8dp</item>
+        <item name="neumorph_cornerSizeTopLeft">@dimen/_6sdp</item>
+        <item name="neumorph_cornerSizeTopRight">@dimen/_6sdp</item>
+        <item name="neumorph_cornerSizeBottomLeft">@dimen/_6sdp</item>
+        <item name="neumorph_cornerSizeBottomRight">@dimen/_6sdp</item>
+    </style>
+
+    <style name="RoleCustomShapeAppearance">
+        <item name="neumorph_cornerFamily">rounded</item>
+        <item name="neumorph_cornerSizeTopLeft">@dimen/_12sdp</item>
+        <item name="neumorph_cornerSizeTopRight">@dimen/_12sdp</item>
+        <item name="neumorph_cornerSizeBottomLeft">@dimen/_12sdp</item>
+        <item name="neumorph_cornerSizeBottomRight">@dimen/_12sdp</item>
     </style>
 
 
@@ -268,6 +281,34 @@
         <item name="android:fontFamily">@font/omnes_bold</item>
         <item name="android:textColor">@color/main_color</item>
     </style>
+
+    <style name="BottomNavigationIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/white</item>
+        <item name="itemTextAppearanceInactive">@color/main_color_2</item>
+        <item name="background">@drawable/indicator_shape</item>
+        <item name="android:background">@drawable/indicator_shape</item>
+    </style>
+
+
+    <style name="Theme.DrawerAndBottom" parent="Base.Theme.TavoloNew" />
+
+    <style name="Theme.DrawerAndBottom.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.DrawerAndBottom.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.DrawerAndBottom.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Base.Theme.TavoloNew.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Base.Theme.TavoloNew.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Base.Theme.TavoloNew.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

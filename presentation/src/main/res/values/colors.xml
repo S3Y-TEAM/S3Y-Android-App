@@ -17,6 +17,8 @@
     <color name="gradiant_1">#00FFFFFF</color>
     <color name="gradiant_2">#59000000</color>
 
+    <color name="transparent">#00FFFFFF</color>
+
     <!-- blue -->
     <color name="blue_1">#F1F6F8</color>
     <color name="blue_2">#DDE9EE</color>
