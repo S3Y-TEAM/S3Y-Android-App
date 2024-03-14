@@ -36,5 +36,12 @@
     <dimen name="on_boarding_indicator_size">@dimen/_8sdp</dimen>
     <dimen name="on_boarding_indicator_packed_space">@dimen/_5sdp</dimen>
 
+    <dimen name="card_size_width">@dimen/_240sdp</dimen>
+    <dimen name="card_size_height">@dimen/_264sdp</dimen>
+    <dimen name="small_card_weight">@dimen/_230sdp</dimen>
+    <dimen name="small_card_height">@dimen/_254sdp</dimen>
+
+    <dimen name="small_text">@dimen/_3sdp</dimen>
+    <dimen name="resize_text">@dimen/_4sdp</dimen>
 
 </resources>
