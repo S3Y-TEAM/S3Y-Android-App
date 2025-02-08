@@ -23,7 +23,6 @@ class CategoriesViewModel @Inject constructor(private val categoriesUseCase: Cat
 
     private val _categoriesResponse =
         MutableStateFlow<ResponseState<CategoriesResponse>>(ResponseState.Empty())
-    val categoriesResponse = _categoriesResponse.asStateFlow()
 
     private var _token = MutableLiveData<String>()
     val token = _token

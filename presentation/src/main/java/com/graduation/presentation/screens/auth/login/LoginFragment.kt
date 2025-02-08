@@ -14,6 +14,7 @@ import com.graduation.core.extensions.navigation.navigateTo
 import com.graduation.core.extensions.navigation.onBackPress
 import com.graduation.core.extensions.screen.changeStatusBarColor
 import com.graduation.core.utils.sharedPrefernces.LocalUser
+import com.graduation.core.utils.sharedPrefernces.PersonalImage
 import com.graduation.core.utils.toastMe
 import com.graduation.domain.models.auth.login.LoginRequest
 import com.graduation.presentation.Constants
@@ -85,6 +86,13 @@ class LoginFragment : BaseFragmentImpl<FragmentLoginBinding>(FragmentLoginBindin
             }
             login.observe(viewLifecycleOwner) { login ->
                 login?.apply {
+                    
+                    val personImage = PersonalImage(
+                        id = personalImage!!.id,
+                        webContentLink = personalImage!!.webContentLink,
+                        webViewLink = personalImage!!.webViewLink
+                    )
+
                     encryptedSharedPreference.userData = LocalUser(
                         address = address,
                         city = city,
@@ -94,10 +102,11 @@ class LoginFragment : BaseFragmentImpl<FragmentLoginBinding>(FragmentLoginBindin
                         id = id,
                         lName = lName,
                         nationalId = nationalId,
-                        personalImage = personalImage,
+                        personalImage = personImage,
                         phoneNumber = phoneNumber,
                         userName = userName,
-                        verified = verified
+                        verified = verified,
+                        role = role
                     )
                     encryptedSharedPreference.loggedIn = "done"
                     setIsUserDataSaved(isUserDataSaved = true)

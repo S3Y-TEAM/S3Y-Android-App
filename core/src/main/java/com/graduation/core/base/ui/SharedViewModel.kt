@@ -1,6 +1,9 @@
 package com.graduation.core.base.ui
 
+import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -148,6 +151,16 @@ class SharedViewModel @Inject constructor() : BaseViewModel() {
 
     private fun savedChosenCategories(savedChosenCategories: ArrayList<String>) {
         _chosenCategories.value = savedChosenCategories
+    }
+
+
+    private val _text =
+        MutableLiveData<String>()
+    val textAppBar = _text
+
+    fun setTextAppBar(newText: String) {
+        Log.d("SharedViewModel", "Setting text: $newText")
+        _text.value = newText
     }
 
 

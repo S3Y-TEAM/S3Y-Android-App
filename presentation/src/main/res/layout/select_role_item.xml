@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soup.neumorphism.NeumorphCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MainEditText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/_8sdp"
+    app:neumorph_shapeAppearance="@style/RoleCustomShapeAppearance"
+    app:neumorph_strokeColor="@color/main_color"
+    app:neumorph_strokeWidth="@dimen/_1sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/role_image"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_210sdp"
+            android:src="@drawable/onboarding_3"
+            app:layout_constraintBottom_toTopOf="@id/role_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/role_name"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:background="@drawable/role_button_shape"
+            android:backgroundTint="@color/white"
+            android:text="@string/developer"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/role_image"
+            app:layout_constraintStart_toStartOf="@id/role_image"
+            app:layout_constraintTop_toBottomOf="@id/role_image" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</soup.neumorphism.NeumorphCardView>

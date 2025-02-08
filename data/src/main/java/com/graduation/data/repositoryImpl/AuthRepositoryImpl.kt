@@ -15,7 +15,17 @@ import com.graduation.domain.models.auth.signup.SignUpRequest
 import com.graduation.domain.models.auth.signup.SignUpResponse
 import com.graduation.domain.models.auth.username.UserNameRequest
 import com.graduation.domain.models.auth.username.UsernameResponse
+import com.graduation.domain.models.main.dev.applied.AppliedResponse
+import com.graduation.domain.models.main.dev.apply.ApplyRequest
+import com.graduation.domain.models.main.dev.apply.ApplyResponse
+import com.graduation.domain.models.main.dev.tasks.TasksResponse
+import com.graduation.domain.models.main.user.accept.AcceptResponse
+import com.graduation.domain.models.main.user.create.task.CreateTaskResponse
+import com.graduation.domain.models.main.user.create.task.details.TaskDetailsResponse
+import com.graduation.domain.models.main.user.home.HomeResponse
 import com.graduation.domain.repositories.AuthRepository
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -69,5 +79,64 @@ class AuthRepositoryImpl @Inject constructor(
         resetPasswordRequest: ResetPasswordRequest,
     ): Response<ResetPasswordResponse> =
         authApiService.resetPassword(role = role, resetPasswordRequest = resetPasswordRequest)
+
+    override suspend fun getEmployeeTasks(
+        role: String,
+        employeeId: Int,
+    ): Response<TasksResponse> =
+        authApiService.getEmployeeTasks(role = role, employeeId = employeeId)
+
+    override suspend fun getUserTasks(userId: Int): Response<TasksResponse> =
+        authApiService.getUserTasks(employerId = userId)
+
+    override suspend fun getEmployeeApplied(
+        role: String,
+        employeeId: Int,
+    ): Response<AppliedResponse> =
+        authApiService.getEmployeeApplied(role = role, employeeId = employeeId)
+
+    override suspend fun createTask(
+        role: String,
+        title: RequestBody,
+        description: RequestBody,
+        categories: RequestBody,
+        employerId: RequestBody,
+        date: RequestBody,
+        deadline: RequestBody,
+        price: RequestBody,
+        address: RequestBody,
+        file: MultipartBody.Part,
+    ): Response<CreateTaskResponse> = authApiService.createTask(
+        role = role,
+        title = title,
+        description = description,
+        categories = categories,
+        employerId = employerId,
+        date = date,
+        deadline = deadline,
+        price = price,
+        address = address,
+        file = file
+    )
+
+    override suspend fun getHomeTasks(
+        role: String,
+        category: String,
+    ): Response<HomeResponse> =
+        authApiService.homeTasks(role = role, category = category)
+
+    override suspend fun applyForTask(
+        role: String,
+        taskId: Int,
+        applyRequest: ApplyRequest,
+    ): Response<ApplyResponse> =
+        authApiService.applyForTask(role = role, taskId = taskId, requestBody = applyRequest)
+
+    override suspend fun getTaskDetails(role: String, taskId: Int): Response<TaskDetailsResponse> =
+        authApiService.taskDetails(role = role, taskId = taskId)
+
+    override suspend fun acceptTask(role: String, applicationId: Int): Response<AcceptResponse> =
+        authApiService.acceptTask(role = role , applicationId = applicationId)
+
 
 }

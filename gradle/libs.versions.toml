@@ -66,6 +66,7 @@ coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-androi
 permissionx = { module = "com.guolindev.permissionx:permissionx", version.ref = "permissionx" }
 lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
+safe-args = {module = "androidx.navigation:navigation-safe-args-gradle-plugin" , version.ref = "navigation"}
 navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 neumorphism = {module = "com.github.fornewid:neumorphism", version.ref = "neumorphism"}
 play-services-location = { group = "com.google.android.gms", name = "play-services-location", version = "21.1.0" }

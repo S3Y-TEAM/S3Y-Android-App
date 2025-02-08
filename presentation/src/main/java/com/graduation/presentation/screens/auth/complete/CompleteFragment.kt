@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import com.graduation.core.base.ui.SharedViewModel
 import com.graduation.core.extensions.navigation.startActivity
 import com.graduation.core.utils.sharedPrefernces.LocalUser
+import com.graduation.core.utils.sharedPrefernces.PersonalImage
 import com.graduation.domain.models.auth.signup.Category
 import com.graduation.domain.models.auth.signup.Link
 import com.graduation.domain.models.auth.signup.SignUpRequest
@@ -54,6 +55,13 @@ class CompleteFragment :
 
             categoriesList.observe(viewLifecycleOwner) { response ->
                 response?.user?.apply {
+
+                    val personImage = PersonalImage(
+                        id = personalImage!!.id,
+                        webContentLink = personalImage!!.webContentLink,
+                        webViewLink = personalImage!!.webViewLink
+                    )
+
                     encryptedSharedPreference.userData = LocalUser(
                         address = address,
                         city = city,
@@ -63,10 +71,11 @@ class CompleteFragment :
                         id = id,
                         lName = lName,
                         nationalId = nationalId,
-                        personalImage = personalImage,
+                        personalImage = personImage,
                         phoneNumber = phoneNumber,
                         userName = userName,
-                        verified = verified
+                        verified = verified,
+                        role = sharedViewModel.role.value.toString()
                     )
                 }
             }

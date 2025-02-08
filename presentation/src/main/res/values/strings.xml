@@ -123,6 +123,7 @@
     <!-- MapSearchFragment -->
     <string name="recent">Recent</string>
     <string name="delete_all">Delete all</string>
+    <string name="delete">Delete</string>
 
     <!-- FilterBottomSheet -->
     <string name="filter">Filter</string>
@@ -215,5 +216,19 @@
     <string name="please_select_role">Please Select Role</string>
     <string name="job_type">Job Type</string>
     <string name="your_password_changed_successfully">Your password changed successfully</string>
+    <string name="chats">Chats</string>
+    <string name="tasks">Tasks</string>
+    <string name="applied_jobs">Applied Jobs</string>
+    <string name="other">Other</string>
+    <string name="setting">Setting</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="about_team">About Team</string>
+    <string name="about_app">About App</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="choose_which_one_will_help_you_with_your_problem">Choose.. Which one will help you with your problem ?</string>
 
 </resources>

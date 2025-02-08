@@ -15,10 +15,24 @@ import com.graduation.domain.models.auth.signup.SignUpRequest
 import com.graduation.domain.models.auth.signup.SignUpResponse
 import com.graduation.domain.models.auth.username.UserNameRequest
 import com.graduation.domain.models.auth.username.UsernameResponse
+import com.graduation.domain.models.main.dev.applied.AppliedResponse
+import com.graduation.domain.models.main.dev.apply.ApplyRequest
+import com.graduation.domain.models.main.dev.apply.ApplyResponse
+import com.graduation.domain.models.main.dev.tasks.TasksResponse
+import com.graduation.domain.models.main.user.accept.AcceptResponse
+import com.graduation.domain.models.main.user.create.task.CreateTaskResponse
+import com.graduation.domain.models.main.user.create.task.details.TaskDetailsResponse
+import com.graduation.domain.models.main.user.home.HomeResponse
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.Part
+import retrofit2.http.Path
 
 interface AuthApiService {
 
@@ -74,5 +88,75 @@ interface AuthApiService {
         @Header("role") role: String,
         @Body resetPasswordRequest: ResetPasswordRequest,
     ): Response<ResetPasswordResponse>
+
+    //dev
+    @GET("employee/{employeeId}/tasks")
+    @Authenticated
+    suspend fun getEmployeeTasks(
+        @Header("role") role: String,
+        @Path("employeeId") employeeId: Int,
+    ): Response<TasksResponse>
+
+    //user
+    @GET("employer/{employerId}/tasks")
+    @Authenticated
+    suspend fun getUserTasks(
+        @Header("role") role: String = "emp",
+        @Path("employerId") employerId: Int,
+    ): Response<TasksResponse>
+
+
+    @GET("employee/{employeeId}/applications")
+    @Authenticated
+    suspend fun getEmployeeApplied(
+        @Header("role") role: String,
+        @Path("employeeId") employeeId: Int,
+    ): Response<AppliedResponse>
+
+    @Multipart
+    @POST("tasks")
+    @Authenticated
+    suspend fun createTask(
+        @Header("role") role: String,
+        @Part("title") title: RequestBody,
+        @Part("description") description: RequestBody,
+        @Part("category") categories: RequestBody,
+        @Part("employerId") employerId: RequestBody,
+        @Part("posting_date") date: RequestBody,
+        @Part("deadline") deadline: RequestBody,
+        @Part("price_range") price: RequestBody,
+        @Part("address") address: RequestBody,
+        @Part file: MultipartBody.Part,
+    ): Response<CreateTaskResponse>
+
+
+    @GET("tasks/category/{category}")
+    @Authenticated
+    suspend fun homeTasks(
+        @Header("role") role: String,
+        @Path("category") category: String,
+    ): Response<HomeResponse>
+
+    @POST("tasks/{taskId}/apply")
+    @Authenticated
+    suspend fun applyForTask(
+        @Header("role") role: String,
+        @Path("taskId") taskId: Int,
+        @Body requestBody: ApplyRequest
+    ): Response<ApplyResponse>
+
+    @GET("tasks/{taskId}")
+    @Authenticated
+    suspend fun taskDetails(
+        @Header("role") role: String,
+        @Path("taskId") taskId: Int,
+    ): Response<TaskDetailsResponse>
+
+    @GET("tasks/applications/{applicationId}/accept/")
+    @Authenticated
+    suspend fun acceptTask(
+        @Header("role") role: String,
+        @Path("applicationId") applicationId: Int,
+    ): Response<AcceptResponse>
 
 }

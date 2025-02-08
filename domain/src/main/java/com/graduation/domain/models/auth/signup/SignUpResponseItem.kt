@@ -28,7 +28,7 @@ data class User(
     @SerializedName("National_id")
     val nationalId: String,
     @SerializedName("Personal_image")
-    val personalImage: String,
+    val personalImage: PersonalImage?  = null,
     @SerializedName("Phone_number")
     val phoneNumber: String,
     @SerializedName("user_name")

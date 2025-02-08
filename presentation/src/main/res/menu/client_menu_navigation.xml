@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/workerHomeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/workerNotificationFragment"
+        android:icon="@drawable/ic_notification"
+        android:title="@string/notifications" />
+
+    <item
+        android:id="@+id/placeholder"
+        android:title=""/>
+
+    <item
+        android:id="@+id/workerTasksFragment"
+        android:icon="@drawable/ic_tasks"
+        android:title="@string/tasks" />
+    <item
+        android:id="@+id/workerAllChatsFragment"
+        android:icon="@drawable/ic_chat"
+        android:title="@string/chats" />
+
+</menu>
